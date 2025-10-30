@@ -126,18 +126,18 @@ export default function ProcedurePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <div className="relative bg-blue-900 text-white">
+      <div className="relative bg-amber-900 text-white">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] bg-cover bg-center opacity-20"></div>
         <div className="container mx-auto px-4 py-20 relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Procedure</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl text-amber-50 max-w-3xl mx-auto">
             Experience our streamlined process designed for your comfort and satisfaction
           </p>
         </div>
       </div>
 
       {/* Procedure Steps */}
-      <section className="py-20 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-20 bg-gradient-to-b from-white to-amber-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {steps.map((step, index) => (
@@ -146,7 +146,7 @@ export default function ProcedurePage() {
                 className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Number Badge */}
-                <div className="absolute -top-4 -left-4 w-14 h-14 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-2xl">
+                <div className="absolute -top-4 -left-4 w-14 h-14 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-2xl">
                   {step.number}
                 </div>
 
@@ -158,7 +158,7 @@ export default function ProcedurePage() {
                 <p className="text-gray-600 text-lg">{step.description}</p>
 
                 {/* Check Icon */}
-                <div className="mt-6 text-blue-600">
+                <div className="mt-6 text-amber-600">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
               </div>

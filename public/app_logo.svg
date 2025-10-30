@@ -1,15 +1,14 @@
 <svg width="320" height="100" viewBox="0 0 320 100" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- TRU GLOW with decorative serif font and stylized letters -->
-  <text x="10" y="60" font-family="'Times New Roman', serif" font-size="48" font-weight="bold" fill="#111">
+  <text x="10" y="60" font-family="'Times New Roman', serif" font-size="48" font-weight="bold" fill="#8B5E3C">
     TRU
   </text>
-  <text x="110" y="60" font-family="'Times New Roman', serif" font-size="48" font-weight="bold" fill="#111">
+  <text x="110" y="60" font-family="'Times New Roman', serif" font-size="48" font-weight="bold" fill="#8B5E3C">
     GLOW
   </text>
   
-  
   <!-- Tagline -->
-  <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#444" letter-spacing="2">
+  <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#F5F5DC" letter-spacing="2">
     HAIR + SKIN + LASER
   </text>
 </svg>

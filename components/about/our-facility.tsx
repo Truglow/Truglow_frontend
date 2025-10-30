@@ -53,7 +53,7 @@ export default function OurFacility() {
             <ul className="space-y-4">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-amber-600 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">{feature}</span>
                 </li>
               ))}

@@ -115,7 +115,7 @@ export default function Services() {
   }
 
   return (
-    <section className="py-16 bg-gradient-to-b from-blue-50 to-white">
+    <section className="py-16 bg-gradient-to-b from-amber-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
@@ -127,13 +127,13 @@ export default function Services() {
         <Tabs defaultValue="skin" className="w-full">
           <div className="flex justify-center mb-8">
             <TabsList className="bg-white shadow-md rounded-full p-1">
-              <TabsTrigger value="skin" className="text-lg px-6 py-2 rounded-full data-[state=active]:bg-blue-600 data-[state=active]:text-white transition-all">
+              <TabsTrigger value="skin" className="text-lg px-6 py-2 rounded-full data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">
                 ✨ Skin
               </TabsTrigger>
-              <TabsTrigger value="hair" className="text-lg px-6 py-2 rounded-full data-[state=active]:bg-blue-600 data-[state=active]:text-white transition-all">
+              <TabsTrigger value="hair" className="text-lg px-6 py-2 rounded-full data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">
                 💇 Hair
               </TabsTrigger>
-              <TabsTrigger value="laser" className="text-lg px-6 py-2 rounded-full data-[state=active]:bg-blue-600 data-[state=active]:text-white transition-all">
+              <TabsTrigger value="laser" className="text-lg px-6 py-2 rounded-full data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">
                 ⚡ Laser
               </TabsTrigger>
             </TabsList>
@@ -156,7 +156,7 @@ export default function Services() {
                     <p className="text-sm text-gray-600 mb-3 line-clamp-2">{service.description}</p>
                     <Link
                       href={service.link}
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm"
+                      className="inline-flex items-center text-amber-600 hover:text-amber-700 font-serif !font-playfair font-semibold !text-base !tracking-wider"
                     >
                       Learn more <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
@@ -183,7 +183,7 @@ export default function Services() {
                     <p className="text-sm text-gray-600 mb-3 line-clamp-2">{service.description}</p>
                     <Link
                       href={service.link}
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm"
+                      className="inline-flex items-center text-amber-600 hover:text-amber-700 font-serif !font-playfair font-semibold !text-base !tracking-wider"
                     >
                       Learn more <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
@@ -210,7 +210,7 @@ export default function Services() {
                     <p className="text-sm text-gray-600 mb-3 line-clamp-2">{service.description}</p>
                     <Link
                       href={service.link}
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm"
+                      className="inline-flex items-center text-amber-600 hover:text-amber-700 font-serif !font-playfair font-semibold !text-base !tracking-wider"
                     >
                       Learn more <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>

@@ -103,7 +103,7 @@ export default function ContactForm() {
             required
           />
         </div>
-        <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+        <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700">
           Send Message
         </Button>
       </form>

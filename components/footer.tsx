@@ -5,7 +5,7 @@ import { useMemo } from "react"
 export default function Footer() {
   const year = useMemo(() => new Date().getFullYear(), [])
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-amber-900 text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
@@ -198,7 +198,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="bg-gray-950 py-4">
+      <div className="bg-amber-950 py-4">
         <div className="container mx-auto px-4 text-center text-gray-400">
           <div className="flex items-center justify-center mb-3">
             <img src="/app_logo.svg" alt="Tru Glow Hair Clinic Logo" className="h-10 w-auto filter brightness-0 invert opacity-80" />

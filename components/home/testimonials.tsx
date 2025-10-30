@@ -40,7 +40,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="border-none shadow-md">
               <CardContent className="pt-6">
-                <Quote className="h-8 w-8 text-blue-500 mb-4" />
+                <Quote className="h-8 w-8 text-amber-500 mb-4" />
                 <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
                 <div className="flex items-center">
                   <img
