@@ -7,8 +7,10 @@
     GLOW
   </text>
   
-  <!-- Tagline -->
-  <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#F5F5DC" letter-spacing="2">
-    HAIR + SKIN + LASER
+  <!-- Tagline: all words and symbols black -->
+  <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" letter-spacing="2">
+    <tspan fill="#000">HAIR</tspan><tspan fill="#000"> + </tspan>
+    <tspan fill="#000">SKIN</tspan><tspan fill="#000"> + </tspan>
+    <tspan fill="#000">LASER</tspan>
   </text>
 </svg>
