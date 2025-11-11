@@ -1,26 +1,56 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 export default function Hero() {
+  const { ref, isVisible } = useScrollReveal()
+
   return (
-    <div className="relative bg-amber-900 text-white">
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1600')] bg-cover bg-center opacity-20"></div>
-      <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Advanced Hair Transplant & Restoration Solutions
+    <div className="relative text-white overflow-hidden min-h-[580px] md:min-h-[680px]">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="/home-pic1.png"
+          alt="Tru Glow Clinic"
+          className="w-full h-full object-cover md:object-center object-top animate-fade-in"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 py-16 md:py-24 relative z-10 flex items-center min-h-[580px] md:min-h-[680px]">
+        <div
+          ref={ref}
+          className={`max-w-3xl transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <div className="bg-black/40 md:bg-black/35 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-xl border border-white/10">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-down delay-100 drop-shadow-lg">
+            <span className="block">Dermatalogy &</span>
+            <span className="block">Plastic Surgery</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-amber-50">
-            Regain your confidence with our cutting-edge hair restoration techniques performed by expert specialists.
+            <p className="text-lg md:text-xl lg:text-2xl mb-8 text-white/90 animate-fade-in-up delay-200 drop-shadow-md">
+            Experience renewed confidence through advanced dermatology, aesthetic excellence, and certified cosmetic surgery.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild size="lg" className="bg-amber-700 hover:bg-amber-800 text-white">
-              <Link href="/contact">Book Consultation</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline"
-              className="border-[3px] border-[hsl(30,40%,26%)] bg-transparent text-[hsl(30,40%,26%)] rounded-full shadow-md px-8 py-3 font-bold tracking-widest uppercase transition-all duration-200 ease-in-out hover:bg-[hsl(42,40%,92%)] hover:text-[hsl(30,40%,26%)] hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(30,40%,26%)] focus:ring-offset-2">
-              <Link href="/about">Learn More</Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-300">
+              <Button
+                asChild
+                size="lg"
+                className="bg-amber-600 hover:bg-amber-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl"
+              >
+                <Link href="/contact">Book Consultation</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white/80 text-white rounded-full shadow-md px-8 py-3 font-semibold tracking-widest uppercase transition-all duration-300 bg-white/10 hover:bg-white/20 hover:text-white hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+              >
+                <Link href="/about">Learn More</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

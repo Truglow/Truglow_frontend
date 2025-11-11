@@ -5,7 +5,7 @@ export default function ContactHero() {
       <div className="container mx-auto px-4 py-20 relative z-10 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
         <p className="text-xl text-amber-50 max-w-3xl mx-auto">
-          Get in touch with our team to schedule a consultation or learn more about our hair restoration services.
+          Get in touch with our team to schedule a consultation or learn more about our hair, skin, laser, and plastic surgery services.
         </p>
       </div>
     </div>

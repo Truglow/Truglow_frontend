@@ -1,7 +1,13 @@
 import { CheckCircle2 } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-export default function ProcedurePage() {
+type PageProps = {
+  searchParams?: {
+    tab?: string
+  }
+}
+
+export default function ProcedurePage({ searchParams }: PageProps) {
   const steps = [
     {
       number: "01",
@@ -32,93 +38,180 @@ export default function ProcedurePage() {
   const services = {
     skin: [
       {
-        title: "Anti Ageing",
+        title: "Anti-Ageing Treatments",
         description: "Advanced treatments to reduce fine lines, wrinkles, and restore youthful skin",
         icon: "✨",
       },
       {
-        title: "Fillers",
-        description: "Natural-looking volume restoration and facial contouring",
-        icon: "💉",
+        title: "Acne & Scar Treatment",
+        description: "Comprehensive solutions for acne and scar reduction",
+        icon: "🌟",
       },
       {
-        title: "HIFU",
-        description: "Non-surgical facelift using high-intensity focused ultrasound",
-        icon: "🎯",
-      },
-      {
-        title: "Tattoo Removal",
-        description: "Safe and effective laser tattoo removal treatments",
-        icon: "🎨",
-      },
-      {
-        title: "Pigmentation",
+        title: "Pigmentation Correction",
         description: "Treatment for uneven skin tone and dark spots",
         icon: "🎭",
       },
       {
-        title: "Acne Scar Treatment",
-        description: "Advanced solutions for reducing acne scars and improving skin texture",
-        icon: "🌟",
-      },
-      {
-        title: "Dull Skin Treatment",
+        title: "Skin Rejuvenation",
         description: "Revitalizing treatments for brighter, more radiant skin",
         icon: "💫",
       },
       {
-        title: "Stretch Mark",
-        description: "Specialized treatments to reduce the appearance of stretch marks",
-        icon: "📏",
+        title: "Laser Scar Reduction",
+        description: "Advanced laser treatments for scar reduction",
+        icon: "⚡",
       },
       {
-        title: "Skin Peels",
-        description: "Chemical peels for skin rejuvenation and texture improvement",
-        icon: "🍋",
+        title: "Skin Lifting & Tightening",
+        description: "Non-surgical skin tightening and lifting treatments",
+        icon: "🎯",
+      },
+      {
+        title: "Hyperpigmentation Solutions",
+        description: "Specialized treatments for hyperpigmentation issues",
+        icon: "🌈",
+      },
+      {
+        title: "Dull Skin Revitalisation",
+        description: "Treatments to restore glow and vitality to dull skin",
+        icon: "💎",
+      },
+      {
+        title: "Laser Tanning Removal",
+        description: "Effective laser treatments to remove tan and even out skin tone",
+        icon: "☀️",
+      },
+      {
+        title: "Hydrafacial",
+        description: "Deep cleansing and hydrating facial treatment",
+        icon: "💧",
+      },
+      {
+        title: "Vampire Facial",
+        description: "PRP-based facial for skin rejuvenation",
+        icon: "🧛",
+      },
+      {
+        title: "Korean Facial",
+        description: "Multi-step Korean skincare facial treatment",
+        icon: "🇰🇷",
+      },
+      {
+        title: "Medifacial",
+        description: "Medical-grade facial with active ingredients",
+        icon: "💉",
       },
     ],
     hair: [
       {
-        title: "Hair Transplant",
-        description: "Advanced FUE and FUT techniques for natural-looking results",
+        title: "Hair Regrowth & Transplantation",
+        description: "Comprehensive hair regrowth and transplant solutions",
         icon: "🌱",
       },
       {
-        title: "Hair Regrowth",
-        description: "Comprehensive treatments to stimulate natural hair growth",
-        icon: "🌿",
+        title: "PRP Therapy for Hair Growth",
+        description: "Platelet-rich plasma therapy to stimulate natural hair growth",
+        icon: "💉",
       },
       {
-        title: "Anti Dandruff",
+        title: "Exosome Therapy",
+        description: "Advanced exosome therapy for hair restoration",
+        icon: "🔬",
+      },
+      {
+        title: "Anti-Dandruff Treatments",
         description: "Effective solutions for dandruff and scalp conditions",
         icon: "❄️",
       },
       {
-        title: "Hair Fall Treatment",
-        description: "Personalized treatments to prevent and reverse hair loss",
-        icon: "💪",
+        title: "Alopecia & Psoriasis Care",
+        description: "Specialized care for alopecia and psoriasis conditions",
+        icon: "🏥",
       },
       {
-        title: "Hair Patch",
-        description: "Custom hair patch solutions for immediate results",
+        title: "Hair Patch Integration",
+        description: "Custom hair patch solutions for natural-looking coverage",
         icon: "🎭",
       },
       {
-        title: "Scalp Micro Pigmentation",
-        description: "Non-surgical solution for hair loss using micro-pigmentation",
-        icon: "🎨",
-      },
-    ],
-    laser: [
-      {
-        title: "Laser Hair Removal",
+        title: "Advanced Laser Hair Reduction",
         description: "Permanent hair reduction using advanced laser technology",
         icon: "⚡",
       },
       {
-        title: "Laser Skin Rejuvenation",
-        description: "Advanced laser treatments for skin tightening and rejuvenation",
+        title: "Hair Loss Treatment",
+        description: "Comprehensive solutions for hair loss and thinning",
+        icon: "💪",
+      },
+      {
+        title: "Low Level Laser Therapy (LLLT)",
+        description: "Non-invasive laser therapy for hair growth stimulation",
+        icon: "🔴",
+      },
+    ],
+    laser: [
+      {
+        title: "Full Body Laser Hair Removal",
+        description: "Complete body laser hair removal treatment",
+        icon: "⚡",
+      },
+      {
+        title: "Face, Underarms & Bikini Laser",
+        description: "Targeted laser hair removal for face, underarms, and bikini area",
         icon: "✨",
+      },
+    ],
+    plastic: [
+      {
+        title: "Botox & Fillers",
+        description: "Natural-looking facial enhancement and volume restoration",
+        icon: "💉",
+      },
+      {
+        title: "Hair Transplant (FUE / DHI / Sapphire)",
+        description: "Advanced hair transplant techniques for natural-looking results",
+        icon: "🌱",
+      },
+      {
+        title: "Eyebrow & Beard Transplant",
+        description: "Specialized transplant procedures for eyebrows and beard",
+        icon: "👨",
+      },
+      {
+        title: "Rhinoplasty (Nose Surgery)",
+        description: "Cosmetic and functional nose reshaping surgery",
+        icon: "👃",
+      },
+      {
+        title: "Lip Augmentation",
+        description: "Natural-looking lip enhancement and volume restoration",
+        icon: "💋",
+      },
+      {
+        title: "Brazilian Butt Lift",
+        description: "Body contouring procedure for enhanced curves",
+        icon: "🍑",
+      },
+      {
+        title: "Cosmetic Gynecology",
+        description: "Specialized cosmetic procedures in gynecology",
+        icon: "🌸",
+      },
+      {
+        title: "Scar Revision & Management",
+        description: "Advanced techniques for scar reduction and management",
+        icon: "🔧",
+      },
+      {
+        title: "Breast Surgery",
+        description: "Comprehensive breast enhancement and reconstruction procedures",
+        icon: "💎",
+      },
+      {
+        title: "Gynecomastia Correction",
+        description: "Male breast reduction surgery",
+        icon: "👔",
       },
     ],
   }
@@ -178,10 +271,11 @@ export default function ProcedurePage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
-          <Tabs defaultValue="skin" className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
+          <Tabs defaultValue={(["skin","hair","plastic","laser"] as const).includes((searchParams?.tab as any)) ? (searchParams?.tab as any) : "skin"} className="max-w-6xl mx-auto">
+            <TabsList className="grid w-full grid-cols-4 mb-8">
               <TabsTrigger value="skin" className="text-lg">✨ Skin</TabsTrigger>
               <TabsTrigger value="hair" className="text-lg">💇 Hair</TabsTrigger>
+              <TabsTrigger value="plastic" className="text-lg">🏥 Plastic Surgery</TabsTrigger>
               <TabsTrigger value="laser" className="text-lg">⚡ Laser</TabsTrigger>
             </TabsList>
             
@@ -200,6 +294,18 @@ export default function ProcedurePage() {
             <TabsContent value="hair">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {services.hair.map((service, index) => (
+                  <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                    <div className="text-4xl mb-4">{service.icon}</div>
+                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                    <p className="text-gray-600">{service.description}</p>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="plastic">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {services.plastic.map((service, index) => (
                   <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                     <div className="text-4xl mb-4">{service.icon}</div>
                     <h3 className="text-xl font-semibold mb-2">{service.title}</h3>

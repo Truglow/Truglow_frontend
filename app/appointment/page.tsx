@@ -13,7 +13,7 @@ export default function AppointmentPage() {
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Book Your Appointment</h1>
             <p className="text-lg text-gray-600">
-              Schedule a consultation with our hair restoration experts
+              Schedule a consultation with our experts in hair, skin, laser, and plastic surgery
             </p>
           </div>
 
@@ -103,12 +103,12 @@ export default function AppointmentPage() {
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Address</h3>
                       <p className="text-gray-600">
-                        Plot 38, 3rd floor, Rd Number 10, beside Vijetha Supermarket, Alkapoor Township, Puppalguda, Hyderabad, Telangana 500089
+                        Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075
                       </p>
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
-                      <p className="text-gray-600">+91 9876543210</p>
+                      <p className="text-gray-600">+91 7799127273</p>
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
@@ -130,7 +130,7 @@ export default function AppointmentPage() {
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <span className="text-primary mr-2">✓</span>
-                      <span className="text-gray-600">Expert team of hair transplant specialists</span>
+                      <span className="text-gray-600">Expert team of dermatologists, plastic surgeons, and specialists</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-primary mr-2">✓</span>

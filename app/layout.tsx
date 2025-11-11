@@ -7,9 +7,15 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "TruGlow Hair Clinic",
-  description: "Advanced Hair Transplant & Restoration Clinic",
-    generator: 'v0.dev'
+  title: "Tru Glow | Hair • Skin • Laser • Plastic Surgery",
+  description: "Expert Hair, Skin, Laser & Plastic Surgery Treatments | Dermatology & Aesthetics Clinic",
+    generator: 'v0.dev',
+    icons: {
+      // Minimal setup: single JPEG in /public
+      icon: [{ url: "/favicon.jpg", type: "image/jpeg" }],
+      // Use the same image for Apple touch if only one file is provided
+      apple: { url: "/favicon.jpg", type: "image/jpeg" },
+    },
 }
 
 export default function RootLayout({

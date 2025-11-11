@@ -5,8 +5,7 @@ export default function GalleryHero() {
       <div className="container mx-auto px-4 py-20 relative z-10 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Gallery</h1>
         <p className="text-xl text-amber-50 max-w-3xl mx-auto">
-          View our collection of before and after photos showcasing the transformative results of our hair restoration
-          procedures.
+          View our collection of before and after photos showcasing the transformative results of our hair, skin, laser, and plastic surgery treatments.
         </p>
       </div>
     </div>

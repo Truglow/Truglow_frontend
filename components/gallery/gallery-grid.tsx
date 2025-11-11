@@ -10,61 +10,61 @@ export default function GalleryGrid() {
 
   const categories = [
     { id: "all", label: "All Results" },
-    { id: "hair-transplant", label: "Hair Transplant" },
-    { id: "beard", label: "Beard Transplant" },
-    { id: "eyebrow", label: "Eyebrow Transplant" },
-    { id: "prp", label: "PRP Treatment" },
+    { id: "skin", label: "✨ Skin" },
+    { id: "hair", label: "💇 Hair" },
+    { id: "plastic", label: "🏥 Plastic Surgery" },
+    { id: "laser", label: "⚡ Laser" },
   ]
 
   // Sample gallery images
   const galleryImages = [
     {
       id: 1,
-      category: "hair-transplant",
-      before: "/placeholder.svg?height=400&width=300",
-      after: "/placeholder.svg?height=400&width=300",
-      title: "Male Pattern Baldness Treatment",
-      description: "FUE Hair Transplant, 3500 grafts",
+      category: "hair",
+      before: "/hair_restoration_before_1.jpeg",
+      after: "/hair_restoration_after_1.jpeg",
+      title: "Hair Restoration",
+      description: "Before & After",
     },
     {
       id: 2,
-      category: "hair-transplant",
+      category: "hair",
       before: "/placeholder.svg?height=400&width=300",
       after: "/placeholder.svg?height=400&width=300",
-      title: "Hairline Restoration",
-      description: "DHI Hair Transplant, 2800 grafts",
+      title: "Crown Coverage",
+      description: "FUE Hair Transplant",
     },
     {
       id: 3,
-      category: "beard",
+      category: "skin",
       before: "/placeholder.svg?height=400&width=300",
       after: "/placeholder.svg?height=400&width=300",
-      title: "Beard Density Enhancement",
-      description: "Beard Transplant, 1500 grafts",
+      title: "Acne Scar Reduction",
+      description: "Microneedling + PRP",
     },
     {
       id: 4,
-      category: "eyebrow",
+      category: "laser",
       before: "/placeholder.svg?height=400&width=300",
       after: "/placeholder.svg?height=400&width=300",
-      title: "Eyebrow Restoration",
-      description: "Eyebrow Transplant, 400 grafts",
+      title: "Laser Hair Reduction",
+      description: "Underarms & Face",
     },
     {
       id: 5,
-      category: "prp",
+      category: "plastic",
       before: "/placeholder.svg?height=400&width=300",
       after: "/placeholder.svg?height=400&width=300",
-      title: "Hair Thinning Treatment",
-      description: "PRP Therapy, 4 sessions",
+      title: "Rhinoplasty",
+      description: "Profile Refinement",
     },
     {
       id: 6,
-      category: "hair-transplant",
+      category: "skin",
       before: "/placeholder.svg?height=400&width=300",
       after: "/placeholder.svg?height=400&width=300",
-      title: "Crown Area Restoration",
-      description: "FUE Hair Transplant, 2200 grafts",
+      title: "Pigmentation Correction",
+      description: "Laser + Peels",
     },
   ]
 
@@ -73,9 +73,9 @@ export default function GalleryGrid() {
       <div className="container mx-auto px-4">
         <Tabs defaultValue="all" className="w-full">
           <div className="flex justify-center mb-8">
-            <TabsList>
+            <TabsList className="bg-white shadow-md rounded-full p-1 grid grid-cols-2 sm:inline-flex sm:space-x-1 sm:grid-cols-none">
               {categories.map((category) => (
-                <TabsTrigger key={category.id} value={category.id}>
+                <TabsTrigger key={category.id} value={category.id} className="text-sm md:text-base px-4 py-2 rounded-full data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">
                   {category.label}
                 </TabsTrigger>
               ))}

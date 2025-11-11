@@ -1,10 +1,17 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { AnimatedItem } from "@/components/animated-item"
 
 export default function Statistics() {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollReveal()
+  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal()
+
   return (
-    <section className="py-16 bg-amber-50">
+    <section ref={sectionRef} className="py-16 bg-amber-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div ref={titleRef} className={`text-center mb-12 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Success Statistics</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Track our performance and patient satisfaction through our comprehensive statistics.
@@ -13,7 +20,8 @@ export default function Statistics() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Success Rate Graph */}
-          <Card className="border-none shadow-md">
+          <AnimatedItem delay={0} direction="left">
+            <Card className="border-none shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 transform">
             <CardHeader>
               <CardTitle className="text-xl text-primary">Hair Transplant Success Rate</CardTitle>
             </CardHeader>
@@ -54,10 +62,12 @@ export default function Statistics() {
                 </div>
               </div>
             </CardContent>
-          </Card>
+            </Card>
+          </AnimatedItem>
 
           {/* Patient Satisfaction Graph */}
-          <Card className="border-none shadow-md">
+          <AnimatedItem delay={200} direction="right">
+            <Card className="border-none shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 transform">
             <CardHeader>
               <CardTitle className="text-xl text-primary">Patient Satisfaction</CardTitle>
             </CardHeader>
@@ -98,7 +108,8 @@ export default function Statistics() {
                 </div>
               </div>
             </CardContent>
-          </Card>
+            </Card>
+          </AnimatedItem>
         </div>
       </div>
     </section>

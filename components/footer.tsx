@@ -1,9 +1,15 @@
+"use client"
+
 import Link from "next/link"
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react"
-import { useMemo } from "react"
+import { useMemo, useState } from "react"
+import TermsModal from "@/components/terms-modal"
+import PrivacyModal from "@/components/privacy-modal"
 
 export default function Footer() {
   const year = useMemo(() => new Date().getFullYear(), [])
+  const [isTermsOpen, setIsTermsOpen] = useState(false)
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false)
   return (
     <footer className="bg-amber-900 text-white">
       <div className="container mx-auto px-4 py-12">
@@ -11,32 +17,28 @@ export default function Footer() {
           {/* About Section */}
           <div>
             <div className="mb-6">
-              <img src="/app_logo.svg" alt="Tru Glow Hair Clinic Logo" className="h-14 w-auto filter brightness-0 invert" />
+              <img src="/app_logo.svg" alt="Tru Glow Logo" className="h-14 w-auto filter brightness-0 invert" />
             </div>
             <p className="text-gray-300 mb-4">
-              TruGlow is a premier hair transplant and restoration clinic offering advanced solutions for hair loss with
-              state-of-the-art technology and experienced specialists.
+              Tru Glow is a premier dermatology, aesthetics, and plastic surgery clinic offering advanced treatments in hair, skin, laser, and cosmetic procedures with state-of-the-art technology and experienced specialists.
             </p>
             <div className="flex space-x-4 mt-4">
-              <Link href="https://facebook.com" className="text-white hover:text-primary transition-colors">
-                <div className="bg-gray-800 p-2 rounded-full hover:bg-primary/10">
+              <Link href="https://wa.me/917799127273" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-all duration-300 transform hover:scale-110">
+                <div className="bg-green-100 p-2 rounded-full transition-all duration-300 hover:shadow-lg">
+                  {/* WhatsApp */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    fill="currentColor"
                   >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    <path d="M12.04 2C6.57 2 2.13 6.44 2.13 11.91c0 2.09.61 4.04 1.77 5.72L2 22l4.49-1.83a10 10 0 0 0 5.55 1.64h.01c5.47 0 9.91-4.44 9.91-9.91S17.51 2 12.04 2Zm5.77 14.22c-.24.67-1.19 1.23-1.83 1.39-.49.12-1.13.21-3.28-.68-2.75-1.14-4.52-3.94-4.66-4.13-.13-.18-1.11-1.48-1.11-2.83 0-1.35.69-2 .94-2.28.24-.28.53-.35.7-.35h.5c.16 0 .38-.06.6.45.24.58.82 2 .89 2.14.07.14.12.3.02.48-.09.19-.14.3-.27.47-.13.16-.28.36-.4.49-.13.14-.26.29-.11.57.14.28.62 1.02 1.33 1.66.92.82 1.69 1.08 1.97 1.22.28.14.45.12.63-.07.19-.2.73-.81.93-1.09.2-.28.4-.23.66-.14.27.09 1.71.8 2 .95.3.15.49.22.56.34.07.13.07.75-.17 1.42Z"/>
                   </svg>
                 </div>
               </Link>
-              <Link href="https://instagram.com" className="text-white hover:text-primary transition-colors">
-                <div className="bg-gray-800 p-2 rounded-full hover:bg-primary/10">
+              <Link href="https://www.instagram.com/truglow.hyd?igsh=dG1uZDhvOW05M2M1" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 transition-all duration-300 transform hover:scale-110">
+                <div className="bg-pink-100 p-2 rounded-full transition-all duration-300 hover:shadow-lg">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -54,24 +56,7 @@ export default function Footer() {
                   </svg>
                 </div>
               </Link>
-              <Link href="https://youtube.com" className="text-white hover:text-primary transition-colors">
-                <div className="bg-gray-800 p-2 rounded-full hover:bg-primary/10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                  </svg>
-                </div>
-              </Link>
+              {/* YouTube link removed per request */}
             </div>
           </div>
 
@@ -80,40 +65,46 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
+                <Link href="/" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
+                <Link href="/about" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
+                <Link href="/gallery" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
+                <Link href="/contact" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
+                <button
+                  onClick={() => setIsPrivacyOpen(true)}
+                  className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center w-full text-left group"
+                >
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
                   Privacy Policy
-                </Link>
+                </button>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
+                <button
+                  onClick={() => setIsTermsOpen(true)}
+                  className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center w-full text-left group"
+                >
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
                   Terms & Conditions
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -122,40 +113,80 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Our Services</h3>
             <ul className="space-y-2">
+              {/* Skin Services */}
               <li>
-                <Link href="#" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
+                <Link href="/procedure?tab=skin" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Anti-Ageing Treatments
+                </Link>
+              </li>
+              <li>
+                <Link href="/procedure?tab=skin" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Acne & Scar Treatment
+                </Link>
+              </li>
+              <li>
+                <Link href="/procedure?tab=skin" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Pigmentation Correction
+                </Link>
+              </li>
+              {/* Hair Services */}
+              <li>
+                <Link href="/procedure?tab=hair" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
                   Hair Transplant
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  FUE Hair Transplant
+                <Link href="/procedure?tab=hair" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Hair Loss
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  DHI Hair Transplant
+                <Link href="/procedure?tab=hair" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Hair Patch Integration
+                </Link>
+              </li>
+              {/* Plastic Surgery Services */}
+              <li>
+                <Link href="/procedure?tab=plastic" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Botox & Fillers
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  PRP Treatment
+                <Link href="/procedure?tab=plastic" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Breast Surgery
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  Beard Transplant
+                <Link href="/procedure?tab=plastic" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Rhinoplasty (Nose Surgery)
+                </Link>
+              </li>
+              {/* Laser Services */}
+              <li>
+                <Link href="/procedure?tab=laser" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Full Body Laser Hair Removal
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-primary transition-colors flex items-center">
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  Eyebrow Transplant
+                <Link href="/procedure?tab=laser" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Face, Underarms & Bikini Laser
+                </Link>
+              </li>
+              <li>
+                <Link href="/procedure?tab=laser" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
+                  <ArrowRight className="h-4 w-4 mr-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  Laser Scar Reduction
                 </Link>
               </li>
             </ul>
@@ -166,20 +197,23 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Contact Us</h3>
             <ul className="space-y-4 mb-6">
               <li className="flex">
-                <MapPin className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                <span className="text-gray-300">Plot.no 28 , Road no.9, Neknampur Rd, Alkapur Township, Hyderabad, Telangana 500075</span>
+                <MapPin className="h-6 w-6 text-white mr-3 flex-shrink-0" />
+                <span className="text-gray-300">Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075</span>
               </li>
               <li className="flex">
-                <Phone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                <span className="text-gray-300">+91 9493385217</span>
+                <Phone className="h-6 w-6 text-white mr-3 flex-shrink-0" />
+                <div className="text-gray-300">
+                  <span className="block">+91 7799127273</span>
+                  <span className="block">+91 7036127273</span>
+                </div>
               </li>
               <li className="flex">
-                <Mail className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                <Mail className="h-6 w-6 text-white mr-3 flex-shrink-0" />
                 <span className="text-gray-300">truglowcs@gmail.com</span>
               </li>
               <li className="flex">
-                <Clock className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                <span className="text-gray-300">Mon - Sat: 9:00 AM - 7:00 PM</span>
+                <Clock className="h-6 w-6 text-white mr-3 flex-shrink-0" />
+                <span className="text-gray-300">Everyday: 10:00 AM - 8:00 PM</span>
               </li>
             </ul>
             <div className="h-48 bg-gray-800 rounded-lg overflow-hidden">
@@ -198,14 +232,16 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="bg-amber-950 py-4">
+      <div className="bg-amber-900 py-4">
         <div className="container mx-auto px-4 text-center text-gray-400">
           <div className="flex items-center justify-center mb-3">
-            <img src="/app_logo.svg" alt="Tru Glow Hair Clinic Logo" className="h-10 w-auto filter brightness-0 invert opacity-80" />
+            <img src="/app_logo.svg" alt="Tru Glow Logo" className="h-10 w-auto filter brightness-0 invert opacity-80" />
           </div>
           <p>© {year} All Rights Reserved.</p>
         </div>
       </div>
+      <TermsModal open={isTermsOpen} onOpenChange={setIsTermsOpen} />
+      <PrivacyModal open={isPrivacyOpen} onOpenChange={setIsPrivacyOpen} />
     </footer>
   )
 }

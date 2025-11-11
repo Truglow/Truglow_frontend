@@ -9,14 +9,15 @@ export default function ContactInfo() {
           <MapPin className="h-5 w-5 text-amber-600 mr-3 mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium text-gray-900">Address</h3>
-            <p className="text-gray-600">Plot.no 28 , Road no.9, Neknampur Rd, Alkapur Township, Hyderabad, Telangana 500075</p>
+            <p className="text-gray-600">Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075</p>
           </div>
         </div>
         <div className="flex items-start">
           <Phone className="h-5 w-5 text-amber-600 mr-3 mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium text-gray-900">Phone</h3>
-            <p className="text-gray-600">+91 9493385217</p>
+            <p className="text-gray-600">+91 7799127273</p>
+            <p className="text-gray-600">+91 7036127273</p>
           </div>
         </div>
         <div className="flex items-start">
