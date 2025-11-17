@@ -42,7 +42,8 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/procedure", label: "Procedure" },
-    { href: "/gallery", label: "Gallery" },
+    // Gallery temporarily hidden
+    // { href: "/gallery", label: "Gallery" },
     { href: "/contact", label: "Contact" },
   ]
 

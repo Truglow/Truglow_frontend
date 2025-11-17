@@ -9,13 +9,15 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "Tru Glow | Hair • Skin • Laser • Plastic Surgery",
   description: "Expert Hair, Skin, Laser & Plastic Surgery Treatments | Dermatology & Aesthetics Clinic",
-    generator: 'v0.dev',
-    icons: {
-      // Minimal setup: single JPEG in /public
-      icon: [{ url: "/favicon.jpg", type: "image/jpeg" }],
-      // Use the same image for Apple touch if only one file is provided
-      apple: { url: "/favicon.jpg", type: "image/jpeg" },
-    },
+  generator: "v0.dev",
+  icons: {
+    icon: [
+      { url: "/app_logo.svg", type: "image/svg+xml" },
+      { url: "/favicon.jpg", type: "image/jpeg" },
+    ],
+    shortcut: [{ url: "/app_logo.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/app_logo.svg", type: "image/svg+xml" }],
+  },
 }
 
 export default function RootLayout({
