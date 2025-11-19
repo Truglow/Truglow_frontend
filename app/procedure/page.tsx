@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { CheckCircle2, Star } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -50,7 +50,8 @@ type ServicesByCategory = {
   laser: Service[]
 }
 
-export default function ProcedurePage() {
+// Component that uses search params
+function ProcedureContent() {
   const params = useSearchParams()
   const defaultTab = useMemo(() => {
     const tabParam = params?.get("tab")
@@ -1137,5 +1138,26 @@ export default function ProcedurePage() {
         </DialogContent>
       </Dialog>
     </div>
+  )
+}
+
+// Main page component with Suspense boundary
+export default function ProcedurePage() {
+  return (
+    <Suspense fallback={
+      <div className="flex flex-col min-h-screen">
+        <div className="relative bg-amber-900 text-white">
+          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] bg-cover bg-center opacity-20"></div>
+          <div className="container mx-auto px-4 py-20 relative z-10 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Procedure</h1>
+            <p className="text-xl text-amber-50 max-w-3xl mx-auto">
+              Loading...
+            </p>
+          </div>
+        </div>
+      </div>
+    }>
+      <ProcedureContent />
+    </Suspense>
   )
 } 
