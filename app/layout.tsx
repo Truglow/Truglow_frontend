@@ -12,11 +12,14 @@ export const metadata = {
   generator: "v0.dev",
   icons: {
     icon: [
-      { url: "/app_logo.svg", type: "image/svg+xml" },
-      { url: "/favicon.jpg", type: "image/jpeg" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.svg", type: "image/svg+xml", sizes: "32x32" },
+      { url: "/favicon-16x16.svg", type: "image/svg+xml", sizes: "16x16" },
     ],
-    shortcut: [{ url: "/app_logo.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/app_logo.svg", type: "image/svg+xml" }],
+    shortcut: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [
+      { url: "/apple-touch-icon.svg", type: "image/svg+xml", sizes: "180x180" },
+    ],
   },
 }
 

@@ -1,0 +1,17 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Apple touch icon with rounded corners -->
+  <rect width="180" height="180" fill="url(#appleGradient)"/>
+  
+  <defs>
+    <linearGradient id="appleGradient" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FEF3E2"/>
+      <stop offset="100%" stop-color="#FAE8D0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- TG monogram -->
+  <text x="90" y="115" font-family="'Times New Roman', Georgia, serif" font-size="95" font-weight="700" fill="#8B5E3C" text-anchor="middle" dominant-baseline="middle">TG</text>
+  
+  <!-- Decorative underline -->
+  <rect x="50" y="135" width="80" height="4" rx="2" fill="#D4A574"/>
+</svg>

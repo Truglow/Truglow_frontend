@@ -919,13 +919,13 @@ function ProcedureContent() {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
           <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
-              <TabsTrigger value="skin" className="text-lg">✨ Skin</TabsTrigger>
-              <TabsTrigger value="hair" className="text-lg">💇 Hair</TabsTrigger>
-              <TabsTrigger value="plastic" className="text-lg">🏥 Plastic Surgery</TabsTrigger>
-              <TabsTrigger value="laser" className="text-lg">⚡ Laser</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 mb-8 gap-1 h-auto">
+              <TabsTrigger value="skin" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap">✨ Skin</TabsTrigger>
+              <TabsTrigger value="hair" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap">💇 Hair</TabsTrigger>
+              <TabsTrigger value="plastic" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap">🏥 Plastic Surgery</TabsTrigger>
+              <TabsTrigger value="laser" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap">⚡ Laser</TabsTrigger>
             </TabsList>
-            
+
             <TabsContent value="skin">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {services.skin.map((service, index) => (
@@ -955,7 +955,7 @@ function ProcedureContent() {
                     <p className="text-gray-600">{service.description}</p>
                   </button>
                 ))}
-                  </div>
+              </div>
             </TabsContent>
 
             <TabsContent value="plastic">
@@ -1009,12 +1009,12 @@ function ProcedureContent() {
               </DialogHeader>
 
               <Tabs defaultValue="treatments" className="mt-6">
-                <TabsList className="grid w-full grid-cols-5">
-                  <TabsTrigger value="treatments">Treatments</TabsTrigger>
-                  <TabsTrigger value="procedure">Procedure</TabsTrigger>
-                  <TabsTrigger value="results">Results</TabsTrigger>
-                  <TabsTrigger value="reviews">Reviews</TabsTrigger>
-                  <TabsTrigger value="faqs">FAQs</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 gap-1 h-auto">
+                  <TabsTrigger value="treatments" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap">Treatments</TabsTrigger>
+                  <TabsTrigger value="procedure" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap">Procedure</TabsTrigger>
+                  <TabsTrigger value="results" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap">Results</TabsTrigger>
+                  <TabsTrigger value="reviews" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap col-span-3 sm:col-span-1">Reviews</TabsTrigger>
+                  <TabsTrigger value="faqs" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap col-span-3 sm:col-span-1">FAQs</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="treatments" className="mt-6">
@@ -1031,7 +1031,7 @@ function ProcedureContent() {
 
                 <TabsContent value="procedure" className="mt-6">
                   <h3 className="text-xl font-semibold mb-4">Treatment Process</h3>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-lg font-semibold text-amber-700 mb-3">Before the Procedure</h4>
@@ -1100,11 +1100,10 @@ function ProcedureContent() {
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
-                                  className={`h-4 w-4 ${
-                                    i < review.rating
+                                  className={`h-4 w-4 ${i < review.rating
                                       ? "fill-amber-400 text-amber-400"
                                       : "text-gray-300"
-                                  }`}
+                                    }`}
                                 />
                               ))}
                             </div>

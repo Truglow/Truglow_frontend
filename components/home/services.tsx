@@ -94,12 +94,12 @@ export default function Services() {
 
         <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as ServiceCategory)} className="w-full">
           <div className="flex justify-center mb-8">
-            <TabsList className="bg-white shadow-md rounded-full p-1 grid grid-cols-2 sm:inline-flex sm:space-x-1 sm:grid-cols-none">
+            <TabsList className="bg-white shadow-md rounded-full p-1 grid grid-cols-2 gap-1 w-full max-w-2xl sm:inline-flex sm:space-x-1 sm:grid-cols-none sm:w-auto h-auto">
               {orderedTabs.map((category) => (
                 <TabsTrigger
                   key={category}
                   value={category}
-                  className="text-lg px-6 py-2 rounded-full data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all"
+                  className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 rounded-full data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all whitespace-normal sm:whitespace-nowrap"
                 >
                   {tabLabels[category]}
                 </TabsTrigger>
@@ -113,11 +113,10 @@ export default function Services() {
                 {services[category].map((service, index) => (
                   <div
                     key={service.title}
-                    className={`bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${
-                      sectionVisible 
-                        ? 'opacity-100 translate-y-0' 
-                        : 'opacity-0 translate-y-10'
-                    }`}
+                    className={`bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${sectionVisible
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-10'
+                      }`}
                     style={{ transitionDelay: `${index * 100}ms` }}
                   >
                     <div className="p-6 flex flex-col h-full">
