@@ -51,7 +51,7 @@ export default function WhyChooseUs() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div ref={imageRef} className={`transition-all duration-1000 ${imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <img
-              src="/placeholder.svg?height=600&width=800"
+              src="/why-choose-us.png"
               alt="Tru Glow Facility"
               className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105"
             />
@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
           </div>
         </div>
 
-        
+
       </div>
     </section>
   )

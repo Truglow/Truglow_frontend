@@ -29,15 +29,34 @@ export default function OurFacility() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="grid grid-cols-2 gap-4">
-            {[0, 1, 2, 3].map((index) => (
-              <AnimatedItem key={index} delay={index * 100} direction="up">
-                <img
-                  src="/placeholder.svg?height=300&width=400"
-                  alt={`TruGlow Facility ${index + 1}`}
-                  className="rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105"
-                />
-              </AnimatedItem>
-            ))}
+            <AnimatedItem delay={0} direction="up">
+              <img
+                src="/clinic-reception.png"
+                alt="TruGlow Reception Area"
+                className="rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105"
+              />
+            </AnimatedItem>
+            <AnimatedItem delay={100} direction="up">
+              <img
+                src="/clinic-treatment-room.png"
+                alt="TruGlow Treatment Room"
+                className="rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105"
+              />
+            </AnimatedItem>
+            <AnimatedItem delay={200} direction="up">
+              <img
+                src="/clinic-equipment.png"
+                alt="TruGlow Medical Equipment"
+                className="rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105"
+              />
+            </AnimatedItem>
+            <AnimatedItem delay={300} direction="up">
+              <img
+                src="/clinic-waiting-area.png"
+                alt="TruGlow Waiting Area"
+                className="rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105"
+              />
+            </AnimatedItem>
           </div>
           <AnimatedItem delay={400} direction="right">
             <div>

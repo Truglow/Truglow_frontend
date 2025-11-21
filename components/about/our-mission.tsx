@@ -27,7 +27,7 @@ export default function OurMission() {
           <AnimatedItem delay={200} direction="right">
             <div>
               <img
-                src="/placeholder.svg?height=600&width=800"
+                src="/about-mission.png"
                 alt="Tru Glow Mission"
                 className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105"
               />

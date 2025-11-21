@@ -12,21 +12,18 @@ export default function Testimonials() {
       location: "Vizag",
       quote:
         "The team at TruGlow completely transformed my appearance. The results exceeded my expectations, and the care I received was exceptional.",
-      image: "/placeholder.svg?height=100&width=100",
     },
     {
       name: "Ravi",
       location: "Hyderabad",
       quote:
         "After trying various treatments with no success, TruGlow's approach finally gave me the results I was looking for. I couldn't be happier!",
-      image: "/placeholder.svg?height=100&width=100",
     },
     {
       name: "Medha",
       location: "Hyderabad",
       quote:
         "The procedure was virtually painless, and the recovery was quick. Six months later, I have a full head of hair that looks completely natural.",
-      image: "/placeholder.svg?height=100&width=100",
     },
   ]
 
@@ -50,16 +47,9 @@ export default function Testimonials() {
                 <CardContent className="pt-6">
                   <Quote className="h-8 w-8 text-amber-500 mb-4" />
                   <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
-                  <div className="flex items-center">
-                    <img
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full mr-4 object-cover"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-500">{testimonial.location}</p>
-                    </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-500">{testimonial.location}</p>
                   </div>
                 </CardContent>
               </Card>

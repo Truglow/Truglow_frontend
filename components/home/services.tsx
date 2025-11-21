@@ -92,20 +92,18 @@ export default function Services() {
           </p>
         </div>
 
-        <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as ServiceCategory)} className="w-full">
-          <div className="flex justify-center mb-8">
-            <TabsList className="bg-white shadow-md rounded-full p-1 grid grid-cols-2 gap-1 w-full max-w-2xl sm:inline-flex sm:space-x-1 sm:grid-cols-none sm:w-auto h-auto">
-              {orderedTabs.map((category) => (
-                <TabsTrigger
-                  key={category}
-                  value={category}
-                  className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 rounded-full data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all whitespace-normal sm:whitespace-nowrap"
-                >
-                  {tabLabels[category]}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
+        <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as ServiceCategory)} className="w-full max-w-6xl mx-auto">
+          <TabsList className="bg-white shadow-md p-1 grid w-full grid-cols-2 sm:grid-cols-4 mb-8 gap-1 h-auto">
+            {orderedTabs.map((category) => (
+              <TabsTrigger
+                key={category}
+                value={category}
+                className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all"
+              >
+                {tabLabels[category]}
+              </TabsTrigger>
+            ))}
+          </TabsList>
 
           {orderedTabs.map((category) => (
             <TabsContent key={category} value={category} className="mt-0">

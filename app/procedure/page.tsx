@@ -867,10 +867,12 @@ function ProcedureContent() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <div className="relative bg-amber-900 text-white">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('/procedure-hero-bg.png')] bg-cover bg-center opacity-30"></div>
+        {/* Dark overlay for better text visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-amber-900/30 via-amber-900/20 to-amber-900/30"></div>
         <div className="container mx-auto px-4 py-20 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Procedure</h1>
-          <p className="text-xl text-amber-50 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Our Procedure</h1>
+          <p className="text-xl md:text-2xl text-amber-50 max-w-3xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Experience our streamlined process designed for your comfort and satisfaction
           </p>
         </div>
@@ -919,11 +921,11 @@ function ProcedureContent() {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
           <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 mb-8 gap-1 h-auto">
-              <TabsTrigger value="skin" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap">✨ Skin</TabsTrigger>
-              <TabsTrigger value="hair" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap">💇 Hair</TabsTrigger>
-              <TabsTrigger value="plastic" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap">🏥 Plastic Surgery</TabsTrigger>
-              <TabsTrigger value="laser" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap">⚡ Laser</TabsTrigger>
+            <TabsList className="bg-white shadow-md p-1 grid w-full grid-cols-2 sm:grid-cols-4 mb-8 gap-1 h-auto">
+              <TabsTrigger value="skin" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">✨ Skin</TabsTrigger>
+              <TabsTrigger value="hair" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">💇 Hair</TabsTrigger>
+              <TabsTrigger value="plastic" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">🏥 Plastic Surgery</TabsTrigger>
+              <TabsTrigger value="laser" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">⚡ Laser</TabsTrigger>
             </TabsList>
 
             <TabsContent value="skin">
@@ -1009,12 +1011,12 @@ function ProcedureContent() {
               </DialogHeader>
 
               <Tabs defaultValue="treatments" className="mt-6">
-                <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 gap-1 h-auto">
-                  <TabsTrigger value="treatments" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap">Treatments</TabsTrigger>
-                  <TabsTrigger value="procedure" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap">Procedure</TabsTrigger>
-                  <TabsTrigger value="results" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap">Results</TabsTrigger>
-                  <TabsTrigger value="reviews" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap col-span-3 sm:col-span-1">Reviews</TabsTrigger>
-                  <TabsTrigger value="faqs" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap col-span-3 sm:col-span-1">FAQs</TabsTrigger>
+                <TabsList className="bg-white shadow-md p-1 grid w-full grid-cols-3 sm:grid-cols-5 gap-1 h-auto">
+                  <TabsTrigger value="treatments" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">Treatments</TabsTrigger>
+                  <TabsTrigger value="procedure" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">Procedure</TabsTrigger>
+                  <TabsTrigger value="results" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">Results</TabsTrigger>
+                  <TabsTrigger value="reviews" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap col-span-3 sm:col-span-1 data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">Reviews</TabsTrigger>
+                  <TabsTrigger value="faqs" className="text-xs sm:text-sm px-2 py-2 whitespace-nowrap col-span-3 sm:col-span-1 data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">FAQs</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="treatments" className="mt-6">
@@ -1101,8 +1103,8 @@ function ProcedureContent() {
                                 <Star
                                   key={i}
                                   className={`h-4 w-4 ${i < review.rating
-                                      ? "fill-amber-400 text-amber-400"
-                                      : "text-gray-300"
+                                    ? "fill-amber-400 text-amber-400"
+                                    : "text-gray-300"
                                     }`}
                                 />
                               ))}
@@ -1146,10 +1148,12 @@ export default function ProcedurePage() {
     <Suspense fallback={
       <div className="flex flex-col min-h-screen">
         <div className="relative bg-amber-900 text-white">
-          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] bg-cover bg-center opacity-20"></div>
+          <div className="absolute inset-0 bg-[url('/procedure-hero-bg.png')] bg-cover bg-center opacity-30"></div>
+          {/* Dark overlay for better text visibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-amber-900/30 via-amber-900/20 to-amber-900/30"></div>
           <div className="container mx-auto px-4 py-20 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Procedure</h1>
-            <p className="text-xl text-amber-50 max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Our Procedure</h1>
+            <p className="text-xl md:text-2xl text-amber-50 max-w-3xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Loading...
             </p>
           </div>
