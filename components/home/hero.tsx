@@ -49,7 +49,7 @@ export default function Hero() {
         >
           <div className="bg-black/40 md:bg-black/35 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-xl border border-white/10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-down delay-100 drop-shadow-lg">
-              <span className="block">Dermatalogy &</span>
+              <span className="block">Dermatology &</span>
               <span className="block">Plastic Surgery</span>
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl mb-8 text-white/90 animate-fade-in-up delay-200 drop-shadow-md">

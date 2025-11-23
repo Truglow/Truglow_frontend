@@ -77,7 +77,7 @@ export default function Header() {
 
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center group">
-            <img src="/app_logo.svg" alt="Tru Glow Logo" className="h-16 w-auto object-contain mr-4 transition-transform duration-300 group-hover:scale-105" />
+            <img src="/Asset_logo_2.svg" alt="Tru Glow Logo" className="h-16 w-auto object-contain mr-4 transition-transform duration-300 group-hover:scale-105" />
           </Link>
 
           {/* Desktop Navigation */}
