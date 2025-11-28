@@ -48,6 +48,7 @@ type ServicesByCategory = {
   hair: Service[]
   plastic: Service[]
   laser: Service[]
+  ivdrips: Service[]
 }
 
 // Component that uses search params
@@ -55,7 +56,7 @@ function ProcedureContent() {
   const params = useSearchParams()
   const defaultTab = useMemo(() => {
     const tabParam = params?.get("tab")
-    const allowed = ["skin", "hair", "plastic", "laser"] as const
+    const allowed = ["skin", "hair", "plastic", "laser", "ivdrips"] as const
     return allowed.includes(tabParam as any) ? (tabParam as (typeof allowed)[number]) : "skin"
   }, [params])
 
@@ -660,6 +661,83 @@ function ProcedureContent() {
         ),
       },
     ],
+    ivdrips: [
+      {
+        title: "After Party",
+        description: "Keep the night. Lose the hangover.",
+        icon: "🍹",
+        details: createServiceDetails(
+          ["Hydration Base", "Vitamin B Complex", "Vitamin B-12", "Vitamin C", "Glutathione", "Electrolytes"],
+          ["Consultation", "Vital signs check", "Medical history review"],
+          ["IV cannulation", "Drip administration (30-45 mins)", "Monitoring"],
+          ["Hydration advice", "Activity resumption"],
+          "Rapid rehydration and energy boost within hours.",
+          "Immediate",
+          [{ name: "Client U", rating: 5, comment: "Saved my day!", date: "2024-01-01" }],
+          [{ question: "How long?", answer: "30-45 minutes." }]
+        ),
+      },
+      {
+        title: "Ageless",
+        description: "Age is just a number. Let's keep it that way.",
+        icon: "⏳",
+        details: createServiceDetails(
+          ["NAD+", "Electrolytes", "COQ10", "Vitamin B Complex"],
+          ["Consultation", "Vital signs check"],
+          ["IV cannulation", "Drip administration"],
+          ["Post-drip care"],
+          "Improved energy and mental clarity.",
+          "Immediate",
+          [{ name: "Client V", rating: 5, comment: "Feel revitalized!", date: "2024-01-01" }],
+          [{ question: "Benefits?", answer: "Cellular repair and longevity." }]
+        ),
+      },
+      {
+        title: "Shine",
+        description: "Glow from within. Shine without limits.",
+        icon: "✨",
+        details: createServiceDetails(
+          ["High dose Glutathione", "Vitamin C", "Biotin", "Vitamin B12", "Zinc"],
+          ["Consultation", "Skin assessment"],
+          ["IV cannulation", "Drip administration"],
+          ["Post-drip care"],
+          "Immediate glow and hydration.",
+          "Immediate",
+          [{ name: "Client W", rating: 5, comment: "Skin glowing!", date: "2024-01-01" }],
+          [{ question: "Frequency?", answer: "Weekly or bi-weekly." }]
+        ),
+      },
+      {
+        title: "Immunity",
+        description: "Immunity on demand.",
+        icon: "🛡️",
+        details: createServiceDetails(
+          ["High dose Vitamin C", "Zinc", "Glutathione", "NAC", "Vitamin D3"],
+          ["Consultation", "Health check"],
+          ["IV cannulation", "Drip administration"],
+          ["Post-drip care"],
+          "Boosted immune system.",
+          "Immediate",
+          [{ name: "Client X", rating: 5, comment: "Feel stronger!", date: "2024-01-01" }],
+          [{ question: "When to take?", answer: "At first sign of illness or for prevention." }]
+        ),
+      },
+      {
+        title: "Hair Fall",
+        description: "Nourish your hair from within.",
+        icon: "💆",
+        details: createServiceDetails(
+          ["Biotin", "Vitamin B Complex", "Vitamin B12", "Zinc", "Vitamin C"],
+          ["Consultation", "Scalp assessment"],
+          ["IV cannulation", "Drip administration"],
+          ["Post-drip care"],
+          "Stronger hair and reduced fall.",
+          "Progressive over sessions",
+          [{ name: "Client Y", rating: 5, comment: "Hair feels healthier!", date: "2024-01-01" }],
+          [{ question: "Sessions?", answer: "Weekly sessions recommended." }]
+        ),
+      },
+    ],
     plastic: [
       {
         title: "Botox & Fillers",
@@ -921,11 +999,12 @@ function ProcedureContent() {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
           <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-            <TabsList className="bg-white shadow-md p-1 grid w-full grid-cols-2 sm:grid-cols-4 mb-8 gap-1 h-auto">
-              <TabsTrigger value="skin" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">✨ Skin</TabsTrigger>
-              <TabsTrigger value="hair" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">💇 Hair</TabsTrigger>
-              <TabsTrigger value="plastic" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">🏥 Plastic Surgery</TabsTrigger>
-              <TabsTrigger value="laser" className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">⚡ Laser</TabsTrigger>
+            <TabsList className="bg-white shadow-md p-1 grid w-full grid-cols-2 sm:grid-cols-5 mb-8 gap-1 h-auto">
+              <TabsTrigger value="skin" className="text-xs sm:text-sm px-2 py-1.5 sm:px-3 sm:py-2 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">✨ Skin</TabsTrigger>
+              <TabsTrigger value="hair" className="text-xs sm:text-sm px-2 py-1.5 sm:px-3 sm:py-2 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">💇 Hair</TabsTrigger>
+              <TabsTrigger value="plastic" className="text-xs sm:text-sm px-2 py-1.5 sm:px-3 sm:py-2 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">🏥 Plastic Surgery</TabsTrigger>
+              <TabsTrigger value="laser" className="text-xs sm:text-sm px-2 py-1.5 sm:px-3 sm:py-2 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">⚡ Laser</TabsTrigger>
+              <TabsTrigger value="ivdrips" className="text-xs sm:text-sm px-2 py-1.5 sm:px-3 sm:py-2 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">💧 IV Drips</TabsTrigger>
             </TabsList>
 
             <TabsContent value="skin">
@@ -979,6 +1058,22 @@ function ProcedureContent() {
             <TabsContent value="laser">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {services.laser.map((service, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setOpenService(service)}
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left"
+                  >
+                    <div className="text-4xl mb-4">{service.icon}</div>
+                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                    <p className="text-gray-600">{service.description}</p>
+                  </button>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="ivdrips">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {services.ivdrips.map((service, index) => (
                   <button
                     key={index}
                     onClick={() => setOpenService(service)}

@@ -22,7 +22,7 @@ export default function Footer() {
           {/* About Section */}
           <div>
             <div className="mb-6">
-              <img src="/app_logo.svg" alt="Tru Glow Logo" className="h-14 w-auto filter brightness-0 invert" />
+              <img src="/Asset_logo_2_white.svg" alt="Tru Glow Logo" className="h-14 w-auto" />
             </div>
             <p className="text-gray-300 mb-4">
               Tru Glow is a premier dermatology, aesthetics, and plastic surgery clinic offering advanced treatments in hair, skin, laser, and cosmetic procedures with state-of-the-art technology and experienced specialists.
@@ -235,7 +235,7 @@ export default function Footer() {
       <div className="bg-amber-900 py-4">
         <div className="container mx-auto px-4 text-center text-gray-400">
           <div className="flex items-center justify-center mb-3">
-            <img src="/app_logo.svg" alt="Tru Glow Logo" className="h-10 w-auto filter brightness-0 invert opacity-80" />
+            <img src="/Asset_logo_2_white.svg" alt="Tru Glow Logo" className="h-10 w-auto opacity-80" />
           </div>
           <p>© {year} All Rights Reserved.</p>
         </div>

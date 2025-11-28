@@ -239,7 +239,7 @@ export default function ChatWidget() {
             <div className="fixed bottom-6 right-6 z-50">
                 {/* Welcome Bubble */}
                 {showWelcome && !isOpen && (
-                    <div className="absolute bottom-20 right-0 mb-2 w-80 animate-fade-in-up">
+                    <div className="absolute bottom-20 right-0 mb-2 w-80 max-w-[calc(100vw-3rem)] animate-fade-in-up">
                         <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-4 border border-gray-200 dark:border-gray-700">
                             <button
                                 onClick={closeWelcome}
@@ -251,7 +251,7 @@ export default function ChatWidget() {
 
                             <div className="pr-6">
                                 <p className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
-                                    👋 ✨ Expert Hair, Skin & Wellness Solutions
+                                    👋 ✨ Expert Hair, Skin, Plastic Surgery, Laser & IV Drips Solutions
                                 </p>
                                 <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
                                     How can we help you today?
@@ -269,7 +269,7 @@ export default function ChatWidget() {
 
                 {/* Chat Window */}
                 {isOpen && (
-                    <div className="absolute bottom-20 right-0 w-96 h-[600px] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden animate-scale-in flex flex-col">
+                    <div className="absolute bottom-20 right-0 w-[calc(100vw-3rem)] sm:w-96 h-[70vh] sm:h-[600px] max-h-[80vh] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden animate-scale-in flex flex-col">
                         {/* Header */}
                         <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 text-white flex-shrink-0">
                             <div className="flex items-center justify-between">

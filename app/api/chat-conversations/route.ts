@@ -4,10 +4,10 @@ import { google } from "googleapis"
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
-        const { name, phone, category, procedure, message } = body
+        const { name, phone, category, procedure, message, email, source } = body
 
         // Validate required fields
-        if (!name || !phone || !category || !procedure || !message) {
+        if (!name || !phone || !category || !message) {
             return NextResponse.json(
                 { error: "Missing required fields" },
                 { status: 400 }
@@ -41,16 +41,17 @@ export async function POST(request: NextRequest) {
             name,
             phone,
             category,
-            procedure,
+            procedure || "General Inquiry", // Default if not provided
             message,
-            "Chat Widget",
+            source || "Chat Widget", // Default to Chat Widget if not provided
+            email || "-", // New column for Email
         ]
 
         // Append to sheet (using Sheet2 for chat conversations)
         try {
             await sheets.spreadsheets.values.append({
                 spreadsheetId,
-                range: "Sheet2!A:G", // Different sheet for chat data
+                range: "Sheet2!A:H", // Updated to include Email column
                 valueInputOption: "RAW",
                 requestBody: {
                     values: [rowData],

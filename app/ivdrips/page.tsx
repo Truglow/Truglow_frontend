@@ -11,15 +11,16 @@ export default function IVDripsPage() {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
-            <div className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
-                <div className="container mx-auto px-4">
+            <div className="relative bg-gradient-to-r from-primary to-primary/80 text-white py-20">
+                <div className="absolute inset-0 bg-[url('/ivdrips-hero.png')] bg-cover bg-center opacity-20"></div>
+                <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6">IV Drip Therapy</h1>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">💧 IV Drip Therapy</h1>
                         <p className="text-xl md:text-2xl mb-8">
-                            Wellness from within. Delivered directly to your bloodstream.
+                            Premium vitamin infusion therapy for optimal wellness
                         </p>
                         <p className="text-lg opacity-90">
-                            Doctor-designed IV drips for hydration, recovery, anti-aging, immunity, and radiant skin
+                            Boost your health, energy, and vitality with customized IV vitamin treatments
                         </p>
                     </div>
                 </div>

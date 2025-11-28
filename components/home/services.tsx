@@ -63,17 +63,32 @@ const services = {
       description: "Refine nose shape and function with expert surgical care.",
     },
   ],
+  ivdrips: [
+    {
+      title: "After Party",
+      description: "Keep the night. Lose the hangover. Rapid rehydration and recovery.",
+    },
+    {
+      title: "Ageless",
+      description: "Age is just a number. Cellular repair and longevity boost.",
+    },
+    {
+      title: "Shine",
+      description: "Glow from within. Hydrating and brightening for radiant skin.",
+    },
+  ],
 } as const
 
 type ServiceCategory = keyof typeof services
 
-const orderedTabs: ServiceCategory[] = ["skin", "hair", "plastic", "laser"]
+const orderedTabs: ServiceCategory[] = ["skin", "hair", "plastic", "laser", "ivdrips"]
 
 const tabLabels: Record<ServiceCategory, string> = {
   skin: "✨ Skin",
   hair: "💇 Hair",
   laser: "⚡ Laser",
   plastic: "🏥 Plastic Surgery",
+  ivdrips: "💧 IV Drips",
 }
 
 export default function Services() {
@@ -93,12 +108,12 @@ export default function Services() {
         </div>
 
         <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as ServiceCategory)} className="w-full max-w-6xl mx-auto">
-          <TabsList className="bg-white shadow-md p-1 grid w-full grid-cols-2 sm:grid-cols-4 mb-8 gap-1 h-auto">
+          <TabsList className="bg-white shadow-md p-1 grid w-full grid-cols-2 sm:grid-cols-5 mb-8 gap-1 h-auto">
             {orderedTabs.map((category) => (
               <TabsTrigger
                 key={category}
                 value={category}
-                className="text-xs sm:text-sm md:text-base lg:text-lg px-2 py-2 sm:px-3 md:px-4 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all"
+                className="text-xs sm:text-sm px-2 py-1.5 sm:px-3 sm:py-2 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all"
               >
                 {tabLabels[category]}
               </TabsTrigger>

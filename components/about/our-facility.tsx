@@ -43,20 +43,6 @@ export default function OurFacility() {
                 className="rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105"
               />
             </AnimatedItem>
-            <AnimatedItem delay={200} direction="up">
-              <img
-                src="/clinic-equipment.png"
-                alt="TruGlow Medical Equipment"
-                className="rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105"
-              />
-            </AnimatedItem>
-            <AnimatedItem delay={300} direction="up">
-              <img
-                src="/clinic-waiting-area.png"
-                alt="TruGlow Waiting Area"
-                className="rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105"
-              />
-            </AnimatedItem>
           </div>
           <AnimatedItem delay={400} direction="right">
             <div>

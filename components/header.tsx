@@ -2,14 +2,21 @@
 
 import Link from "next/link"
 import { Phone, Mail, Facebook, Instagram, Youtube, Menu, X } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { getTodaysService } from "@/lib/rotating-nav"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+
+  // Rotating service functionality - disabled for now, will be used in future
+  // const [rotatingService, setRotatingService] = useState(() => getTodaysService())
+  // useEffect(() => {
+  //   setRotatingService(getTodaysService())
+  // }, [])
 
   const isActive = (path: string) => {
     return pathname === path
