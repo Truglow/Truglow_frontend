@@ -1,4 +1,4 @@
-export type ServiceCategoryKey = "skin" | "hair" | "plastic" | "laser"
+export type ServiceCategoryKey = "skin" | "hair" | "plastic" | "laser" | "ivdrips"
 
 export type ServiceDetail = {
   title: string
@@ -360,6 +360,68 @@ export const serviceCategories: ServiceCategoryMap = {
       ],
     },
   ],
+  ivdrips: [
+    {
+      title: "After Party",
+      description: "Keep the night. Lose the hangover.",
+      icon: "🍹",
+      details: [
+        "This doctor-designed drip works fast—rehydrating, restoring, and bringing you back to life.",
+        "A powerful blend of electrolytes, vitamins, and antioxidants fights fatigue, fuels recovery, and gets you glowing.",
+        "Rapid rehydration, puffiness & dull skin recovery, energy & clarity boost.",
+        "Bounce back. Feel fresh. Do it all again. (Not that we recommend)",
+        "Ingredients: Hydration Base, Vitamin B Complex, Vitamin B-12, Vitamin C, Glutathione, Electrolytes",
+      ],
+    },
+    {
+      title: "Ageless",
+      description: "Age is just a number. Let's keep it that way.",
+      icon: "⏳",
+      details: [
+        "This doctor-designed drip fuels longevity—restoring lost NAD+, boosting cellular repair, and keeping you sharp.",
+        "A next-level blend of antioxidants, vitamins, and deep hydration fights fatigue, smooths skin, and powers up your body's defense against aging.",
+        "Cellular repair & longevity boost, hydration for smoother, firmer skin, energy & mental clarity support.",
+        "Feel better. Think faster. Stay timeless.",
+        "Ingredients: NAD+, Electrolytes, COQ10, Vitamin B Complex",
+      ],
+    },
+    {
+      title: "Shine",
+      description: "Glow from within. Shine without limits.",
+      icon: "✨",
+      details: [
+        "This doctor-backed formula is your skin's ultimate reset—hydrating, brightening, and fighting oxidative stress.",
+        "Packed with Glutathione, Vitamin C, and potent antioxidants, it clears dullness, evens out skin tone, and brings back that effortless radiance.",
+        "Brightens & evens skin tone, hydration for a dewy, plump look, fights oxidative stress & aging.",
+        "Glow now. Stay radiant. Keep them guessing.",
+        "Ingredients: High dose Glutathione, Vitamin C, Biotin, Vitamin B12, Vitamin B Complex, Electrolytes, Zinc",
+      ],
+    },
+    {
+      title: "Immunity",
+      description: "Immunity on demand.",
+      icon: "🛡️",
+      details: [
+        "A precision-crafted blend of high-dose vitamins, minerals, and antioxidants to keep your immune system primed.",
+        "Whether you're bouncing back from illness or staying ahead of the game, this drip is your ultimate health armor.",
+        "Boosts immune function, fights fatigue & inflammation, faster recovery from illness.",
+        "Stay ready. Stay strong. Keep moving.",
+        "Ingredients: Hydration, High dose Vitamin C, Zinc, Glutathione, NAC, Electrolytes, Vitamin B Complex, Vitamin B12, Vitamin D3 (IM)",
+      ],
+    },
+    {
+      title: "Hair Fall",
+      description: "Nourish your hair from within for stronger, healthier growth.",
+      icon: "💆",
+      details: [
+        "Targeted IV therapy delivers essential vitamins and minerals directly to your bloodstream to combat hair loss.",
+        "Biotin, B-complex vitamins, and antioxidants strengthen follicles and promote healthy hair growth.",
+        "Supports scalp health, reduces hair thinning, and enhances hair vitality.",
+        "Stronger roots. Fuller strands. Confident you.",
+        "Ingredients: Biotin, Vitamin B Complex, Vitamin B12, Zinc, Vitamin C, Glutathione, Electrolytes",
+      ],
+    },
+  ],
 }
 
 export const serviceCategoryOptions: { value: ServiceCategoryKey; label: string }[] = [
@@ -367,6 +429,7 @@ export const serviceCategoryOptions: { value: ServiceCategoryKey; label: string 
   { value: "hair", label: "Hair" },
   { value: "plastic", label: "Plastic Surgery" },
   { value: "laser", label: "Laser" },
+  { value: "ivdrips", label: "IV Drips" },
 ]
 
 export const serviceTitlesByCategory: Record<ServiceCategoryKey, string[]> = {
@@ -374,5 +437,6 @@ export const serviceTitlesByCategory: Record<ServiceCategoryKey, string[]> = {
   hair: serviceCategories.hair.map((service) => service.title),
   plastic: serviceCategories.plastic.map((service) => service.title),
   laser: serviceCategories.laser.map((service) => service.title),
+  ivdrips: serviceCategories.ivdrips.map((service) => service.title),
 }
 

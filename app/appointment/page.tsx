@@ -22,9 +22,6 @@ type AppointmentFormData = {
   message: string
 }
 
-const CLINIC_EMAIL = "truglowcs@gmail.com"
-const CLINIC_WHATSAPP_NUMBER = "917799127273"
-
 export default function AppointmentPage() {
   const [formData, setFormData] = useState<AppointmentFormData>({
     name: "",
@@ -36,6 +33,8 @@ export default function AppointmentPage() {
     time: "",
     message: "",
   })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target
@@ -77,44 +76,59 @@ export default function AppointmentPage() {
     return true
   }
 
-  const buildMessage = () => {
-    const categoryLabel = formData.serviceCategory
-      ? serviceCategoryOptions.find((option) => option.value === formData.serviceCategory)?.label
-      : ""
-    return `Hello Tru Glow,
-
-I would like to book an appointment.
-
-Name: ${formData.name.trim()}
-Phone: ${formData.phone.trim()}
-Email: ${formData.email.trim()}
-Service Category: ${categoryLabel || formData.serviceCategory || "-"}
-Procedure: ${formData.service || "-"}
-Preferred Date: ${formData.date || "-"}
-Preferred Time: ${formData.time || "-"}
-
-Additional Notes:
-${formData.message || "-"}
-`
-  }
-
-  const handleEmailBooking = () => {
+  const handleAppointmentBooking = async () => {
     if (!validateCoreFields()) {
       return
     }
-    const subject = `Appointment Request - ${formData.service || "Consultation"}`
-    const body = encodeURIComponent(buildMessage())
-    const mailtoUrl = `mailto:${CLINIC_EMAIL}?subject=${encodeURIComponent(subject)}&body=${body}`
-    window.open(mailtoUrl, "_blank")
-  }
 
-  const handleWhatsappBooking = () => {
-    if (!validateCoreFields()) {
-      return
+    setIsSubmitting(true)
+
+    try {
+      const categoryLabel = formData.serviceCategory
+        ? serviceCategoryOptions.find((option) => option.value === formData.serviceCategory)?.label
+        : ""
+
+      const response = await fetch("/api/appointments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          serviceCategory: categoryLabel || formData.serviceCategory,
+          service: formData.service,
+          date: formData.date,
+          time: formData.time,
+          message: formData.message,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        alert("✅ Appointment booked successfully! We'll contact you soon.")
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          serviceCategory: "",
+          service: "",
+          date: "",
+          time: "",
+          message: "",
+        })
+      } else {
+        alert(`❌ Error: ${data.error || "Failed to book appointment. Please try again."}`)
+      }
+    } catch (error) {
+      console.error("Error submitting appointment:", error)
+      alert("❌ Network error. Please check your connection and try again.")
+    } finally {
+      setIsSubmitting(false)
     }
-    const text = encodeURIComponent(buildMessage())
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${CLINIC_WHATSAPP_NUMBER}&text=${text}`
-    window.open(whatsappUrl, "_blank")
   }
 
   const availableProcedures = formData.serviceCategory ? serviceTitlesByCategory[formData.serviceCategory] : []
@@ -147,6 +161,7 @@ ${formData.message || "-"}
                       value={formData.name}
                       onChange={handleInputChange}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -160,6 +175,7 @@ ${formData.message || "-"}
                       value={formData.email}
                       onChange={handleInputChange}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -173,6 +189,7 @@ ${formData.message || "-"}
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -183,6 +200,7 @@ ${formData.message || "-"}
                         value={formData.serviceCategory}
                         onValueChange={handleCategoryChange}
                         aria-required="true"
+                        disabled={isSubmitting}
                       >
                         <SelectTrigger id="serviceCategory">
                           <SelectValue placeholder="Choose a category" />
@@ -202,7 +220,7 @@ ${formData.message || "-"}
                       <Select
                         value={formData.service}
                         onValueChange={handleServiceChange}
-                        disabled={!formData.serviceCategory}
+                        disabled={!formData.serviceCategory || isSubmitting}
                         aria-required="true"
                       >
                         <SelectTrigger id="service" aria-disabled={!formData.serviceCategory}>
@@ -228,6 +246,7 @@ ${formData.message || "-"}
                       value={formData.date}
                       onChange={handleInputChange}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -236,6 +255,7 @@ ${formData.message || "-"}
                     <Select
                       value={formData.time}
                       onValueChange={(value) => setFormData((prev) => ({ ...prev, time: value }))}
+                      disabled={isSubmitting}
                     >
                       <SelectTrigger id="time">
                         <SelectValue placeholder="Select time slot" aria-required="true" />
@@ -257,25 +277,18 @@ ${formData.message || "-"}
                       className="min-h-[100px]"
                       value={formData.message}
                       onChange={handleInputChange}
+                      disabled={isSubmitting}
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-                    <Button
-                      type="button"
-                      onClick={handleEmailBooking}
-                      className="w-full bg-primary hover:bg-primary/90 text-white"
-                    >
-                      Book via Email
-                    </Button>
-                    <Button
-                      type="button"
-                      onClick={handleWhatsappBooking}
-                      className="w-full bg-green-600 hover:bg-green-700 text-white"
-                    >
-                      Book via WhatsApp
-                    </Button>
-                  </div>
+                  <Button
+                    type="button"
+                    onClick={handleAppointmentBooking}
+                    className="w-full bg-primary hover:bg-primary/90 text-white"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Booking..." : "Book Appointment"}
+                  </Button>
                 </form>
               </CardContent>
             </Card>
@@ -341,4 +354,4 @@ ${formData.message || "-"}
       </div>
     </div>
   )
-} 
+}

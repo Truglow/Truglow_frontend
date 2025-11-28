@@ -2,17 +2,20 @@
 
 import { useState, useEffect, useRef } from "react"
 import { MessageCircle, X, Send } from "lucide-react"
+import { serviceCategoryOptions, serviceTitlesByCategory } from "@/lib/services-data"
 
 type Message = {
     id: number
     text: string
     isBot: boolean
     timestamp: string
+    options?: string[]
 }
 
-type ConversationStep = "name" | "phone" | "message" | "complete"
+type ConversationStep = "name" | "phone" | "category" | "procedure" | "message" | "complete"
 
 export default function ChatWidget() {
+    const [isMounted, setIsMounted] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [showWelcome, setShowWelcome] = useState(false)
     const [messages, setMessages] = useState<Message[]>([])
@@ -20,7 +23,14 @@ export default function ChatWidget() {
     const [currentStep, setCurrentStep] = useState<ConversationStep>("name")
     const [userName, setUserName] = useState("")
     const [userPhone, setUserPhone] = useState("")
+    const [selectedCategory, setSelectedCategory] = useState("")
+    const [selectedProcedure, setSelectedProcedure] = useState("")
     const messagesEndRef = useRef<HTMLDivElement>(null)
+
+    // Fix hydration error by only rendering on client
+    useEffect(() => {
+        setIsMounted(true)
+    }, [])
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -31,13 +41,15 @@ export default function ChatWidget() {
     }, [messages])
 
     useEffect(() => {
+        if (!isMounted) return
+
         // Show welcome message after 3 seconds
         const timer = setTimeout(() => {
             setShowWelcome(true)
         }, 3000)
 
         return () => clearTimeout(timer)
-    }, [])
+    }, [isMounted])
 
     useEffect(() => {
         if (isOpen && messages.length === 0) {
@@ -63,19 +75,50 @@ export default function ChatWidget() {
         }
     }, [isOpen])
 
-    const handleSendMessage = () => {
-        if (!inputValue.trim()) return
+    const saveToGoogleSheets = async (data: {
+        name: string
+        phone: string
+        category: string
+        procedure: string
+        message: string
+    }) => {
+        try {
+            const response = await fetch("/api/chat-conversations", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+
+            if (!response.ok) {
+                console.error("Failed to save chat conversation")
+            }
+        } catch (error) {
+            console.error("Error saving chat conversation:", error)
+        }
+    }
+
+    const handleOptionClick = (option: string) => {
+        // Simulate user clicking an option
+        setInputValue(option)
+        setTimeout(() => handleSendMessage(option), 100)
+    }
+
+    const handleSendMessage = (optionValue?: string) => {
+        const messageText = optionValue || inputValue
+        if (!messageText.trim()) return
 
         // Add user message
         const userMessage: Message = {
             id: Date.now(),
-            text: inputValue,
+            text: messageText,
             isBot: false,
             timestamp: "Just now"
         }
         setMessages(prev => [...prev, userMessage])
 
-        const currentInput = inputValue
+        const currentInput = messageText
         setInputValue("")
 
         // Process based on current step
@@ -96,9 +139,38 @@ export default function ChatWidget() {
 
                 case "phone":
                     setUserPhone(currentInput)
+                    const categoryOptions = serviceCategoryOptions.map(cat => cat.label)
                     botResponse = {
                         id: Date.now() + 1,
-                        text: "Perfect! 👍\n\n💬 How can we assist you with your hair care needs today?",
+                        text: "Perfect! 👍\n\n💬 Which service are you interested in?",
+                        isBot: true,
+                        timestamp: "Just now",
+                        options: categoryOptions
+                    }
+                    setCurrentStep("category")
+                    break
+
+                case "category":
+                    setSelectedCategory(currentInput)
+                    // Find the category key from the label
+                    const categoryKey = serviceCategoryOptions.find(cat => cat.label === currentInput)?.value
+                    const procedures = categoryKey ? serviceTitlesByCategory[categoryKey] : []
+
+                    botResponse = {
+                        id: Date.now() + 1,
+                        text: `Great choice! ✨\n\nWhich ${currentInput} procedure are you interested in?`,
+                        isBot: true,
+                        timestamp: "Just now",
+                        options: procedures
+                    }
+                    setCurrentStep("procedure")
+                    break
+
+                case "procedure":
+                    setSelectedProcedure(currentInput)
+                    botResponse = {
+                        id: Date.now() + 1,
+                        text: `Excellent! 🎯\n\nPlease tell us more about your concerns or questions regarding ${currentInput}:`,
                         isBot: true,
                         timestamp: "Just now"
                     }
@@ -106,18 +178,22 @@ export default function ChatWidget() {
                     break
 
                 case "message":
+                    // Save to Google Sheets
+                    saveToGoogleSheets({
+                        name: userName,
+                        phone: userPhone,
+                        category: selectedCategory,
+                        procedure: selectedProcedure,
+                        message: currentInput
+                    })
+
                     botResponse = {
                         id: Date.now() + 1,
-                        text: `Thank you for reaching out! 🙏\n\nOur team will contact you shortly at ${userPhone}.\n\nWe're excited to help you achieve your hair goals! ✨`,
+                        text: `Thank you for reaching out! 🙏\n\nOur team will contact you shortly at ${userPhone}.\n\nWe're excited to help you with ${selectedProcedure}! ✨`,
                         isBot: true,
                         timestamp: "Just now"
                     }
                     setCurrentStep("complete")
-
-                    // Here you can send the data to your backend or WhatsApp
-                    // const whatsappMessage = `Name: ${userName}\nPhone: ${userPhone}\nMessage: ${currentInput}`
-                    // const whatsappUrl = `https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(whatsappMessage)}`
-                    // window.open(whatsappUrl, "_blank")
                     break
 
                 case "complete":
@@ -152,6 +228,11 @@ export default function ChatWidget() {
         setShowWelcome(false)
     }
 
+    // Prevent SSR rendering to avoid hydration errors
+    if (!isMounted) {
+        return null
+    }
+
     return (
         <>
             {/* Floating Chat Button */}
@@ -170,7 +251,7 @@ export default function ChatWidget() {
 
                             <div className="pr-6">
                                 <p className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
-                                    👋 ✨ Expert Hair & Skin Solutions • Transforming Lives Daily
+                                    👋 ✨ Expert Hair, Skin & Wellness Solutions
                                 </p>
                                 <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
                                     How can we help you today?
@@ -197,7 +278,7 @@ export default function ChatWidget() {
                                         <MessageCircle className="h-5 w-5" />
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-base">Tru Glow Hair Clinic</h3>
+                                        <h3 className="font-bold text-base">Tru Glow</h3>
                                         <p className="text-xs text-white/90">Online</p>
                                     </div>
                                 </div>
@@ -214,26 +295,42 @@ export default function ChatWidget() {
                         {/* Messages Container */}
                         <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-900">
                             {messages.map((message) => (
-                                <div
-                                    key={message.id}
-                                    className={`flex ${message.isBot ? "justify-start" : "justify-end"}`}
-                                >
+                                <div key={message.id}>
                                     <div
-                                        className={`max-w-[80%] rounded-2xl px-4 py-3 ${message.isBot
-                                            ? "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm"
-                                            : "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                                            }`}
+                                        className={`flex ${message.isBot ? "justify-start" : "justify-end"}`}
                                     >
-                                        <p className="text-sm whitespace-pre-line">{message.text}</p>
-                                        <p
-                                            className={`text-xs mt-1 ${message.isBot
-                                                ? "text-gray-500 dark:text-gray-400"
-                                                : "text-white/80"
+                                        <div
+                                            className={`max-w-[80%] rounded-2xl px-4 py-3 ${message.isBot
+                                                ? "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm"
+                                                : "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
                                                 }`}
                                         >
-                                            {message.timestamp}
-                                        </p>
+                                            <p className="text-sm whitespace-pre-line">{message.text}</p>
+                                            <p
+                                                className={`text-xs mt-1 ${message.isBot
+                                                    ? "text-gray-500 dark:text-gray-400"
+                                                    : "text-white/80"
+                                                    }`}
+                                            >
+                                                {message.timestamp}
+                                            </p>
+                                        </div>
                                     </div>
+
+                                    {/* Options Buttons */}
+                                    {message.isBot && message.options && (
+                                        <div className="mt-2 flex flex-wrap gap-2">
+                                            {message.options.map((option, idx) => (
+                                                <button
+                                                    key={idx}
+                                                    onClick={() => handleOptionClick(option)}
+                                                    className="px-4 py-2 bg-white dark:bg-gray-800 border border-purple-300 dark:border-purple-700 text-purple-600 dark:text-purple-400 rounded-full text-sm hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors"
+                                                >
+                                                    {option}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             ))}
                             <div ref={messagesEndRef} />
@@ -252,7 +349,7 @@ export default function ChatWidget() {
                                     style={{ minHeight: "44px", maxHeight: "120px" }}
                                 />
                                 <button
-                                    onClick={handleSendMessage}
+                                    onClick={() => handleSendMessage()}
                                     disabled={!inputValue.trim()}
                                     className="w-11 h-11 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
                                     aria-label="Send message"

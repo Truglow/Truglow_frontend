@@ -42,6 +42,7 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/procedure", label: "Procedure" },
+    { href: "/ivdrips", label: "IV Drips" },
     // Gallery temporarily hidden
     // { href: "/gallery", label: "Gallery" },
     { href: "/contact", label: "Contact" },
