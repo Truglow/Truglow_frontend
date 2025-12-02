@@ -20,7 +20,7 @@ export default function ChatWidget() {
     const [showWelcome, setShowWelcome] = useState(false)
     const [messages, setMessages] = useState<Message[]>([])
     const [inputValue, setInputValue] = useState("")
-    const [currentStep, setCurrentStep] = useState<ConversationStep>("name")
+    const [currentStep, setCurrentStep] = useState<ConversationStep>("category")
     const [userName, setUserName] = useState("")
     const [userPhone, setUserPhone] = useState("")
     const [selectedCategory, setSelectedCategory] = useState("")
@@ -62,15 +62,17 @@ export default function ChatWidget() {
             }
             setMessages([welcomeMessage])
 
-            // Ask for name after a short delay
+            // Ask for service category first
             setTimeout(() => {
-                const nameQuestion: Message = {
+                const categoryOptions = serviceCategoryOptions.map(cat => cat.label)
+                const categoryQuestion: Message = {
                     id: Date.now() + 1,
-                    text: "📝 Can we please have your name? 🙌",
+                    text: "💬 Which service are you interested in?",
                     isBot: true,
-                    timestamp: "Just now"
+                    timestamp: "Just now",
+                    options: categoryOptions
                 }
-                setMessages(prev => [...prev, nameQuestion])
+                setMessages(prev => [...prev, categoryQuestion])
             }, 1000)
         }
     }, [isOpen])
@@ -126,30 +128,6 @@ export default function ChatWidget() {
             let botResponse: Message | null = null
 
             switch (currentStep) {
-                case "name":
-                    setUserName(currentInput)
-                    botResponse = {
-                        id: Date.now() + 1,
-                        text: `Great to meet you, ${currentInput}! 😊\n\n📱 Could you share your phone number?`,
-                        isBot: true,
-                        timestamp: "Just now"
-                    }
-                    setCurrentStep("phone")
-                    break
-
-                case "phone":
-                    setUserPhone(currentInput)
-                    const categoryOptions = serviceCategoryOptions.map(cat => cat.label)
-                    botResponse = {
-                        id: Date.now() + 1,
-                        text: "Perfect! 👍\n\n💬 Which service are you interested in?",
-                        isBot: true,
-                        timestamp: "Just now",
-                        options: categoryOptions
-                    }
-                    setCurrentStep("category")
-                    break
-
                 case "category":
                     setSelectedCategory(currentInput)
                     // Find the category key from the label
@@ -170,11 +148,46 @@ export default function ChatWidget() {
                     setSelectedProcedure(currentInput)
                     botResponse = {
                         id: Date.now() + 1,
-                        text: `Excellent! 🎯\n\nPlease tell us more about your concerns or questions regarding ${currentInput}:`,
+                        text: "Excellent! 🎯\n\n📝 Can we please have your name?",
+                        isBot: true,
+                        timestamp: "Just now"
+                    }
+                    setCurrentStep("name")
+                    break
+
+                case "phone":
+                    // Validate phone number (should be 10 digits)
+                    const phoneRegex = /^[0-9]{10}$/
+                    if (!phoneRegex.test(currentInput.trim())) {
+                        botResponse = {
+                            id: Date.now() + 1,
+                            text: "⚠️ Please enter a valid 10-digit phone number (without spaces or special characters).\n\n📱 Could you share your phone number?",
+                            isBot: true,
+                            timestamp: "Just now"
+                        }
+                        // Stay on phone step
+                        break
+                    }
+
+                    setUserPhone(currentInput)
+                    botResponse = {
+                        id: Date.now() + 1,
+                        text: `Thank you! 👍\n\nPlease tell us more about your concerns or questions regarding ${selectedProcedure}:`,
                         isBot: true,
                         timestamp: "Just now"
                     }
                     setCurrentStep("message")
+                    break
+
+                case "name":
+                    setUserName(currentInput)
+                    botResponse = {
+                        id: Date.now() + 1,
+                        text: `Great to meet you, ${currentInput}! 😊\n\n📱 Could you share your phone number?`,
+                        isBot: true,
+                        timestamp: "Just now"
+                    }
+                    setCurrentStep("phone")
                     break
 
                 case "message":

@@ -425,9 +425,9 @@ export const serviceCategories: ServiceCategoryMap = {
 }
 
 export const serviceCategoryOptions: { value: ServiceCategoryKey; label: string }[] = [
-  { value: "skin", label: "Skin" },
-  { value: "hair", label: "Hair" },
   { value: "plastic", label: "Plastic Surgery" },
+  { value: "hair", label: "Hair" },
+  { value: "skin", label: "Skin" },
   { value: "laser", label: "Laser" },
   { value: "ivdrips", label: "IV Drips" },
 ]

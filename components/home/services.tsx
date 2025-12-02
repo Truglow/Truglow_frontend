@@ -1,9 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 const services = {
@@ -81,9 +80,9 @@ const services = {
 
 type ServiceCategory = keyof typeof services
 
-const orderedTabs: ServiceCategory[] = ["skin", "hair", "plastic", "laser", "ivdrips"]
+const orderedCategories: ServiceCategory[] = ["skin", "hair", "plastic", "laser", "ivdrips"]
 
-const tabLabels: Record<ServiceCategory, string> = {
+const categoryLabels: Record<ServiceCategory, string> = {
   skin: "✨ Skin",
   hair: "💇 Hair",
   laser: "⚡ Laser",
@@ -92,9 +91,28 @@ const tabLabels: Record<ServiceCategory, string> = {
 }
 
 export default function Services() {
-  const [activeTab, setActiveTab] = useState<ServiceCategory>("skin")
+  const [currentSlide, setCurrentSlide] = useState(0)
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollReveal()
   const { ref: titleRef, isVisible: titleVisible } = useScrollReveal()
+
+  const currentCategory = orderedCategories[currentSlide]
+
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % orderedCategories.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % orderedCategories.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + orderedCategories.length) % orderedCategories.length)
+  }
 
   return (
     <section ref={sectionRef} className="py-16 bg-gradient-to-b from-amber-50 to-white">
@@ -107,51 +125,82 @@ export default function Services() {
           </p>
         </div>
 
-        <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as ServiceCategory)} className="w-full max-w-6xl mx-auto">
-          <TabsList className="bg-white shadow-md p-1 grid w-full grid-cols-2 sm:grid-cols-5 mb-8 gap-1 h-auto">
-            {orderedTabs.map((category) => (
-              <TabsTrigger
-                key={category}
-                value={category}
-                className="text-xs sm:text-sm px-2 py-1.5 sm:px-3 sm:py-2 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all"
-              >
-                {tabLabels[category]}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+        <div className="w-full max-w-6xl mx-auto relative">
+          {/* Category Title */}
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-amber-600 transition-all duration-500">
+              {categoryLabels[currentCategory]}
+            </h3>
+          </div>
 
-          {orderedTabs.map((category) => (
-            <TabsContent key={category} value={category} className="mt-0">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {services[category].map((service, index) => (
-                  <div
-                    key={service.title}
-                    className={`bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${sectionVisible
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-10'
-                      }`}
-                    style={{ transitionDelay: `${index * 100}ms` }}
-                  >
-                    <div className="p-6 flex flex-col h-full">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
-                      <p className="text-sm text-gray-600 mb-4 flex-grow">{service.description}</p>
-                      <Link
-                        href={`/procedure?tab=${category}`}
-                        className="inline-flex items-center text-amber-600 hover:text-amber-700 font-serif !font-playfair font-semibold !text-base !tracking-wider"
+          {/* Carousel Container */}
+          <div className="relative overflow-hidden">
+            <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+              {orderedCategories.map((category) => (
+                <div key={category} className="w-full flex-shrink-0">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
+                    {services[category].map((service, index) => (
+                      <div
+                        key={service.title}
+                        className={`bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${sectionVisible
+                          ? 'opacity-100 translate-y-0'
+                          : 'opacity-0 translate-y-10'
+                          }`}
+                        style={{ transitionDelay: `${index * 100}ms` }}
                       >
-                        Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                      </Link>
-                    </div>
+                        <div className="p-6 flex flex-col h-full">
+                          <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
+                          <p className="text-sm text-gray-600 mb-4 flex-grow">{service.description}</p>
+                          <Link
+                            href={`/procedure?tab=${category}`}
+                            className="inline-flex items-center text-amber-600 hover:text-amber-700 font-serif !font-playfair font-semibold !text-base !tracking-wider"
+                          >
+                            Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </TabsContent>
-          ))}
-        </Tabs>
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-6 w-6 text-amber-600" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-6 w-6 text-amber-600" />
+            </button>
+          </div>
+
+          {/* Carousel Indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {orderedCategories.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`transition-all duration-300 ${index === currentSlide
+                  ? "bg-amber-600 w-8 h-3"
+                  : "bg-amber-300 hover:bg-amber-400 w-3 h-3"
+                  } rounded-full`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
 
         <div className={`text-center mt-12 transition-all duration-700 delay-500 ${sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <Link
-            href={`/procedure?tab=${activeTab}`}
+            href={`/procedure?tab=${currentCategory}`}
             className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-full shadow-md hover:bg-amber-700 transition-all duration-300 hover:scale-110 hover:shadow-xl transform"
           >
             See all procedures <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

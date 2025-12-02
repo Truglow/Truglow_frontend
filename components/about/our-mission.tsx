@@ -19,18 +19,36 @@ export default function OurMission() {
               <p className="text-lg text-gray-600 mb-6">
                 Our vision is to be the most trusted name in dermatology, aesthetics, and cosmetic surgery, known for our exceptional results, personalized care, and commitment to innovation. We strive to continuously improve our techniques and services to provide the best possible outcomes for our patients.
               </p>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-gray-600 mb-6">
                 We believe that everyone deserves to feel confident in their appearance, and we are dedicated to helping our patients achieve that confidence through our expert care and advanced treatments across all our service areas.
+              </p>
+              <p className="text-lg text-gray-600 mb-6">
+                Our team of experienced dermatologists and plastic surgeons work closely with each patient to understand their unique needs and goals, creating customized treatment plans that deliver natural-looking, transformative results.
+              </p>
+              <p className="text-lg text-gray-600">
+                With state-of-the-art facilities and cutting-edge technology, we ensure every patient receives the highest standard of care in a comfortable, welcoming environment. Your journey to renewed confidence starts here at Tru Glow.
               </p>
             </div>
           </AnimatedItem>
           <AnimatedItem delay={200} direction="right">
-            <div>
-              <img
-                src="/about-mission.png"
-                alt="Tru Glow Mission"
-                className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105"
-              />
+            <div className="h-full flex items-center">
+              <div className="grid grid-cols-2 gap-4 w-full">
+                <img
+                  src="/real-photos/20.png"
+                  alt="Tru Glow Branding"
+                  className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105 w-full h-full max-h-[450px] object-cover"
+                />
+                <img
+                  src="/real-photos/21.png"
+                  alt="Tru Glow Clinic"
+                  className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105 w-full h-full max-h-[450px] object-cover"
+                />
+                <img
+                  src="/real-photos/9.png"
+                  alt="Patient Consultation"
+                  className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105 w-full h-auto max-h-[450px] object-cover col-span-2"
+                />
+              </div>
             </div>
           </AnimatedItem>
         </div>

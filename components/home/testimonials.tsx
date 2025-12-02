@@ -15,11 +15,11 @@ export default function Testimonials() {
       image: "/shiva-testimonial.jpg",
     },
     {
-      name: "Ravi",
+      name: "Ramana Chowdary",
       location: "Hyderabad",
       quote:
         "After trying various treatments with no success, TruGlow's approach finally gave me the results I was looking for. I couldn't be happier!",
-      image: "/ravi-testimonial.jpg",
+      image: "/ramana-chowdary-testimonial.jpg",
     },
     {
       name: "Meedha",

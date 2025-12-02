@@ -22,7 +22,7 @@ export default function Footer() {
           {/* About Section */}
           <div>
             <div className="mb-6">
-              <img src="/Asset_logo_2_white.svg" alt="Tru Glow Logo" className="h-14 w-auto" />
+              <img src="/Asset_logo.svg" alt="Tru Glow Logo" className="h-14 w-auto" />
             </div>
             <p className="text-gray-300 mb-4">
               Tru Glow is a premier dermatology, aesthetics, and plastic surgery clinic offering advanced treatments in hair, skin, laser, and cosmetic procedures with state-of-the-art technology and experienced specialists.
@@ -33,8 +33,8 @@ export default function Footer() {
                   {/* WhatsApp */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
+                    width="28"
+                    height="28"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -46,8 +46,8 @@ export default function Footer() {
                 <div className="bg-pink-100 p-2 rounded-full transition-all duration-300 hover:shadow-lg">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
+                    width="28"
+                    height="28"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -232,10 +232,10 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="bg-amber-900 py-4">
-        <div className="container mx-auto px-4 text-center text-gray-400">
+      <div className="bg-amber-800 py-4">
+        <div className="container mx-auto px-4 text-center text-gray-200">
           <div className="flex items-center justify-center mb-3">
-            <img src="/Asset_logo_2_white.svg" alt="Tru Glow Logo" className="h-10 w-auto opacity-80" />
+            <img src="/Asset_logo.svg" alt="Tru Glow Logo" className="h-10 w-auto opacity-80" />
           </div>
           <p>© {year} All Rights Reserved.</p>
         </div>

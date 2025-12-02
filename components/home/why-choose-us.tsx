@@ -49,11 +49,11 @@ export default function WhyChooseUs() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div ref={imageRef} className={`transition-all duration-1000 ${imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+          <div ref={imageRef} className={`transition-all duration-1000 h-full flex items-center ${imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <img
               src="/why-choose-us.png"
               alt="Tru Glow Facility"
-              className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105"
+              className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105 w-full h-auto max-h-[500px] object-cover"
             />
           </div>
           <div className="space-y-6">
