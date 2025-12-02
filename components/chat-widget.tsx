@@ -56,7 +56,7 @@ export default function ChatWidget() {
             // Initial welcome message
             const welcomeMessage: Message = {
                 id: Date.now(),
-                text: "👋 Welcome to Tru Glow! ✨\n\n🌟 Your Journey to Confidence Starts Here • Expert Care, Personalized Results\n\nHow can we help you today?",
+                text: "👋 Welcome to Tru Glow! ✨\n\n🌟 Your Journey to Confidence Starts Here • Expert Care, Personalized Results\n\n📱 Call us: +91 7799127273\n\nHow can we help you today?",
                 isBot: true,
                 timestamp: "Just now"
             }
@@ -318,7 +318,21 @@ export default function ChatWidget() {
                                                 : "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
                                                 }`}
                                         >
-                                            <p className="text-sm whitespace-pre-line">{message.text}</p>
+                                            <p className="text-sm whitespace-pre-line">
+                                                {message.text.split(/(\+91\s\d{10})/).map((part, i) =>
+                                                    part.match(/\+91\s\d{10}/) ? (
+                                                        <a
+                                                            key={i}
+                                                            href={`tel:${part.replace(/\s/g, '')}`}
+                                                            className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                                                        >
+                                                            {part}
+                                                        </a>
+                                                    ) : (
+                                                        part
+                                                    )
+                                                )}
+                                            </p>
                                             <p
                                                 className={`text-xs mt-1 ${message.isBot
                                                     ? "text-gray-500 dark:text-gray-400"

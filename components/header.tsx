@@ -68,7 +68,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-amber-50 shadow-sm sticky top-0 z-50">
-      <div className="max-w-screen-2xl mx-auto px-4">
+      <div className="container mx-auto px-4">
         {/* Top bar with contact info and social media */}
         <div className="hidden md:flex justify-between items-center py-2 text-sm text-gray-600 border-b">
           <div className="flex items-center space-x-4">

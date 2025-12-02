@@ -24,7 +24,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Acne & Scar Treatment",
       description: "Comprehensive solutions for acne and scar reduction",
-      icon: "🌟",
+      icon: "🩺",
       details: [
         "Active acne is controlled first using prescription therapeutics, clarifying peels, and LED therapy before resurfacing begins.",
         "Textural scars are revised via staged subcision, microneedling RF, and fractional lasers so collagen rebuilds from deep within.",
@@ -54,7 +54,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Laser Scar Reduction",
       description: "Advanced laser treatments for scar reduction",
-      icon: "⚡",
+      icon: "🔬",
       details: [
         "Fractional erbium or CO₂ lasers resurface uneven texture while collagen remodelling smooths depressed scars.",
         "Dermatologists may combine subcision or microneedling RF to tackle deeper, tethered scars for dramatic refinement.",
@@ -178,7 +178,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Anti-Dandruff Treatments",
       description: "Effective solutions for dandruff and scalp conditions",
-      icon: "❄️",
+      icon: "🧴",
       details: [
         "Keratolytic peels, antifungal lotions, and low-level lasers detox the scalp and calm inflammation.",
         "Dermatologist-designed regimes relieve flakes and itching quickly and restore scalp comfort.",
@@ -198,7 +198,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Hair Patch Integration",
       description: "Custom hair patch solutions for natural-looking coverage",
-      icon: "🎭",
+      icon: "🧩",
       details: [
         "Bespoke systems are colour- and texture-matched, then integrated with your natural hair for undetectable coverage.",
         "Maintenance visits teach bonding, cleaning, and styling routines so results stay seamless.",
@@ -310,7 +310,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Scar Revision & Management",
       description: "Advanced techniques for scar reduction and management",
-      icon: "🔧",
+      icon: "✂️",
       details: [
         "Surgeons combine excision, punch grafting, fillers, and lasers to smooth surgical or traumatic scars.",
         "Treatment unfolds in phases so the skin can remodel safely and blend with surrounding tissue.",

@@ -22,7 +22,7 @@ export default function Testimonials() {
       image: "/ramana-chowdary-testimonial.jpg",
     },
     {
-      name: "Meedha",
+      name: "Medha",
       location: "Hyderabad",
       quote:
         "The procedure was virtually painless, and the recovery was quick. Six months later, I have a full head of hair that looks completely natural.",
