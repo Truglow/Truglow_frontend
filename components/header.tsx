@@ -124,7 +124,7 @@ export default function Header() {
 
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center font-medium text-gray-800 hover:text-primary transition-all duration-300 hover:scale-105 transform outline-none">
-                IV Drips <ChevronDown className="ml-1 h-4 w-4" />
+                {serviceLinks.find(s => s.href === pathname)?.label || "IV Drips"} <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-white">
                 {serviceLinks.map((service) => (

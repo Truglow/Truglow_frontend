@@ -14,7 +14,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Anti-Ageing Treatments",
       description: "Advanced treatments to reduce fine lines, wrinkles, and restore youthful skin",
-      icon: "✨",
+      icon: "/icons/antiaging.png",
       details: [
         "Dermatologists start with a diagnostic analysis of laxity, skin texture, and lifestyle to tailor your rejuvenation plan.",
         "Energy devices such as HIFU and RF, plus targeted injectables, are layered to lift, firm, and soften lines while maintaining natural expression.",
@@ -24,7 +24,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Acne & Scar Treatment",
       description: "Comprehensive solutions for acne and scar reduction",
-      icon: "🩺",
+      icon: "/icons/acne.png",
       details: [
         "Active acne is controlled first using prescription therapeutics, clarifying peels, and LED therapy before resurfacing begins.",
         "Textural scars are revised via staged subcision, microneedling RF, and fractional lasers so collagen rebuilds from deep within.",
@@ -34,7 +34,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Pigmentation Correction",
       description: "Treatment for uneven skin tone and dark spots",
-      icon: "🎭",
+      icon: "/icons/pigmentation.png",
       details: [
         "Layered therapy blends pigment-targeted peels, Q-switched or pico lasers, and antioxidant infusions to fade melasma, tanning, and post-inflammatory marks.",
         "Fluence and peel strength are customised to protect delicate Indian skin while delivering progressive clarity.",
@@ -44,7 +44,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Skin Rejuvenation",
       description: "Revitalizing treatments for brighter, more radiant skin",
-      icon: "💫",
+      icon: "/icons/rejuvenation.png",
       details: [
         "Hydra-dermabrasion, oxygen infusion, and gentle exfoliation detox pores while drenching skin in antioxidants.",
         "Boosters—PRP/GFC, Vitamin C, or glutathione—are selected to target dullness, dehydration, or fine lines in one sitting.",
@@ -54,7 +54,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Laser Scar Reduction",
       description: "Advanced laser treatments for scar reduction",
-      icon: "🔬",
+      icon: "/icons/laser_scar.png",
       details: [
         "Fractional erbium or CO₂ lasers resurface uneven texture while collagen remodelling smooths depressed scars.",
         "Dermatologists may combine subcision or microneedling RF to tackle deeper, tethered scars for dramatic refinement.",
@@ -64,7 +64,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Skin Lifting & Tightening",
       description: "Non-surgical skin tightening and lifting treatments",
-      icon: "🎯",
+      icon: "/icons/lifting.png",
       details: [
         "HIFU and monopolar RF send focused energy to deep tissue planes, tightening collagen without downtime.",
         "Dermatologists often pair skin tightening with biostimulators or fillers to re-sculpt youthful contours.",
@@ -74,7 +74,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Hyperpigmentation Solutions",
       description: "Specialized treatments for hyperpigmentation issues",
-      icon: "🌈",
+      icon: "/icons/hyperpigmentation.png",
       details: [
         "Sequential peels, depigmenting cocktails, and gentle lasers work together to disperse stubborn hormonal or sun-induced patches.",
         "Dermatologist oversight ensures gradual lightening so the skin barrier stays healthy throughout treatment.",
@@ -84,7 +84,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Dull Skin Revitalisation",
       description: "Treatments to restore glow and vitality to dull skin",
-      icon: "💎",
+      icon: "/icons/revitalisation.png",
       details: [
         "Signature facials combine lymphatic massage, exfoliation, and antioxidant infusions to recharge tired skin.",
         "Powerful brightening boosters—Vitamin C, glutathione, or kojic—deliver an Instaglow finish.",
@@ -94,7 +94,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Laser Tanning Removal",
       description: "Effective laser treatments to remove tan and even out skin tone",
-      icon: "☀️",
+      icon: "/icons/tanning.png",
       details: [
         "Q-switched and pico lasers break down excess melanin to reverse sun-induced darkening on the face and body.",
         "Integrated cooling and calming serums prevent post-laser sensitivity, keeping treatment comfortable.",
@@ -104,7 +104,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Hydrafacial",
       description: "Deep cleansing and hydrating facial treatment",
-      icon: "💧",
+      icon: "/icons/hydrafacial.png",
       details: [
         "Vortex technology exfoliates, extracts, and drenches pores with hydrating serums in a single pass.",
         "Dermatologists tailor boosters—clarifying salicylic, brightening Vitamin C, or peptide-powered anti-ageing—just like clinical medifacials.",
@@ -114,7 +114,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Vampire Facial",
       description: "PRP-based facial for skin rejuvenation",
-      icon: "🧛",
+      icon: "/icons/vampire_facial.png",
       details: [
         "After a small blood draw, plasma rich in growth factors is microneedled into the skin to trigger repair.",
         "Collagen synthesis increases, softening fine lines and boosting luminosity over 3–4 weekly sessions.",
@@ -124,7 +124,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Korean Facial",
       description: "Multi-step Korean skincare facial treatment",
-      icon: "🇰🇷",
+      icon: "/icons/korean_facial.png",
       details: [
         "Double cleansing, enzymatic exfoliation, and ampoule layering form the core of this K-beauty-inspired ritual.",
         "LED therapy and sheet masks supply moisture, leaving a translucent glass-skin finish.",
@@ -134,7 +134,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Medifacial",
       description: "Medical-grade facial with active ingredients",
-      icon: "💉",
+      icon: "/icons/medifacial.png",
       details: [
         "Clinical facials are tailored with lactic acid, peptides, retinoids, or antioxidants to address specific skin concerns.",
         "Therapists follow dermatologist prescriptions similar to medifacial playbooks for acne, dryness, or pigmentation.",
@@ -146,7 +146,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Hair Regrowth & Transplantation",
       description: "Comprehensive hair regrowth and transplant solutions",
-      icon: "🌱",
+      icon: "/icons/hair_transplant.png",
       details: [
         "Trichoscopy, blood tests, and lifestyle analysis determine candidacy for FUE, DHI, or a hybrid plan tailored to your scalp condition.",
         "Follicular units are harvested and implanted under magnification to recreate natural density, direction, and hairline design.",
@@ -157,7 +157,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "PRP Therapy for Hair Growth",
       description: "Platelet-rich plasma therapy to stimulate natural hair growth",
-      icon: "💉",
+      icon: "/icons/prp_hair.png",
       details: [
         "A small blood sample is centrifuged to concentrate growth factors that are then injected across thinning zones.",
         "Sessions follow best-practice protocols—collection, activation, injection, and cooling—delivering fuller strands from the third or fourth visit.",
@@ -168,7 +168,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Exosome Therapy",
       description: "Advanced exosome therapy for hair restoration",
-      icon: "🔬",
+      icon: "/icons/exosome.png",
       details: [
         "Lab-cultured exosomes deliver potent cellular messengers that extend the hair growth phase and improve scalp vitality.",
         "Often paired with PRP or low-level laser therapy for synergistic regrowth while staying minimally invasive.",
@@ -178,7 +178,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Anti-Dandruff Treatments",
       description: "Effective solutions for dandruff and scalp conditions",
-      icon: "🧴",
+      icon: "/icons/dandruff.png",
       details: [
         "Keratolytic peels, antifungal lotions, and low-level lasers detox the scalp and calm inflammation.",
         "Dermatologist-designed regimes relieve flakes and itching quickly and restore scalp comfort.",
@@ -188,7 +188,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Alopecia & Psoriasis Care",
       description: "Specialized care for alopecia and psoriasis conditions",
-      icon: "🏥",
+      icon: "/icons/alopecia.png",
       details: [
         "Autoimmune or inflammatory scalp conditions are calmed with prescription immunomodulators, phototherapy, and barrier-restoring topicals.",
         "Dermatologists set realistic regrowth timelines and adjust plans based on response.",
@@ -198,7 +198,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Hair Patch Integration",
       description: "Custom hair patch solutions for natural-looking coverage",
-      icon: "🧩",
+      icon: "/icons/hair_patch.png",
       details: [
         "Bespoke systems are colour- and texture-matched, then integrated with your natural hair for undetectable coverage.",
         "Maintenance visits teach bonding, cleaning, and styling routines so results stay seamless.",
@@ -208,7 +208,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Advanced Laser Hair Reduction",
       description: "Permanent hair reduction using advanced laser technology",
-      icon: "⚡",
+      icon: "/icons/laser_hair.png",
       details: [
         "US-FDA diode and Nd:YAG lasers precisely target follicles while integrated cooling safeguards melanin-rich skin.",
         "Patch testing, fluence tracking, and dermatologist oversight ensure a standardised, safe workflow.",
@@ -218,7 +218,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Hair Loss Treatment",
       description: "Comprehensive solutions for hair loss and thinning",
-      icon: "💪",
+      icon: "/icons/hair_loss.png",
       details: [
         "Consultations cover history, scalp imaging, blood work, and lifestyle to map out the precise trigger of hair fall.",
         "Dermatologists deploy nutraceuticals, FDA-approved topicals, PRP, or LLLT in phased treatment cycles.",
@@ -228,7 +228,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Low Level Laser Therapy (LLLT)",
       description: "Non-invasive laser therapy for hair growth stimulation",
-      icon: "🔴",
+      icon: "/icons/lllt.png",
       details: [
         "Red-light laser domes invigorate follicles, boost microcirculation, and reduce inflammatory scalp stress.",
         "Used alongside PRP, medical therapy, or after transplants to accelerate recovery and density gains.",
@@ -240,7 +240,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Botox & Fillers",
       description: "Natural-looking facial enhancement and volume restoration",
-      icon: "💉",
+      icon: "/icons/botox.png",
       details: [
         "Expert injectors map facial musculature to soften lines, lift features, and restore youthful volume without overfilling.",
         "Premium, long-lasting products are chosen to ensure results stay natural and expressive.",
@@ -250,7 +250,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Hair Transplant (FUE / DHI / Sapphire)",
       description: "Advanced hair transplant techniques for natural-looking results",
-      icon: "🌱",
+      icon: "/icons/fue_transplant.png",
       details: [
         "Surgeons choose between FUE, DHI pens, or sapphire blades depending on donor density and hairstyle goals.",
         "Implantation respects natural growth angles and density so results look seamless even up close.",
@@ -260,7 +260,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Eyebrow & Beard Transplant",
       description: "Specialized transplant procedures for eyebrows and beard",
-      icon: "👨",
+      icon: "/icons/eyebrow_beard.png",
       details: [
         "Design consultations map desired brow arches or beard lines before micro-grafts are created.",
         "Ultra-fine instruments place follicles at precise angles, duplicating natural direction and density.",
@@ -270,7 +270,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Rhinoplasty (Nose Surgery)",
       description: "Cosmetic and functional nose reshaping surgery",
-      icon: "👃",
+      icon: "/icons/rhinoplasty.png",
       details: [
         "Board-certified plastic surgeons balance aesthetics and breathing, refining the bridge, tip, and septum as needed.",
         "Pre-surgical simulations help align expectations, while meticulous techniques protect nasal structure.",
@@ -280,7 +280,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Lip Augmentation",
       description: "Natural-looking lip enhancement and volume restoration",
-      icon: "💋",
+      icon: "/icons/lip_augmentation.png",
       details: [
         "Hyaluronic fillers define the cupid’s bow, add moisture, and balance asymmetry with minimal downtime.",
         "Micro-cannula techniques reduce bruising and keep results even across the lips.",
@@ -290,7 +290,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Brazilian Butt Lift",
       description: "Body contouring procedure for enhanced curves",
-      icon: "🍑",
+      icon: "/icons/bbl.png",
       details: [
         "Liposuction sculpts donor areas and gathers healthy fat, which is purified and transferred to sculpt the hips and buttocks.",
         "Safety protocols maintain graft viability and minimise risks, matching global best practices.",
@@ -300,7 +300,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Cosmetic Gynecology",
       description: "Specialized cosmetic procedures in gynecology",
-      icon: "🌸",
+      icon: "/icons/gynecology.png",
       details: [
         "Procedures include vaginal tightening, labiaplasty, and rejuvenation to improve comfort and aesthetics.",
         "Performed by women’s health specialists who maintain strict privacy and compassionate care.",
@@ -310,7 +310,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Scar Revision & Management",
       description: "Advanced techniques for scar reduction and management",
-      icon: "✂️",
+      icon: "/icons/scar_revision.png",
       details: [
         "Surgeons combine excision, punch grafting, fillers, and lasers to smooth surgical or traumatic scars.",
         "Treatment unfolds in phases so the skin can remodel safely and blend with surrounding tissue.",
@@ -320,7 +320,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Breast Surgery",
       description: "Comprehensive breast enhancement and reconstruction procedures",
-      icon: "💎",
+      icon: "/icons/breast_surgery.png",
       details: [
         "Procedures cover augmentation, reduction, lifts, and reconstruction using the latest surgical techniques.",
         "Consultations explore implant choices, fat grafting, and symmetry planning to match your body goals.",
@@ -330,7 +330,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Gynecomastia Correction",
       description: "Male breast reduction surgery",
-      icon: "👔",
+      icon: "/icons/gynecomastia.png",
       details: [
         "A day-care procedure combines liposuction and gland excision to create a flatter, contoured chest.",
         "Compression garments, posture guidance, and exercise advice help maintain the new shape.",
@@ -342,7 +342,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Full Body Laser Hair Removal",
       description: "Complete body laser hair removal treatment",
-      icon: "⚡",
+      icon: "/icons/fullbody_laser.png",
       details: [
         "US-FDA diode platforms glide across large zones quickly, while sapphire cooling plates keep the skin comfortable.",
         "Clients follow a safety checklist—shaving prep, sunscreen, and soothing gels—that mirrors top dermatology protocols.",
@@ -352,7 +352,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Face, Underarms & Bikini Laser",
       description: "Targeted laser hair removal for face, underarms, and bikini area",
-      icon: "✨",
+      icon: "/icons/targeted_laser.png",
       details: [
         "Precision tips and low fluence settings are used on delicate zones to avoid irritation while clearing hair.",
         "Dermatologist oversight minimises the risk of pigmentation changes and ensures the finish is ultra-smooth.",
@@ -364,7 +364,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "After Party",
       description: "Keep the night. Lose the hangover.",
-      icon: "🍹",
+      icon: "/icons/afterparty.png",
       details: [
         "This doctor-designed drip works fast—rehydrating, restoring, and bringing you back to life.",
         "A powerful blend of electrolytes, vitamins, and antioxidants fights fatigue, fuels recovery, and gets you glowing.",
@@ -376,7 +376,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Ageless",
       description: "Age is just a number. Let's keep it that way.",
-      icon: "⏳",
+      icon: "/icons/ageless.png",
       details: [
         "This doctor-designed drip fuels longevity—restoring lost NAD+, boosting cellular repair, and keeping you sharp.",
         "A next-level blend of antioxidants, vitamins, and deep hydration fights fatigue, smooths skin, and powers up your body's defense against aging.",
@@ -388,7 +388,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Shine",
       description: "Glow from within. Shine without limits.",
-      icon: "✨",
+      icon: "/icons/shine.png",
       details: [
         "This doctor-backed formula is your skin's ultimate reset—hydrating, brightening, and fighting oxidative stress.",
         "Packed with Glutathione, Vitamin C, and potent antioxidants, it clears dullness, evens out skin tone, and brings back that effortless radiance.",
@@ -400,7 +400,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Immunity",
       description: "Immunity on demand.",
-      icon: "🛡️",
+      icon: "/icons/immunity.png",
       details: [
         "A precision-crafted blend of high-dose vitamins, minerals, and antioxidants to keep your immune system primed.",
         "Whether you're bouncing back from illness or staying ahead of the game, this drip is your ultimate health armor.",
@@ -412,7 +412,7 @@ export const serviceCategories: ServiceCategoryMap = {
     {
       title: "Hair Fall",
       description: "Nourish your hair from within for stronger, healthier growth.",
-      icon: "💆",
+      icon: "/icons/hairfall_drip.png",
       details: [
         "Targeted IV therapy delivers essential vitamins and minerals directly to your bloodstream to combat hair loss.",
         "Biotin, B-complex vitamins, and antioxidants strengthen follicles and promote healthy hair growth.",

@@ -33,7 +33,9 @@ export default function IVDripsPage() {
                         {ivDrips.map((drip, index) => (
                             <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-shadow">
                                 <CardHeader>
-                                    <div className="text-5xl mb-4">{drip.icon}</div>
+                                    <div className="mb-4">
+                                        <img src={drip.icon} alt={drip.title} className="w-16 h-16 object-contain" />
+                                    </div>
                                     <CardTitle className="text-2xl text-primary">{drip.title}</CardTitle>
                                     <p className="text-gray-600 mt-2">{drip.description}</p>
                                 </CardHeader>
@@ -44,7 +46,7 @@ export default function IVDripsPage() {
                                                 {detail}
                                             </p>
                                         ))}
-                                        <Link href="/appointment">
+                                        <Link href={`/appointment?category=ivdrips&service=${encodeURIComponent(drip.title)}`}>
                                             <Button className="w-full mt-4 bg-primary hover:bg-primary/90">
                                                 Schedule Now
                                             </Button>

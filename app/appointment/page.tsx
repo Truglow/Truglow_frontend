@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, type ChangeEvent } from "react"
+import { useState, useEffect, Suspense, type ChangeEvent } from "react"
+import { useSearchParams } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -22,7 +23,8 @@ type AppointmentFormData = {
   message: string
 }
 
-export default function AppointmentPage() {
+// Appointment Form Component
+function AppointmentForm() {
   const [formData, setFormData] = useState<AppointmentFormData>({
     name: "",
     email: "",
@@ -35,6 +37,24 @@ export default function AppointmentPage() {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // Router for URL parameters
+  const searchParams = useSearchParams()
+
+  // Auto-fill form from URL parameters
+  useEffect(() => {
+    const category = searchParams.get("category") as ServiceCategoryKey | null
+    const service = searchParams.get("service")
+
+    if (category && service) {
+      console.log('Auto-filling form with:', { category, service })
+      setFormData((prev) => ({
+        ...prev,
+        serviceCategory: category,
+        service: service,
+      }))
+    }
+  }, [searchParams])
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target
@@ -51,6 +71,8 @@ export default function AppointmentPage() {
 
   const validateCoreFields = () => {
     const { name, email, phone, serviceCategory, service, date, time } = formData
+
+    // Check all required fields are filled
     if (
       !name.trim() ||
       !email.trim() ||
@@ -63,16 +85,46 @@ export default function AppointmentPage() {
       alert("Please fill in all required fields before booking (everything except Additional Notes).")
       return false
     }
-    const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.trim())
+
+    // Validate name (letters and spaces only, minimum 2 characters)
+    const namePattern = /^[a-zA-Z\s]{2,}$/
+    if (!namePattern.test(name.trim())) {
+      alert("Please enter a valid name (letters and spaces only, minimum 2 characters).")
+      return false
+    }
+
+    // Validate email
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
     if (!emailOk) {
       alert("Please enter a valid email address.")
       return false
     }
+
+    // Validate phone (exactly 10 digits)
     const digits = phone.replace(/[^0-9]/g, "")
-    if (digits.length < 10) {
-      alert("Please enter a valid phone number (at least 10 digits).")
+    if (digits.length !== 10) {
+      alert("Please enter a valid 10-digit phone number.")
       return false
     }
+
+    // Validate date (not in the past, not more than 3 months in future)
+    const selectedDate = new Date(date)
+    const today = new Date()
+    today.setHours(0, 0, 0, 0) // Reset time to start of day
+
+    if (selectedDate < today) {
+      alert("Please select a date that is today or in the future.")
+      return false
+    }
+
+    const threeMonthsFromNow = new Date()
+    threeMonthsFromNow.setMonth(threeMonthsFromNow.getMonth() + 3)
+
+    if (selectedDate > threeMonthsFromNow) {
+      alert("Please select a date within the next 3 months.")
+      return false
+    }
+
     return true
   }
 
@@ -197,6 +249,7 @@ export default function AppointmentPage() {
                     <div className="space-y-2">
                       <Label htmlFor="serviceCategory">Service Category</Label>
                       <Select
+                        key={`category-${formData.serviceCategory}`}
                         value={formData.serviceCategory}
                         onValueChange={handleCategoryChange}
                         aria-required="true"
@@ -218,6 +271,7 @@ export default function AppointmentPage() {
                     <div className="space-y-2">
                       <Label htmlFor="service">Procedure</Label>
                       <Select
+                        key={`service-${formData.service}`}
                         value={formData.service}
                         onValueChange={handleServiceChange}
                         disabled={!formData.serviceCategory || isSubmitting}
@@ -353,5 +407,14 @@ export default function AppointmentPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+// Wrap in Suspense for useSearchParams
+export default function AppointmentPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <AppointmentForm />
+    </Suspense>
   )
 }

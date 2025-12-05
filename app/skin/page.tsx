@@ -33,7 +33,9 @@ export default function SkinPage() {
                         {skinServices.map((service, index) => (
                             <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-shadow">
                                 <CardHeader>
-                                    <div className="text-5xl mb-4">{service.icon}</div>
+                                    <div className="mb-4">
+                                        <img src={service.icon} alt={service.title} className="w-16 h-16 object-contain" />
+                                    </div>
                                     <CardTitle className="text-2xl text-primary">{service.title}</CardTitle>
                                     <p className="text-gray-600 mt-2">{service.description}</p>
                                 </CardHeader>
@@ -45,8 +47,13 @@ export default function SkinPage() {
                                             </p>
                                         ))}
                                         <Link href="/procedure?tab=skin">
-                                            <Button className="w-full mt-4 bg-primary hover:bg-primary/90">
+                                            <Button variant="outline" className="w-full mt-4">
                                                 Learn More
+                                            </Button>
+                                        </Link>
+                                        <Link href={`/appointment?category=skin&service=${encodeURIComponent(service.title)}`}>
+                                            <Button className="w-full mt-2 bg-primary hover:bg-primary/90">
+                                                Schedule Now
                                             </Button>
                                         </Link>
                                     </div>
