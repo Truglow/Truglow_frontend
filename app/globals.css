@@ -4,40 +4,59 @@
 
 @layer base {
   :root {
-    --background: 42 40% 92%;           /* Beige */
-    --foreground: 30 40% 26%;           /* Premium Brown */
+    --background: 42 40% 92%;
+    /* Beige */
+    --foreground: 30 40% 26%;
+    /* Premium Brown */
 
-    --card: 42 40% 92%;                 /* Beige */
-    --card-foreground: 30 40% 26%;      /* Brown */
+    --card: 42 40% 92%;
+    /* Beige */
+    --card-foreground: 30 40% 26%;
+    /* Brown */
 
-    --popover: 42 40% 92%;              /* Beige */
-    --popover-foreground: 30 40% 26%;   /* Brown */
+    --popover: 42 40% 92%;
+    /* Beige */
+    --popover-foreground: 30 40% 26%;
+    /* Brown */
 
-    --primary: 30 60% 35%;              /* Rich Brown */
-    --primary-foreground: 42 40% 96%;   /* Lighter Beige */
+    --primary: 30 60% 35%;
+    /* Rich Brown */
+    --primary-foreground: 42 40% 96%;
+    /* Lighter Beige */
 
-    --secondary: 42 40% 98%;            /* Pale Beige */
-    --secondary-foreground: 30 40% 26%; /* Brown */
+    --secondary: 42 40% 98%;
+    /* Pale Beige */
+    --secondary-foreground: 30 40% 26%;
+    /* Brown */
 
-    --muted: 42 25% 90%;                /* Muted Beige */
-    --muted-foreground: 30 30% 50%;     /* Lighter Brown */
+    --muted: 42 25% 90%;
+    /* Muted Beige */
+    --muted-foreground: 30 30% 50%;
+    /* Lighter Brown */
 
-    --accent: 30 60% 35%;               /* Brown Accent */
-    --accent-foreground: 42 40% 98%;    /* Beige */
+    --accent: 30 60% 35%;
+    /* Brown Accent */
+    --accent-foreground: 42 40% 98%;
+    /* Beige */
 
     --destructive: 2 80% 58%;
     --destructive-foreground: 42 40% 98%;
 
-    --border: 30 28% 80%;               /* Soft Brown Border */
-    --input: 30 28% 90%;                /* Light Brown Input */
-    --ring: 30 60% 35%;                 /* Brown */
+    --border: 30 28% 80%;
+    /* Soft Brown Border */
+    --input: 30 28% 90%;
+    /* Light Brown Input */
+    --ring: 30 60% 35%;
+    /* Brown */
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 30 40% 10%;           /* Deep Brown */
-    --foreground: 42 40% 90%;           /* Light Beige */
+    --background: 30 40% 10%;
+    /* Deep Brown */
+    --foreground: 42 40% 90%;
+    /* Light Beige */
 
     --card: 30 40% 10%;
     --card-foreground: 42 40% 90%;
@@ -70,10 +89,12 @@
   * {
     @apply border-border;
   }
+
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
   }
+
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
@@ -86,6 +107,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -101,6 +123,7 @@
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -111,10 +134,27 @@
   animation: slideUp 0.6s ease-out forwards;
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.4s ease-out forwards;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -125,6 +165,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -136,6 +177,7 @@
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -147,6 +189,7 @@
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -158,6 +201,7 @@
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -169,6 +213,7 @@
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -176,9 +221,12 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -218,6 +266,7 @@
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

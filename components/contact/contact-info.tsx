@@ -16,8 +16,12 @@ export default function ContactInfo() {
           <Phone className="h-5 w-5 text-amber-600 mr-3 mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium text-gray-900">Phone</h3>
-            <p className="text-gray-600">+91 7799127273</p>
-            <p className="text-gray-600">+91 7036127273</p>
+            <a href="tel:+917799127273" className="text-amber-600 font-medium hover:text-amber-700 transition-colors underline decoration-amber-600/30 hover:decoration-amber-700 block">
+              +91 7799127273
+            </a>
+            <a href="tel:+917036127273" className="text-amber-600 font-medium hover:text-amber-700 transition-colors underline decoration-amber-600/30 hover:decoration-amber-700 block">
+              +91 7036127273
+            </a>
           </div>
         </div>
         <div className="flex items-start">

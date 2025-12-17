@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://truglowclinic.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 0
+
+# Disallow admin or private paths if any
+# Disallow: /admin/
