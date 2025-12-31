@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useMemo, Suspense } from "react"
+import Image from "next/image"
 import { useSearchParams } from "next/navigation"
 import { CheckCircle2, Star } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -110,7 +111,7 @@ function ProcedureContent() {
       {
         title: "Anti-Ageing Treatments",
         description: "Advanced treatments to reduce fine lines, wrinkles, and restore youthful skin",
-        icon: "/icons/antiaging.png",
+        icon: "/icons/antiaging.webp",
         details: createServiceDetails(
           ["HIFU (High-Intensity Focused Ultrasound)", "Radiofrequency Skin Tightening", "Botox Injections", "Dermal Fillers", "Chemical Peels", "Microneedling with PRP"],
           [
@@ -149,7 +150,7 @@ function ProcedureContent() {
       {
         title: "Acne & Scar Treatment",
         description: "Comprehensive solutions for acne and scar reduction",
-        icon: "/icons/acne.png",
+        icon: "/icons/acne.webp",
         details: createServiceDetails(
           ["Prescription Medications", "Chemical Peels", "LED Light Therapy", "Subcision", "Microneedling RF", "Fractional Laser Resurfacing"],
           [
@@ -187,7 +188,7 @@ function ProcedureContent() {
       {
         title: "Pigmentation Correction",
         description: "Treatment for uneven skin tone and dark spots",
-        icon: "/icons/pigmentation.png",
+        icon: "/icons/pigmentation.webp",
         details: createServiceDetails(
           ["Q-Switched Laser Toning", "Pico Laser", "Chemical Peels", "Topical Depigmenting Agents", "PRP/GFC"],
           [
@@ -226,7 +227,7 @@ function ProcedureContent() {
       {
         title: "Skin Rejuvenation",
         description: "Revitalizing treatments for brighter, more radiant skin",
-        icon: "/icons/rejuvenation.png",
+        icon: "/icons/rejuvenation.webp",
         details: createServiceDetails(
           ["Hydrafacial", "Chemical Peels", "PRP/GFC", "Vitamin C Infusion", "LED Therapy"],
           ["Skin analysis", "Consultation", "Treatment plan"],
@@ -241,7 +242,7 @@ function ProcedureContent() {
       {
         title: "Laser Scar Reduction",
         description: "Advanced laser treatments for scar reduction",
-        icon: "/icons/laser_scar.png",
+        icon: "/icons/laser_scar.webp",
         details: createServiceDetails(
           ["Fractional CO2 Laser", "Erbium Laser", "Subcision", "Microneedling RF"],
           ["Scar assessment", "Skin type evaluation", "Treatment planning"],
@@ -256,7 +257,7 @@ function ProcedureContent() {
       {
         title: "Skin Lifting & Tightening",
         description: "Non-surgical skin tightening and lifting treatments",
-        icon: "/icons/lifting.png",
+        icon: "/icons/lifting.webp",
         details: createServiceDetails(
           ["HIFU", "Radiofrequency", "Thread Lifts"],
           ["Skin laxity assessment", "Consultation"],
@@ -271,7 +272,7 @@ function ProcedureContent() {
       {
         title: "Hyperpigmentation Solutions",
         description: "Specialized treatments for hyperpigmentation issues",
-        icon: "/icons/hyperpigmentation.png",
+        icon: "/icons/hyperpigmentation.webp",
         details: createServiceDetails(
           ["Chemical Peels", "Laser Toning", "Topical Agents"],
           ["Pigmentation analysis", "Consultation"],
@@ -286,7 +287,7 @@ function ProcedureContent() {
       {
         title: "Dull Skin Revitalisation",
         description: "Treatments to restore glow and vitality to dull skin",
-        icon: "/icons/revitalisation.png",
+        icon: "/icons/revitalisation.webp",
         details: createServiceDetails(
           ["Medifacials", "Vitamin C Infusion", "Chemical Peels"],
           ["Skin analysis", "Consultation"],
@@ -301,7 +302,7 @@ function ProcedureContent() {
       {
         title: "Laser Tanning Removal",
         description: "Effective laser treatments to remove tan and even out skin tone",
-        icon: "/icons/tanning.png",
+        icon: "/icons/tanning.webp",
         details: createServiceDetails(
           ["Q-Switched Laser", "Pico Laser"],
           ["Tan assessment", "Consultation"],
@@ -316,7 +317,7 @@ function ProcedureContent() {
       {
         title: "Hydrafacial",
         description: "Deep cleansing and hydrating facial treatment",
-        icon: "/icons/hydrafacial.png",
+        icon: "/icons/hydrafacial.webp",
         details: createServiceDetails(
           ["Hydrafacial MD"],
           ["Skin analysis", "Consultation"],
@@ -331,7 +332,7 @@ function ProcedureContent() {
       {
         title: "Vampire Facial",
         description: "PRP-based facial for skin rejuvenation",
-        icon: "/icons/vampire_facial.png",
+        icon: "/icons/vampire_facial.webp",
         details: createServiceDetails(
           ["PRP Microneedling"],
           ["Blood draw", "PRP preparation"],
@@ -346,7 +347,7 @@ function ProcedureContent() {
       {
         title: "Korean Facial",
         description: "Multi-step Korean skincare facial treatment",
-        icon: "/icons/korean_facial.png",
+        icon: "/icons/korean_facial.webp",
         details: createServiceDetails(
           ["K-Beauty Protocol"],
           ["Skin analysis", "Consultation"],
@@ -361,7 +362,7 @@ function ProcedureContent() {
       {
         title: "Medifacial",
         description: "Medical-grade facial with active ingredients",
-        icon: "/icons/medifacial.png",
+        icon: "/icons/medifacial.webp",
         details: createServiceDetails(
           ["Clinical Facials"],
           ["Skin analysis", "Consultation"],
@@ -378,7 +379,7 @@ function ProcedureContent() {
       {
         title: "Hair Loss Treatment",
         description: "Comprehensive solutions for hair loss and thinning",
-        icon: "/icons/hair_loss.png",
+        icon: "/icons/hair_loss.webp",
         details: createServiceDetails(
           ["PRP Therapy", "Minoxidil", "Finasteride", "LLLT", "Nutraceuticals", "Topical Solutions"],
           [
@@ -421,7 +422,7 @@ function ProcedureContent() {
       {
         title: "PRP Therapy for Hair Growth",
         description: "Platelet-rich plasma therapy to stimulate natural hair growth",
-        icon: "/icons/prp_hair.png",
+        icon: "/icons/prp_hair.webp",
         details: createServiceDetails(
           ["PRP Injections", "Microneedling with PRP"],
           [
@@ -458,7 +459,7 @@ function ProcedureContent() {
       {
         title: "Hair Regrowth & Transplantation",
         description: "Comprehensive hair regrowth and transplant solutions",
-        icon: "/icons/hair_transplant.png",
+        icon: "/icons/hair_transplant.webp",
         details: createServiceDetails(
           ["FUE Hair Transplant", "DHI Hair Transplant", "Sapphire FUE", "PRP Boosters"],
           [
@@ -497,7 +498,7 @@ function ProcedureContent() {
       {
         title: "Exosome Therapy",
         description: "Advanced exosome therapy for hair restoration",
-        icon: "/icons/exosome.png",
+        icon: "/icons/exosome.webp",
         details: createServiceDetails(
           ["Exosome Injections"],
           ["Consultation", "Scalp analysis"],
@@ -512,7 +513,7 @@ function ProcedureContent() {
       {
         title: "Anti-Dandruff Treatments",
         description: "Effective solutions for dandruff and scalp conditions",
-        icon: "/icons/dandruff.png",
+        icon: "/icons/dandruff.webp",
         details: createServiceDetails(
           ["Medicated Shampoos", "Scalp Peels", "Antifungal Treatments"],
           ["Scalp examination", "Consultation"],
@@ -527,7 +528,7 @@ function ProcedureContent() {
       {
         title: "Alopecia & Psoriasis Care",
         description: "Specialized care for alopecia and psoriasis conditions",
-        icon: "/icons/alopecia.png",
+        icon: "/icons/alopecia.webp",
         details: createServiceDetails(
           ["Immunomodulators", "Phototherapy", "Topical Treatments"],
           ["Diagnosis", "Consultation"],
@@ -542,7 +543,7 @@ function ProcedureContent() {
       {
         title: "Hair Patch Integration",
         description: "Custom hair patch solutions for natural-looking coverage",
-        icon: "/icons/hair_patch.png",
+        icon: "/icons/hair_patch.webp",
         details: createServiceDetails(
           ["Custom Hair Systems"],
           ["Consultation", "Color matching"],
@@ -557,7 +558,7 @@ function ProcedureContent() {
       {
         title: "Advanced Laser Hair Reduction",
         description: "Permanent hair reduction using advanced laser technology",
-        icon: "/icons/laser_hair.png",
+        icon: "/icons/laser_hair.webp",
         details: createServiceDetails(
           ["Diode Laser", "Nd:YAG Laser"],
           ["Patch test", "Consultation"],
@@ -572,7 +573,7 @@ function ProcedureContent() {
       {
         title: "Low Level Laser Therapy (LLLT)",
         description: "Non-invasive laser therapy for hair growth stimulation",
-        icon: "/icons/lllt.png",
+        icon: "/icons/lllt.webp",
         details: createServiceDetails(
           ["LLLT Caps", "In-Clinic LLLT"],
           ["Consultation", "Scalp analysis"],
@@ -589,7 +590,7 @@ function ProcedureContent() {
       {
         title: "Full Body Laser Hair Removal",
         description: "Complete body laser hair removal treatment",
-        icon: "/icons/fullbody_laser.png",
+        icon: "/icons/fullbody_laser.webp",
         details: createServiceDetails(
           ["Diode Laser", "Nd:YAG Laser", "Alexandrite Laser"],
           [
@@ -628,7 +629,7 @@ function ProcedureContent() {
       {
         title: "Face, Underarms & Bikini Laser",
         description: "Targeted laser hair removal for face, underarms, and bikini area",
-        icon: "/icons/targeted_laser.png",
+        icon: "/icons/targeted_laser.webp",
         details: createServiceDetails(
           ["Precision Laser Treatment"],
           [
@@ -665,7 +666,7 @@ function ProcedureContent() {
       {
         title: "After Party",
         description: "Keep the night. Lose the hangover.",
-        icon: "/icons/afterparty.png",
+        icon: "/icons/afterparty.webp",
         details: createServiceDetails(
           ["Hydration Base", "Vitamin B Complex", "Vitamin B-12", "Vitamin C", "Glutathione", "Electrolytes"],
           ["Consultation", "Vital signs check", "Medical history review"],
@@ -680,7 +681,7 @@ function ProcedureContent() {
       {
         title: "Ageless",
         description: "Age is just a number. Let's keep it that way.",
-        icon: "/icons/ageless.png",
+        icon: "/icons/ageless.webp",
         details: createServiceDetails(
           ["NAD+", "Electrolytes", "COQ10", "Vitamin B Complex"],
           ["Consultation", "Vital signs check"],
@@ -695,7 +696,7 @@ function ProcedureContent() {
       {
         title: "Shine",
         description: "Glow from within. Shine without limits.",
-        icon: "/icons/shine.png",
+        icon: "/icons/shine.webp",
         details: createServiceDetails(
           ["High dose Glutathione", "Vitamin C", "Biotin", "Vitamin B12", "Zinc"],
           ["Consultation", "Skin assessment"],
@@ -710,7 +711,7 @@ function ProcedureContent() {
       {
         title: "Immunity",
         description: "Immunity on demand.",
-        icon: "/icons/immunity.png",
+        icon: "/icons/immunity.webp",
         details: createServiceDetails(
           ["High dose Vitamin C", "Zinc", "Glutathione", "NAC", "Vitamin D3"],
           ["Consultation", "Health check"],
@@ -725,7 +726,7 @@ function ProcedureContent() {
       {
         title: "Hair Fall",
         description: "Nourish your hair from within.",
-        icon: "/icons/hairfall_drip.png",
+        icon: "/icons/hairfall_drip.webp",
         details: createServiceDetails(
           ["Biotin", "Vitamin B Complex", "Vitamin B12", "Zinc", "Vitamin C"],
           ["Consultation", "Scalp assessment"],
@@ -742,7 +743,7 @@ function ProcedureContent() {
       {
         title: "Botox & Fillers",
         description: "Natural-looking facial enhancement and volume restoration",
-        icon: "/icons/botox.png",
+        icon: "/icons/botox.webp",
         details: createServiceDetails(
           ["Botox Injections", "Dermal Fillers", "Lip Fillers", "Cheek Fillers"],
           [
@@ -780,7 +781,7 @@ function ProcedureContent() {
       {
         title: "Hair Transplant (FUE / DHI / Sapphire)",
         description: "Advanced hair transplant techniques for natural-looking results",
-        icon: "/icons/fue_transplant.png",
+        icon: "/icons/fue_transplant.webp",
         details: createServiceDetails(
           ["FUE Technique", "DHI Technique", "Sapphire FUE"],
           [
@@ -819,7 +820,7 @@ function ProcedureContent() {
       {
         title: "Eyebrow & Beard Transplant",
         description: "Specialized transplant procedures for eyebrows and beard",
-        icon: "/icons/eyebrow_beard.png",
+        icon: "/icons/eyebrow_beard.webp",
         details: createServiceDetails(
           ["FUE for Facial Hair"],
           ["Design consultation", "Graft planning"],
@@ -834,7 +835,7 @@ function ProcedureContent() {
       {
         title: "Rhinoplasty (Nose Surgery)",
         description: "Cosmetic and functional nose reshaping surgery",
-        icon: "/icons/rhinoplasty.png",
+        icon: "/icons/rhinoplasty.webp",
         details: createServiceDetails(
           ["Open Rhinoplasty", "Closed Rhinoplasty"],
           ["Consultation", "3D simulation", "Pre-op tests"],
@@ -849,7 +850,7 @@ function ProcedureContent() {
       {
         title: "Lip Augmentation",
         description: "Natural-looking lip enhancement and volume restoration",
-        icon: "/icons/lip_augmentation.png",
+        icon: "/icons/lip_augmentation.webp",
         details: createServiceDetails(
           ["Hyaluronic Fillers"],
           ["Consultation", "Design"],
@@ -864,7 +865,7 @@ function ProcedureContent() {
       {
         title: "Brazilian Butt Lift",
         description: "Body contouring procedure for enhanced curves",
-        icon: "/icons/bbl.png",
+        icon: "/icons/bbl.webp",
         details: createServiceDetails(
           ["Fat Transfer"],
           ["Consultation", "Body analysis"],
@@ -879,7 +880,7 @@ function ProcedureContent() {
       {
         title: "Cosmetic Gynecology",
         description: "Specialized cosmetic procedures in gynecology",
-        icon: "/icons/gynecology.png",
+        icon: "/icons/gynecology.webp",
         details: createServiceDetails(
           ["Vaginal Rejuvenation", "Labiaplasty"],
           ["Private consultation", "Assessment"],
@@ -894,7 +895,7 @@ function ProcedureContent() {
       {
         title: "Scar Revision & Management",
         description: "Advanced techniques for scar reduction and management",
-        icon: "/icons/scar_revision.png",
+        icon: "/icons/scar_revision.webp",
         details: createServiceDetails(
           ["Surgical Revision", "Laser Treatment", "Fillers"],
           ["Scar assessment", "Consultation"],
@@ -909,7 +910,7 @@ function ProcedureContent() {
       {
         title: "Breast Surgery",
         description: "Comprehensive breast enhancement and reconstruction procedures",
-        icon: "/icons/breast_surgery.png",
+        icon: "/icons/breast_surgery.webp",
         details: createServiceDetails(
           ["Augmentation", "Reduction", "Lift"],
           ["Consultation", "Implant selection", "Planning"],
@@ -924,7 +925,7 @@ function ProcedureContent() {
       {
         title: "Gynecomastia Correction",
         description: "Male breast reduction surgery",
-        icon: "/icons/gynecomastia.png",
+        icon: "/icons/gynecomastia.webp",
         details: createServiceDetails(
           ["Liposuction", "Gland Excision"],
           ["Consultation", "Assessment"],
@@ -944,8 +945,16 @@ function ProcedureContent() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <div className="relative bg-amber-900 text-white">
-        <div className="absolute inset-0 bg-[url('/procedure-hero-bg.png')] bg-cover bg-center opacity-30"></div>
+      <div className="relative bg-amber-900 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <Image
+            src="/procedure-hero-bg.webp"
+            alt="Procedure Hero"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
         {/* Dark overlay for better text visibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/30 via-amber-900/20 to-amber-900/30"></div>
         <div className="container mx-auto px-4 py-20 relative z-10 text-center">
@@ -1015,8 +1024,13 @@ function ProcedureContent() {
                     onClick={() => setOpenService(service)}
                     className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left"
                   >
-                    <div className="mb-4">
-                      <img src={service.icon} alt={service.title} className="w-16 h-16 object-contain" />
+                    <div className="mb-4 relative w-16 h-16">
+                      <Image
+                        src={service.icon}
+                        alt={service.title}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                     <p className="text-gray-600">{service.description}</p>
@@ -1033,8 +1047,13 @@ function ProcedureContent() {
                     onClick={() => setOpenService(service)}
                     className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left"
                   >
-                    <div className="mb-4">
-                      <img src={service.icon} alt={service.title} className="w-16 h-16 object-contain" />
+                    <div className="mb-4 relative w-16 h-16">
+                      <Image
+                        src={service.icon}
+                        alt={service.title}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                     <p className="text-gray-600">{service.description}</p>
@@ -1051,8 +1070,13 @@ function ProcedureContent() {
                     onClick={() => setOpenService(service)}
                     className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left"
                   >
-                    <div className="mb-4">
-                      <img src={service.icon} alt={service.title} className="w-16 h-16 object-contain" />
+                    <div className="mb-4 relative w-16 h-16">
+                      <Image
+                        src={service.icon}
+                        alt={service.title}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                     <p className="text-gray-600">{service.description}</p>
@@ -1069,8 +1093,13 @@ function ProcedureContent() {
                     onClick={() => setOpenService(service)}
                     className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left"
                   >
-                    <div className="mb-4">
-                      <img src={service.icon} alt={service.title} className="w-16 h-16 object-contain" />
+                    <div className="mb-4 relative w-16 h-16">
+                      <Image
+                        src={service.icon}
+                        alt={service.title}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                     <p className="text-gray-600">{service.description}</p>
@@ -1087,8 +1116,13 @@ function ProcedureContent() {
                     onClick={() => setOpenService(service)}
                     className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left"
                   >
-                    <div className="mb-4">
-                      <img src={service.icon} alt={service.title} className="w-16 h-16 object-contain" />
+                    <div className="mb-4 relative w-16 h-16">
+                      <Image
+                        src={service.icon}
+                        alt={service.title}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                     <p className="text-gray-600">{service.description}</p>
@@ -1108,7 +1142,14 @@ function ProcedureContent() {
               <DialogHeader>
                 <DialogTitle className="text-3xl font-bold flex items-center gap-2">
                   {openService.icon.startsWith('/') ? (
-                    <img src={openService.icon} alt={openService.title} className="w-12 h-12 object-contain" />
+                    <div className="w-12 h-12 relative flex-shrink-0">
+                      <Image
+                        src={openService.icon}
+                        alt={openService.title}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   ) : (
                     <span className="text-4xl">{openService.icon}</span>
                   )}
@@ -1256,8 +1297,15 @@ export default function ProcedurePage() {
   return (
     <Suspense fallback={
       <div className="flex flex-col min-h-screen">
-        <div className="relative bg-amber-900 text-white">
-          <div className="absolute inset-0 bg-[url('/procedure-hero-bg.png')] bg-cover bg-center opacity-30"></div>
+        <div className="relative bg-amber-900 text-white overflow-hidden">
+          <div className="absolute inset-0 opacity-30">
+            <Image
+              src="/procedure-hero-bg.webp"
+              alt="Procedure Hero"
+              fill
+              className="object-cover"
+            />
+          </div>
           {/* Dark overlay for better text visibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-amber-900/30 via-amber-900/20 to-amber-900/30"></div>
           <div className="container mx-auto px-4 py-20 relative z-10 text-center">

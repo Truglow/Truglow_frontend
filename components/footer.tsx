@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react"
 import { useState, useEffect } from "react"
 import TermsModal from "@/components/terms-modal"
@@ -21,8 +22,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
-            <div className="mb-6">
-              <img src="/Asset_logo.svg" alt="Tru Glow Logo" className="h-14 w-auto" />
+            <div className="mb-6 relative h-14 w-40">
+              <Image
+                src="/Asset_logo.svg"
+                alt="Tru Glow Logo"
+                fill
+                className="object-contain"
+              />
             </div>
             <p className="text-gray-300 mb-4">
               Tru Glow is a premier dermatology, aesthetics, and plastic surgery clinic offering advanced treatments in hair, skin, laser, and cosmetic procedures with state-of-the-art technology and experienced specialists.
@@ -235,7 +241,14 @@ export default function Footer() {
       <div className="bg-amber-800 py-4">
         <div className="container mx-auto px-4 text-center text-gray-200">
           <div className="flex items-center justify-center mb-3">
-            <img src="/Asset_logo.svg" alt="Tru Glow Logo" className="h-10 w-auto opacity-80" />
+            <div className="relative h-10 w-32 opacity-80">
+              <Image
+                src="/Asset_logo.svg"
+                alt="Tru Glow Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
           <p>© {year} All Rights Reserved.</p>
         </div>

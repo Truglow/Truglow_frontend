@@ -1,7 +1,17 @@
+import Image from "next/image"
+
 export default function ContactHero() {
   return (
-    <div className="relative bg-amber-900 text-white">
-      <div className="absolute inset-0 bg-[url('/contact-hero-bg.png')] bg-cover bg-center opacity-30"></div>
+    <div className="relative bg-amber-900 text-white overflow-hidden">
+      <div className="absolute inset-0 opacity-30">
+        <Image
+          src="/contact-hero-bg.webp"
+          alt="Contact Tru Glow Clinic"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
       {/* Dark overlay for better text visibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-amber-900/30 via-amber-900/20 to-amber-900/30"></div>
       <div className="container mx-auto px-4 py-20 relative z-10 text-center">

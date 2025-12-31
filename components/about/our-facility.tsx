@@ -3,6 +3,7 @@
 import { CheckCircle } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { AnimatedItem } from "@/components/animated-item"
+import Image from "next/image"
 
 export default function OurFacility() {
   const features = [
@@ -32,18 +33,24 @@ export default function OurFacility() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="grid grid-cols-2 gap-4">
               <AnimatedItem delay={0} direction="up">
-                <img
-                  src="/real-photos/2.png"
-                  alt="TruGlow Treatment"
-                  className="rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105 h-96 w-full object-contain bg-gray-50"
-                />
+                <div className="relative h-96 w-full rounded-lg shadow-md overflow-hidden transform transition-transform duration-500 hover:scale-[1.02] bg-gray-50">
+                  <Image
+                    src="/real-photos/2.webp"
+                    alt="TruGlow Treatment"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </AnimatedItem>
               <AnimatedItem delay={100} direction="up">
-                <img
-                  src="/real-photos/4.png"
-                  alt="TruGlow Procedure"
-                  className="rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105 h-96 w-full object-contain bg-gray-50"
-                />
+                <div className="relative h-96 w-full rounded-lg shadow-md overflow-hidden transform transition-transform duration-500 hover:scale-[1.02] bg-gray-50">
+                  <Image
+                    src="/real-photos/4.webp"
+                    alt="TruGlow Procedure"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </AnimatedItem>
             </div>
 

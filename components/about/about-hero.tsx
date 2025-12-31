@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 export default function AboutHero() {
@@ -7,7 +8,15 @@ export default function AboutHero() {
 
   return (
     <div className="relative bg-amber-900 text-white overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/about-hero-improved.png')] bg-cover bg-center opacity-30 animate-fade-in"></div>
+      <div className="absolute inset-0 opacity-30 animate-fade-in">
+        <Image
+          src="/about-hero-improved.webp"
+          alt="About Tru Glow Clinic"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
       {/* Dark overlay for better text visibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-amber-900/60 via-amber-900/40 to-amber-900/60"></div>
       <div className="container mx-auto px-4 py-20 relative z-10 text-center">

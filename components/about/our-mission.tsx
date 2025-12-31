@@ -2,6 +2,7 @@
 
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { AnimatedItem } from "@/components/animated-item"
+import Image from "next/image"
 
 export default function OurMission() {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollReveal()
@@ -33,21 +34,30 @@ export default function OurMission() {
           <AnimatedItem delay={200} direction="right">
             <div className="h-full flex items-center">
               <div className="grid grid-cols-2 gap-4 w-full">
-                <img
-                  src="/real-photos/20.png"
-                  alt="Tru Glow Branding"
-                  className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105 w-full h-full max-h-[450px] object-cover"
-                />
-                <img
-                  src="/real-photos/21.png"
-                  alt="Tru Glow Clinic"
-                  className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105 w-full h-full max-h-[450px] object-cover"
-                />
-                <img
-                  src="/real-photos/9.png"
-                  alt="Patient Consultation"
-                  className="rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-105 w-full h-auto max-h-[450px] object-cover col-span-2"
-                />
+                <div className="relative w-full h-[200px] md:h-[300px] overflow-hidden rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-[1.05]">
+                  <Image
+                    src="/real-photos/20.webp"
+                    alt="Tru Glow Branding"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative w-full h-[200px] md:h-[300px] overflow-hidden rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-[1.05]">
+                  <Image
+                    src="/real-photos/21.webp"
+                    alt="Tru Glow Clinic"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative w-full h-[300px] md:h-[450px] overflow-hidden rounded-lg shadow-xl transform transition-transform duration-500 hover:scale-[1.05] col-span-2">
+                  <Image
+                    src="/real-photos/9.webp"
+                    alt="Patient Consultation"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
           </AnimatedItem>

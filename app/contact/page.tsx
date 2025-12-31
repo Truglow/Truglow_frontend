@@ -1,7 +1,13 @@
+import type { Metadata } from "next"
 import ContactHero from "@/components/contact/contact-hero"
 import ContactForm from "@/components/contact/contact-form"
 import ContactInfo from "@/components/contact/contact-info"
 import ContactMap from "@/components/contact/contact-map"
+
+export const metadata: Metadata = {
+  title: "Contact Tru Glow Clinic | Best Dermatologist in Manikonda, Hyderabad",
+  description: "Get in touch with Tru Glow Clinic in Manikonda, Hyderabad. Book consultations for hair transplant, skin treatments, and cosmetic surgery. Reach us at +91 7799127273.",
+}
 
 export default function ContactPage() {
   return (

@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Quote } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { AnimatedItem } from "@/components/animated-item"
+import Image from "next/image"
 
 export default function Testimonials() {
   const testimonials = [
@@ -12,21 +13,21 @@ export default function Testimonials() {
       location: "Vizag",
       quote:
         "The team at TruGlow completely transformed my appearance. The results exceeded my expectations, and the care I received was exceptional.",
-      image: "/shiva-testimonial.jpg",
+      image: "/shiva-testimonial.webp",
     },
     {
       name: "Ramana Chowdary",
       location: "Hyderabad",
       quote:
         "After trying various treatments with no success, TruGlow's approach finally gave me the results I was looking for. I couldn't be happier!",
-      image: "/ramana-chowdary-testimonial.jpg",
+      image: "/ramana-chowdary-testimonial.webp",
     },
     {
       name: "Medha",
       location: "Hyderabad",
       quote:
         "The procedure was virtually painless, and the recovery was quick. Six months later, I have a full head of hair that looks completely natural.",
-      image: "/meedha-testimonial.jpg",
+      image: "/meedha-testimonial.webp",
     },
   ]
 
@@ -53,10 +54,11 @@ export default function Testimonials() {
                   <div className="flex items-center mt-auto">
                     {testimonial.image ? (
                       <div className="relative w-12 h-12 mr-4 rounded-full overflow-hidden border-2 border-amber-100">
-                        <img
+                        <Image
                           src={testimonial.image}
                           alt={testimonial.name}
-                          className="w-full h-full object-cover object-top"
+                          fill
+                          className="object-cover object-top"
                         />
                       </div>
                     ) : (

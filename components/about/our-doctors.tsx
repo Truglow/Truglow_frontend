@@ -7,7 +7,7 @@ export default function OurDoctors() {
     const doctors = [
         {
             name: "Dr. Pranay Reddy",
-            image: "/doctor-pranay.jpg",
+            image: "/doctor-pranay.webp",
             qualifications: "MBBS, MD (Dermatology, Venereology and Leprosy)",
             specialization: "Dermatologist & Hair Transplant Surgeon",
             experience: "Specialized Training from K S Hegde Medical Academy, Mangalore",
@@ -27,7 +27,7 @@ export default function OurDoctors() {
         },
         {
             name: "Dr. Vijay Bhattipolu",
-            image: "/doctor-vijay.jpg",
+            image: "/doctor-vijay.webp",
             qualifications: "MBBS, DNB (General Surgery), MCh (Plastic & Cosmetic Surgery)",
             specialization: "Plastic & Cosmetic Surgeon",
             experience: "Fellowship in Aesthetic Surgery (Vienna, Austria)",

@@ -1,19 +1,20 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-import { useState, useEffect } from "react"
+import Image from "next/image"
 
 export default function Hero() {
   const { ref, isVisible } = useScrollReveal()
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const slides = [
-    "/hero-slide-1.png",
-    "/hero-slide-2.png",
-    "/hero-slide-3.png",
-    "/hero-slide-4.png",
+    "/hero-slide-1.webp",
+    "/hero-slide-2.webp",
+    "/hero-slide-3.webp",
+    "/hero-slide-4.webp",
   ]
 
   // Auto-scroll carousel every 5 seconds
@@ -30,10 +31,12 @@ export default function Hero() {
       {/* Background Images Carousel */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
-          <img
+          <Image
             key={slide}
             src={slide}
             alt={`Tru Glow Clinic ${index + 1}`}
+            fill
+            priority={index === 0}
             className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
           />

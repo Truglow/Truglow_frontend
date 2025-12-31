@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Mail, Facebook, Instagram, Youtube, Menu, X, ChevronDown } from "lucide-react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
@@ -96,7 +97,15 @@ export default function Header() {
 
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center group">
-            <img src="/Asset_logo_2.svg" alt="Tru Glow Logo" className="h-16 w-auto object-contain mr-4 transition-transform duration-300 group-hover:scale-105" />
+            <div className="relative h-16 w-48 transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/Asset_logo_2.svg"
+                alt="Tru Glow Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

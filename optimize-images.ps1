@@ -1,33 +1,10 @@
 # Image optimization script for converting PNG to WebP
 # This will significantly reduce file sizes while maintaining quality
 
-$publicDir = "public"
-$quality = 85
-
-# List of large images to convert
-$imagesToConvert = @(
-    "hero-slide-1.png",
-    "hero-slide-2.png",
-    "hero-slide-3.png",
-    "hero-slide-4.png",
-    "skin-hero.png",
-    "hair-hero.png",
-    "plastic-hero.png",
-    "laser-hero.png",
-    "ivdrips-hero.png",
-    "gallery-hero-bg.png",
-    "procedure-hero-bg.png",
-    "contact-hero-bg.png",
-    "clinic-reception.png",
-    "clinic-waiting-area.png",
-    "clinic-treatment-room.png",
-    "clinic-equipment.png"
-)
-
 Write-Host "Installing sharp for image conversion..." -ForegroundColor Cyan
 npm install --save-dev sharp
 
-Write-Host "`nStarting image conversion to WebP format..." -ForegroundColor Green
+Write-Host "`nStarting recursive image conversion to WebP format..." -ForegroundColor Green
 
 $convertScript = @"
 const sharp = require('sharp');
@@ -35,42 +12,36 @@ const fs = require('fs');
 const path = require('path');
 
 const publicDir = 'public';
-const quality = 85;
+const quality = 80;
 
-const images = [
-    'hero-slide-1.png',
-    'hero-slide-2.png',
-    'hero-slide-3.png',
-    'hero-slide-4.png',
-    'skin-hero.png',
-    'hair-hero.png',
-    'plastic-hero.png',
-    'laser-hero.png',
-    'ivdrips-hero.png',
-    'gallery-hero-bg.png',
-    'procedure-hero-bg.png',
-    'contact-hero-bg.png',
-    'clinic-reception.png',
-    'clinic-waiting-area.png',
-    'clinic-treatment-room.png',
-    'clinic-equipment.png'
-];
+function getAllFiles(dirPath, arrayOfFiles) {
+  const files = fs.readdirSync(dirPath);
+  arrayOfFiles = arrayOfFiles || [];
 
-async function convertImage(filename) {
-    const inputPath = path.join(publicDir, filename);
-    const outputPath = path.join(publicDir, filename.replace('.png', '.webp'));
-    
-    if (!fs.existsSync(inputPath)) {
-        console.log(\`⚠️  Skipping \${filename} - file not found\`);
-        return;
+  files.forEach(function(file) {
+    if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+      arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
+    } else {
+      const ext = file.toLowerCase();
+      if (ext.endsWith('.png') || ext.endsWith('.jpg') || ext.endsWith('.jpeg')) {
+        arrayOfFiles.push(path.join(dirPath, "/", file));
+      }
     }
+  });
+
+  return arrayOfFiles;
+}
+
+async function convertImage(inputPath) {
+    const outputPath = inputPath.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+    const filename = path.basename(inputPath);
     
     try {
         const inputStats = fs.statSync(inputPath);
         const inputSizeMB = (inputStats.size / 1024 / 1024).toFixed(2);
         
         await sharp(inputPath)
-            .webp({ quality: quality })
+            .webp({ quality: quality, effort: 6 })
             .toFile(outputPath);
         
         const outputStats = fs.statSync(outputPath);
@@ -84,7 +55,8 @@ async function convertImage(filename) {
 }
 
 async function convertAll() {
-    console.log('Converting images to WebP format...\n');
+    const images = getAllFiles(publicDir);
+    console.log(\`Found \${images.length} PNG images to convert.\n\`);
     
     for (const image of images) {
         await convertImage(image);

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import Image from "next/image"
 
 const services = {
   skin: [
@@ -128,11 +129,14 @@ export default function Services() {
         <div className="w-full max-w-6xl mx-auto relative">
           {/* Category Title */}
           <div className="flex items-center justify-center gap-3 mb-8">
-            <img
-              src={`/icons/${currentCategory}.png`}
-              alt={categoryLabels[currentCategory].replace(/^[^\w]+/, '').trim()}
-              className="w-8 h-8 md:w-10 md:h-10 object-contain"
-            />
+            <div className="relative w-8 h-8 md:w-10 md:h-10">
+              <Image
+                src={`/icons/${currentCategory}.webp`}
+                alt={categoryLabels[currentCategory].replace(/^[^\w]+/, '').trim()}
+                fill
+                className="object-contain"
+              />
+            </div>
             <h3 className="text-2xl md:text-3xl font-bold text-amber-600 transition-all duration-500">
               {categoryLabels[currentCategory].replace(/^[^\w]+/, '').trim()}
             </h3>
