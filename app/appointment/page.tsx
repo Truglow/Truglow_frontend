@@ -655,7 +655,9 @@ function AppointmentForm() {
                       </svg>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                        <p className="text-gray-600">truglowcs@gmail.com</p>
+                        <a href="mailto:truglowcs@gmail.com" className="text-primary font-medium hover:text-primary/80 transition-colors underline decoration-primary/30 hover:decoration-primary">
+                          <p>truglowcs@gmail.com</p>
+                        </a>
                       </div>
                     </div>
 

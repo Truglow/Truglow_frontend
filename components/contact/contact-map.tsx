@@ -6,8 +6,8 @@ export default function ContactMap() {
   const [activeBranch, setActiveBranch] = useState<"manikonda" | "hitec">("manikonda")
 
   const maps = {
-    manikonda: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30452.123456789!2d78.370626!3d17.3962244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb954fadc49b9b%3A0xb0e529fb031d12e1!2sTruglow%20Skin%20%26%20Hair%20Clinic!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
-    hitec: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.275811352467!2d78.36830587516805!3d17.446876683451558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e36e6378e9%3A0x1c8b3554e2c0b40e!2sSMR%20Vinay%20Technopolis!5e0!3m2!1sen!2sin!4v1718440000000!5m2!1sen!2sin"
+    manikonda: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.3240360793543!2d78.36797127368949!3d17.396230302553267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb954fadc49b9b%3A0xb0e529fb031d12e1!2sTruglow%20Skin%20%26%20Hair%20Clinic!5e0!3m2!1sen!2sin!4v1782744971283!5m2!1sen!2sin",
+    hitec: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3806.022520063684!2d78.3693782!3d17.4586362!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6ab263b5bafaafd%3A0xdcbeac3c20ba7b84!2sTruglow%20Skin%20%26%20Hair%20Clinic!5e0!3m2!1sen!2sin!4v1782746836829!5m2!1sen!2sin"
   }
 
   return (
@@ -46,7 +46,6 @@ export default function ContactMap() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
         ></iframe>
       </div>
     </div>

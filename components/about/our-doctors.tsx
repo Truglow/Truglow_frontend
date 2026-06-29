@@ -6,26 +6,6 @@ import { Card, CardContent } from "@/components/ui/card"
 export default function OurDoctors() {
     const doctors = [
         {
-            name: "Dr. Pranay Reddy",
-            image: "/doctor-pranay.webp",
-            qualifications: "MBBS, MD (Dermatology, Venereology and Leprosy)",
-            specialization: "Dermatologist & Hair Transplant Surgeon",
-            experience: "Specialized Training from K S Hegde Medical Academy, Mangalore",
-            expertise: [
-                "Advanced Hair Restoration & PRP Treatments",
-                "Skin Biopsy & Electrocautery Procedures",
-                "Radiofrequency & Laser Treatments",
-                "Pattern Hair Loss & Facial Hypermelanosis",
-                "Clinical Dermatology & Patient Care"
-            ],
-            description: "Dr. Pranay Reddy is a highly skilled dermatologist with exceptional clinical knowledge and expertise in advanced dermatological procedures. Fluent in English, Telugu, Hindi, and Kannada, he is committed to providing optimal patient care through continuous professional development and staying updated with recent advances in dermatology.",
-            contact: {
-                phone: "8886040003",
-                email: "pranayreddygujjula66@gmail.com",
-                location: "Warangal, Telangana"
-            }
-        },
-        {
             name: "Dr. Vijay Bhattipolu",
             image: "/doctor-vijay.webp",
             qualifications: "MBBS, DNB (General Surgery), MCh (Plastic & Cosmetic Surgery)",
@@ -60,6 +40,26 @@ export default function OurDoctors() {
                 "Skin Disease Diagnosis & Management"
             ],
             description: "Dr. Vyshali Reddy is a dedicated consultant dermatologist with expertise in both clinical and aesthetic dermatology. With her MD DVL qualification, she brings comprehensive knowledge of skin health, offering personalized treatment plans that address a wide range of dermatological concerns with precision and care."
+        },
+        {
+            name: "Dr. Pranay Reddy",
+            image: "/doctor-pranay.webp",
+            qualifications: "MBBS, MD (Dermatology, Venereology and Leprosy)",
+            specialization: "Dermatologist & Hair Transplant Surgeon",
+            experience: "Specialized Training from K S Hegde Medical Academy, Mangalore",
+            expertise: [
+                "Advanced Hair Restoration & PRP Treatments",
+                "Skin Biopsy & Electrocautery Procedures",
+                "Radiofrequency & Laser Treatments",
+                "Pattern Hair Loss & Facial Hypermelanosis",
+                "Clinical Dermatology & Patient Care"
+            ],
+            description: "Dr. Pranay Reddy is a highly skilled dermatologist with exceptional clinical knowledge and expertise in advanced dermatological procedures. Fluent in English, Telugu, Hindi, and Kannada, he is committed to providing optimal patient care through continuous professional development and staying updated with recent advances in dermatology.",
+            contact: {
+                phone: "8886040003",
+                email: "pranayreddygujjula66@gmail.com",
+                location: "Warangal, Telangana"
+            }
         },
         {
             name: "Dr. Anusha Vadlapatla",

@@ -48,10 +48,4 @@ export const serviceIconMap: Record<string, LucideIcon> = {
     "Full Body Laser Hair Removal": Zap,
     "Face, Underarms & Bikini Laser": Zap,
 
-    // IV Drips services
-    "After Party": Droplet,
-    "Ageless": Sparkles,
-    "Shine": Sparkles,
-    "Immunity": Cross,
-    "Hair Fall": Leaf,
 }
