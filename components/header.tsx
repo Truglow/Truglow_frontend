@@ -2,18 +2,13 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, Mail, Facebook, Instagram, Youtube, Menu, X, ChevronDown } from "lucide-react"
+import { Phone, Mail, Facebook, Instagram, Youtube, Menu, X } from "lucide-react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { getTodaysService } from "@/lib/rotating-nav"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -38,13 +33,7 @@ export default function Header() {
     { href: "/contact", label: "Contact" },
   ]
 
-  const serviceLinks = [
-    { href: "/skin", label: "Skin" },
-    { href: "/hair", label: "Hair" },
-    { href: "/plastic", label: "Plastic Surgery" },
-    { href: "/laser", label: "Laser" },
-    { href: "/ivdrips", label: "IV Drips" },
-  ]
+
 
   return (
     <header className="w-full bg-amber-50 shadow-sm sticky top-0 z-50">
@@ -110,20 +99,7 @@ export default function Header() {
               {isActive("/about") && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary transition-all duration-300" />}
             </Link>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center font-medium text-gray-800 hover:text-primary transition-all duration-300 hover:scale-105 transform outline-none">
-                {serviceLinks.find(s => s.href === pathname)?.label || "IV Drips"} <ChevronDown className="ml-1 h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white">
-                {serviceLinks.map((service) => (
-                  <DropdownMenuItem key={service.label} asChild>
-                    <Link href={service.href} className="w-full cursor-pointer">
-                      {service.label}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+
 
             <Link
               href="/procedure"
@@ -182,19 +158,7 @@ export default function Header() {
                 About
               </Link>
 
-              <div className="font-medium text-gray-800">Services</div>
-              <div className="pl-4 flex flex-col space-y-2">
-                {serviceLinks.map((service) => (
-                  <Link
-                    key={service.label}
-                    href={service.href}
-                    className="text-sm text-gray-600 hover:text-primary transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {service.label}
-                  </Link>
-                ))}
-              </div>
+
 
               <Link
                 href="/procedure"
