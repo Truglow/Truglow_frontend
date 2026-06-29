@@ -226,13 +226,15 @@ export default function Footer() {
               <li className="flex">
                 <Phone className="h-5 w-5 text-white mr-3 flex-shrink-0" />
                 <div className="text-gray-300 text-sm">
-                  <span className="block">+91 7799127273</span>
-                  <span className="block">+91 7036127273</span>
+                  <a href="tel:+917799127273" className="block hover:underline hover:text-white transition-colors">+91 7799127273</a>
+                  <a href="tel:+917036127273" className="block hover:underline hover:text-white transition-colors">+91 7036127273</a>
                 </div>
               </li>
               <li className="flex">
                 <Mail className="h-5 w-5 text-white mr-3 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">truglowcs@gmail.com</span>
+                <a href="mailto:truglowcs@gmail.com" className="text-gray-300 text-sm hover:underline hover:text-white transition-colors">
+                  truglowcs@gmail.com
+                </a>
               </li>
               <li className="flex">
                 <Clock className="h-5 w-5 text-white mr-3 flex-shrink-0" />

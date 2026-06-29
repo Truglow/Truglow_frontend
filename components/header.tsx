@@ -29,28 +29,7 @@ export default function Header() {
     return pathname === path
   }
 
-  const openInNewTab = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer")
-  }
 
-  const handlePhoneClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    const isMobile =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    if (isMobile) {
-      // On mobile, trigger the phone dialer (same tab for better UX)
-      window.location.href = "tel:+917799127273"
-    } else {
-      openInNewTab("https://wa.me/917799127273")
-    }
-  }
-
-  const handleEmailClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    openInNewTab("mailto:truglowcs@gmail.com")
-  }
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -73,11 +52,11 @@ export default function Header() {
         {/* Top bar with contact info and social media */}
         <div className="hidden md:flex justify-between items-center py-2 text-sm text-gray-600 border-b">
           <div className="flex items-center space-x-4">
-            <a href="tel:+917799127273" onClick={handlePhoneClick} className="flex items-center hover:text-primary" target="_blank" rel="noopener noreferrer">
+            <a href="tel:+917799127273" className="flex items-center hover:text-primary">
               <Phone className="h-4 w-4 mr-1" />
               +91 7799127273
             </a>
-            <a href="mailto:truglowcs@gmail.com" onClick={handleEmailClick} className="flex items-center hover:text-primary" target="_blank" rel="noopener noreferrer">
+            <a href="mailto:truglowcs@gmail.com" className="flex items-center hover:text-primary">
               <Mail className="h-4 w-4 mr-1" />
               truglowcs@gmail.com
             </a>

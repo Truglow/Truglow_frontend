@@ -34,7 +34,9 @@ export default function ContactInfo() {
           <Mail className="h-5 w-5 text-amber-600 mr-3 mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium text-gray-900">Email</h3>
-            <p className="text-gray-600">truglowcs@gmail.com</p>
+            <a href="mailto:truglowcs@gmail.com" className="text-amber-600 font-medium hover:text-amber-700 transition-colors underline decoration-amber-600/30 hover:decoration-amber-700 block">
+              truglowcs@gmail.com
+            </a>
           </div>
         </div>
         <div className="flex items-start">
