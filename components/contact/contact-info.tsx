@@ -6,10 +6,16 @@ export default function ContactInfo() {
       <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
       <div className="space-y-4">
         <div className="flex items-start">
-          <MapPin className="h-5 w-5 text-amber-600 mr-3 mt-1 flex-shrink-0" />
-          <div>
-            <h3 className="font-medium text-gray-900">Address</h3>
-            <p className="text-gray-600">Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075</p>
+          <MapPin className="h-5 w-5 text-amber-600 mr-3 mt-1.5 flex-shrink-0" />
+          <div className="space-y-3 w-full">
+            <div>
+              <h4 className="font-semibold text-gray-900 text-sm">Manikonda Branch</h4>
+              <p className="text-gray-600 text-sm">Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075</p>
+            </div>
+            <div className="pt-2 border-t border-gray-100">
+              <h4 className="font-semibold text-gray-900 text-sm">HITEC City Branch</h4>
+              <p className="text-gray-600 text-sm">Tru Glow, 1st floor, SMR Vinay Technopolis, beside Google Office, HITEC City, Hyderabad, Kothaguda, Telangana 500084</p>
+            </div>
           </div>
         </div>
         <div className="flex items-start">

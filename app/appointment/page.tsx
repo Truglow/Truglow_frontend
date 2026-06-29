@@ -16,6 +16,7 @@ type AppointmentFormData = {
   name: string
   email: string
   phone: string
+  branch: string
   serviceCategory: ServiceCategoryKey | ""
   service: string
   date: string
@@ -29,6 +30,7 @@ function AppointmentForm() {
     name: "",
     email: "",
     phone: "",
+    branch: "Manikonda",
     serviceCategory: "",
     service: "",
     date: "",
@@ -127,7 +129,7 @@ function AppointmentForm() {
   }
 
   const validateCoreFields = () => {
-    const { name, email, phone, serviceCategory, service, date, time } = formData
+    const { name, email, phone, branch, serviceCategory, service, date, time } = formData
 
     // Clear previous errors
     setValidationError("")
@@ -137,6 +139,7 @@ function AppointmentForm() {
     if (!name.trim()) errors.name = true
     if (!email.trim()) errors.email = true
     if (!phone.trim()) errors.phone = true
+    if (!branch.trim()) errors.branch = true
     if (!serviceCategory) errors.serviceCategory = true
     if (!service) errors.service = true
     if (!date) errors.date = true
@@ -218,6 +221,7 @@ function AppointmentForm() {
           name: formData.name.trim(),
           email: formData.email.trim(),
           phone: formData.phone.trim(),
+          branch: formData.branch,
           serviceCategory: categoryLabel || formData.serviceCategory,
           service: formData.service,
           date: formData.date,
@@ -236,6 +240,7 @@ function AppointmentForm() {
           name: "",
           email: "",
           phone: "",
+          branch: "Manikonda",
           serviceCategory: "",
           service: "",
           date: "",
@@ -413,6 +418,28 @@ function AppointmentForm() {
                     </div>
                   </div>
 
+                  <div className="space-y-2">
+                    <Label htmlFor="branch" className="text-sm font-semibold text-gray-700 flex items-center space-x-2">
+                      <span className="text-primary">📍</span>
+                      <span>Preferred Branch / Clinic Location</span>
+                      <span className="text-red-500">*</span>
+                    </Label>
+                    <Select
+                      key={`branch-${formData.branch}`}
+                      value={formData.branch}
+                      onValueChange={(value) => setFormData((prev) => ({ ...prev, branch: value }))}
+                      disabled={isSubmitting}
+                    >
+                      <SelectTrigger id="branch" className={getInputClassName('branch', 'transition-all duration-300 border-2 rounded-lg px-4 py-3 bg-white shadow-sm hover:shadow-md focus:ring-4')}>
+                        <SelectValue placeholder="Select a branch" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Manikonda">Manikonda Branch (Alkapur Township)</SelectItem>
+                        <SelectItem value="HITEC City">HITEC City Branch (SMR Vinay Technopolis)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="serviceCategory" className="text-sm font-semibold text-gray-700 flex items-center space-x-2">
@@ -586,15 +613,24 @@ function AppointmentForm() {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <svg className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="h-5 w-5 text-primary mr-3 mt-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                        <p className="text-gray-600">
-                          Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075
-                        </p>
+                      <div className="space-y-3 w-full">
+                        <h3 className="font-semibold text-gray-900 mb-1">Clinic Branches</h3>
+                        <div>
+                          <h4 className="font-semibold text-gray-800 text-sm">Manikonda Branch</h4>
+                          <p className="text-gray-600 text-sm">
+                            Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075
+                          </p>
+                        </div>
+                        <div className="pt-2 border-t border-gray-100">
+                          <h4 className="font-semibold text-gray-800 text-sm">HITEC City Branch</h4>
+                          <p className="text-gray-600 text-sm">
+                            Tru Glow, 1st floor, SMR Vinay Technopolis, beside Google Office, HITEC City, Hyderabad, Kothaguda, Telangana 500084
+                          </p>
+                        </div>
                       </div>
                     </div>
 

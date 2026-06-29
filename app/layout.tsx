@@ -15,7 +15,7 @@ const inter = Inter({
 export const metadata = {
   title: "Tru Glow Hair & Skin Clinic | Best Dermatology, Hair Transplant & Aesthetic Treatments in Hyderabad",
   description: "Tru Glow Clinic offers expert hair transplant (FUE/DHI), advanced skin treatments, laser hair removal, plastic surgery, and IV drip therapy in Hyderabad. Book your consultation today!",
-  keywords: "Tru Glow, hair clinic Hyderabad, skin clinic, dermatology, hair transplant FUE, DHI hair transplant, laser hair removal, plastic surgery, IV drip therapy, botox fillers, anti-aging treatments, acne treatment, PRP therapy",
+  keywords: "Tru Glow Clinic, TruGlow, best skin clinic Hyderabad, best hair clinic Hyderabad, dermatologist Hyderabad, hair transplant Hyderabad, FUE hair transplant, DHI hair transplant, sapphire hair transplant, laser hair removal Hyderabad, plastic surgery Hyderabad, cosmetic surgery Hyderabad, IV drip therapy Hyderabad, PRP therapy Hyderabad, botox Hyderabad, fillers Hyderabad, anti-aging treatment Hyderabad, acne treatment Hyderabad, skin clinic Manikonda, skin clinic HITEC City, hair clinic Manikonda, hair clinic HITEC City, dermatologist Manikonda, dermatologist HITEC City, Dr Pranay Reddy dermatologist, Dr Vijay Bhattipolu plastic surgeon, Dr Vyshali Reddy dermatologist, Dr Anusha Vadlapatla maxillofacial surgeon, hair loss treatment Hyderabad, hair fall treatment, skin rejuvenation, medifacial Hyderabad, chemical peel Hyderabad, rhinoplasty Hyderabad, tummy tuck Hyderabad, body contouring Hyderabad, best dermatology clinic Telangana, advanced skin care Hyderabad, hair restoration Hyderabad",
   authors: [{ name: "Tru Glow Clinic" }],
   creator: "Tru Glow Clinic",
   publisher: "Tru Glow Clinic",

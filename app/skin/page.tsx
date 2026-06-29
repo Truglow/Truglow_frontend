@@ -8,6 +8,7 @@ import Image from "next/image"
 export const metadata: Metadata = {
     title: "Advanced Skin Treatments & Dermatology | Tru Glow Clinic Hyderabad",
     description: "Expert skin treatments at Tru Glow Clinic. Medifacials, acne scar reduction, pigmentation correction, anti-aging, and skin rejuvenation in Hyderabad.",
+    keywords: "skin treatment Hyderabad, dermatologist Hyderabad, medifacial Hyderabad, acne treatment Hyderabad, acne scar treatment, pigmentation treatment Hyderabad, chemical peel Hyderabad, skin whitening treatment, skin rejuvenation Hyderabad, anti-aging treatment Hyderabad, dark spots removal, melasma treatment Hyderabad, skin glow treatment, hydrafacial Hyderabad, microdermabrasion Hyderabad, best skin clinic Manikonda, best skin clinic HITEC City",
 }
 
 export default function SkinPage() {
@@ -44,7 +45,7 @@ export default function SkinPage() {
                 <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {skinServices.map((service, index) => (
-                            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 transform">
+                            <Card key={index} className="flex flex-col h-full border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 transform">
                                 <CardHeader>
                                     <div className="mb-4 relative w-16 h-16">
                                         <Image
@@ -57,7 +58,7 @@ export default function SkinPage() {
                                     <CardTitle className="text-2xl text-primary">{service.title}</CardTitle>
                                     <p className="text-gray-600 mt-2">{service.description}</p>
                                 </CardHeader>
-                                <CardContent className="flex flex-col h-full">
+                                <CardContent className="flex flex-col flex-grow">
                                     <div className="space-y-4 flex-grow">
                                         {service.details.slice(0, 2).map((detail, idx) => (
                                             <p key={idx} className="text-sm text-gray-700">
@@ -65,17 +66,17 @@ export default function SkinPage() {
                                             </p>
                                         ))}
                                     </div>
-                                    <div className="mt-8 space-y-3">
-                                        <Link href="/procedure?tab=skin">
-                                            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/5 transition-colors">
+                                    <div className="mt-8 flex flex-col space-y-3">
+                                        <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary/5 transition-colors">
+                                            <Link href="/procedure?tab=skin">
                                                 Learn More
-                                            </Button>
-                                        </Link>
-                                        <Link href={`/appointment?category=skin&service=${encodeURIComponent(service.title)}`}>
-                                            <Button className="w-full bg-primary hover:bg-primary/90 text-white shadow-md hover:shadow-lg transition-all">
+                                            </Link>
+                                        </Button>
+                                        <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white shadow-md hover:shadow-lg transition-all">
+                                            <Link href={`/appointment?category=skin&service=${encodeURIComponent(service.title)}`}>
                                                 Schedule Now
-                                            </Button>
-                                        </Link>
+                                            </Link>
+                                        </Button>
                                     </div>
                                 </CardContent>
                             </Card>

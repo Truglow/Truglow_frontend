@@ -8,6 +8,7 @@ import Image from "next/image"
 export const metadata: Metadata = {
     title: "Premium IV Drip Therapy & Vitamin Infusion | Tru Glow Clinic Hyderabad",
     description: "Boost your energy and wellness with IV Drip Therapy at Tru Glow Clinic. Customized vitamin infusions for immunity, skin glow, and recovery in Hyderabad.",
+    keywords: "IV drip therapy Hyderabad, vitamin infusion Hyderabad, IV therapy Hyderabad, NAD+ drip Hyderabad, glutathione drip Hyderabad, immunity booster IV, skin glow drip, hangover recovery drip, energy boost IV therapy, wellness drip Hyderabad, detox IV drip, anti-aging IV therapy, vitamin C drip Hyderabad, best IV drip clinic Hyderabad, IV infusion Manikonda, IV infusion HITEC City",
 }
 
 export default function IVDripsPage() {
@@ -44,7 +45,7 @@ export default function IVDripsPage() {
                 <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {ivDrips.map((drip, index) => (
-                            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 transform">
+                            <Card key={index} className="flex flex-col h-full border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 transform">
                                 <CardHeader>
                                     <div className="mb-4 relative w-16 h-16">
                                         <Image
@@ -57,7 +58,7 @@ export default function IVDripsPage() {
                                     <CardTitle className="text-2xl text-primary">{drip.title}</CardTitle>
                                     <p className="text-gray-600 mt-2">{drip.description}</p>
                                 </CardHeader>
-                                <CardContent className="flex flex-col h-full">
+                                <CardContent className="flex flex-col flex-grow">
                                     <div className="space-y-4 flex-grow">
                                         {drip.details.map((detail, idx) => (
                                             <p key={idx} className="text-sm text-gray-700">

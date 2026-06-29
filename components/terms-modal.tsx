@@ -107,9 +107,12 @@ export default function TermsModal({ open, onOpenChange }: TermsModalProps) {
 
           <div className="mt-8 pt-8 border-t border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
-            <div className="space-y-2 text-gray-700">
+            <div className="space-y-4 text-gray-700">
               <p><strong>Tru Glow</strong></p>
-              <p>Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075</p>
+              <div className="space-y-2">
+                <p><strong>Manikonda Branch:</strong> Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075</p>
+                <p><strong>HITEC City Branch:</strong> Tru Glow, 1st floor, SMR Vinay Technopolis, beside Google Office, HITEC City, Hyderabad, Kothaguda, Telangana 500084</p>
+              </div>
               <p><strong>Email:</strong> <a href="mailto:truglowcs@gmail.com" className="text-amber-600 hover:text-amber-700">truglowcs@gmail.com</a></p>
               <p><strong>Phone:</strong> <a href="tel:+917799127273" className="text-amber-600 hover:text-amber-700">+91 7799127273</a>, <a href="tel:+917036127273" className="text-amber-600 hover:text-amber-700">+91 7036127273</a></p>
             </div>

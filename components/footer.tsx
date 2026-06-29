@@ -11,6 +11,12 @@ export default function Footer() {
   const [year, setYear] = useState(2024)
   const [isTermsOpen, setIsTermsOpen] = useState(false)
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false)
+  const [activeFooterMap, setActiveFooterMap] = useState<"manikonda" | "hitec">("manikonda")
+
+  const footerMaps = {
+    manikonda: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30452.123456789!2d78.370626!3d17.3962244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb954fadc49b9b%3A0xb0e529fb031d12e1!2sTruglow%20Skin%20%26%20Hair%20Clinic!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
+    hitec: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.275811352467!2d78.36830587516805!3d17.446876683451558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e36e6378e9%3A0x1c8b3554e2c0b40e!2sSMR%20Vinay%20Technopolis!5e0!3m2!1sen!2sin!4v1718440000000!5m2!1sen!2sin"
+  }
 
   useEffect(() => {
     setYear(new Date().getFullYear())
@@ -201,31 +207,68 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Contact Us</h3>
             <ul className="space-y-4 mb-6">
-              <li className="flex">
-                <MapPin className="h-6 w-6 text-white mr-3 flex-shrink-0" />
-                <span className="text-gray-300">Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075</span>
+              <li className="flex flex-col space-y-3">
+                <div className="flex items-start">
+                  <MapPin className="h-5 w-5 text-white mr-3 mt-1 flex-shrink-0" />
+                  <div className="text-gray-300 text-sm">
+                    <span className="font-semibold text-white block">Manikonda Branch:</span>
+                    <span>Tru Glow, Alkapur Township, Manikonda, Hyderabad, Telangana 500075</span>
+                  </div>
+                </div>
+                <div className="flex items-start pt-2.5 border-t border-amber-800/40">
+                  <MapPin className="h-5 w-5 text-white mr-3 mt-1 flex-shrink-0" />
+                  <div className="text-gray-300 text-sm">
+                    <span className="font-semibold text-white block">HITEC City Branch:</span>
+                    <span>Tru Glow, 1st floor, SMR Vinay Technopolis, beside Google Office, HITEC City, Hyderabad, Kothaguda, Telangana 500084</span>
+                  </div>
+                </div>
               </li>
               <li className="flex">
-                <Phone className="h-6 w-6 text-white mr-3 flex-shrink-0" />
-                <div className="text-gray-300">
+                <Phone className="h-5 w-5 text-white mr-3 flex-shrink-0" />
+                <div className="text-gray-300 text-sm">
                   <span className="block">+91 7799127273</span>
                   <span className="block">+91 7036127273</span>
                 </div>
               </li>
               <li className="flex">
-                <Mail className="h-6 w-6 text-white mr-3 flex-shrink-0" />
-                <span className="text-gray-300">truglowcs@gmail.com</span>
+                <Mail className="h-5 w-5 text-white mr-3 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">truglowcs@gmail.com</span>
               </li>
               <li className="flex">
-                <Clock className="h-6 w-6 text-white mr-3 flex-shrink-0" />
-                <span className="text-gray-300">Everyday: 10:00 AM - 8:00 PM</span>
+                <Clock className="h-5 w-5 text-white mr-3 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">Everyday: 10:00 AM - 8:00 PM</span>
               </li>
             </ul>
+            <div className="flex space-x-2 mb-3 bg-amber-950/40 p-1 rounded-md border border-amber-800/30">
+              <button
+                type="button"
+                onClick={() => setActiveFooterMap("manikonda")}
+                className={`flex-1 text-center py-1 text-xs font-medium rounded transition-all duration-200 ${
+                  activeFooterMap === "manikonda"
+                    ? "bg-amber-700 text-white shadow-sm"
+                    : "text-gray-300 hover:text-white hover:bg-amber-900/30"
+                }`}
+              >
+                Manikonda Map
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveFooterMap("hitec")}
+                className={`flex-1 text-center py-1 text-xs font-medium rounded transition-all duration-200 ${
+                  activeFooterMap === "hitec"
+                    ? "bg-amber-700 text-white shadow-sm"
+                    : "text-gray-300 hover:text-white hover:bg-amber-900/30"
+                }`}
+              >
+                HITEC City Map
+              </button>
+            </div>
             <div className="h-48 bg-gray-800 rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30452.123456789!2d78.370626!3d17.3962244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb954fadc49b9b%3A0xb0e529fb031d12e1!2sTruglow%20Skin%20%26%20Hair%20Clinic!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
-                width="100%"
+                src={footerMaps[activeFooterMap]}
+             
                 height="100%"
+                width="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"

@@ -4,7 +4,7 @@ import { google } from "googleapis"
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
-        const { name, email, phone, serviceCategory, service, date, time, message } = body
+        const { name, email, phone, branch, serviceCategory, service, date, time, message } = body
 
         // Validate required fields
         if (!name || !email || !phone || !serviceCategory || !service || !date || !time) {
@@ -36,6 +36,7 @@ export async function POST(request: NextRequest) {
 
         // Prepare row data
         const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
+        const formattedMessage = branch ? `[Branch: ${branch}] ${message || ""}`.trim() : (message || "-")
         const rowData = [
             timestamp,
             name,
@@ -45,7 +46,7 @@ export async function POST(request: NextRequest) {
             service,
             date,
             time,
-            message || "-",
+            formattedMessage || "-",
         ]
 
         // Append to sheet

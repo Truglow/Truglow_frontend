@@ -45,6 +45,36 @@ export default function OurDoctors() {
                 "MCh Plastic & Cosmetic Surgery (Madras Medical College)",
                 "FAS (Fellowship in Aesthetic Surgery) Vienna, Austria"
             ]
+        },
+        {
+            name: "Dr. Vyshali Reddy",
+            image: "/doctor-vyshali.webp",
+            qualifications: "MD DVL",
+            specialization: "Consultant Dermatologist",
+            experience: "Expert in Clinical & Aesthetic Dermatology",
+            expertise: [
+                "Clinical Dermatology & Skin Care",
+                "Aesthetic Dermatology Treatments",
+                "Laser Skin Procedures",
+                "Anti-Ageing & Rejuvenation Therapies",
+                "Skin Disease Diagnosis & Management"
+            ],
+            description: "Dr. Vyshali Reddy is a dedicated consultant dermatologist with expertise in both clinical and aesthetic dermatology. With her MD DVL qualification, she brings comprehensive knowledge of skin health, offering personalized treatment plans that address a wide range of dermatological concerns with precision and care."
+        },
+        {
+            name: "Dr. Anusha Vadlapatla",
+            image: "/doctor-anusha.webp",
+            qualifications: "MDS (Oral & Maxillofacial Surgery)",
+            specialization: "Maxillofacial Surgeon",
+            experience: "Specialist in Facial Surgery & Reconstruction",
+            expertise: [
+                "Oral & Maxillofacial Surgery",
+                "Facial Trauma & Reconstruction",
+                "Jaw Correction Surgery",
+                "Dental Implant Surgery",
+                "TMJ Disorder Management"
+            ],
+            description: "Dr. Anusha Vadlapatla is a skilled maxillofacial surgeon with an MDS in Oral & Maxillofacial Surgery. She specializes in complex facial surgical procedures, combining clinical precision with a patient-centered approach to deliver outstanding results in facial reconstruction and aesthetic enhancement."
         }
     ]
 
@@ -58,7 +88,7 @@ export default function OurDoctors() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
                     {doctors.map((doctor, index) => (
                         <Card key={index} className="border-none shadow-xl hover:shadow-2xl transition-shadow duration-300">
                             <CardContent className="p-8">
