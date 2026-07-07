@@ -640,11 +640,11 @@ function AppointmentForm() {
                       </svg>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                        <a href="tel:+917799427273" className="text-primary font-medium hover:text-primary/80 transition-colors underline decoration-primary/30 hover:decoration-primary">
+                          <p>+91 7799427273</p>
+                        </a>
                         <a href="tel:+917799127273" className="text-primary font-medium hover:text-primary/80 transition-colors underline decoration-primary/30 hover:decoration-primary">
                           <p>+91 7799127273</p>
-                        </a>
-                        <a href="tel:+917036127273" className="text-primary font-medium hover:text-primary/80 transition-colors underline decoration-primary/30 hover:decoration-primary">
-                          <p>+91 7036127273</p>
                         </a>
                       </div>
                     </div>

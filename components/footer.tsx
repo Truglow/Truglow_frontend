@@ -40,7 +40,7 @@ export default function Footer() {
               Tru Glow is a premier dermatology, aesthetics, and plastic surgery clinic offering advanced treatments in hair, skin, laser, and cosmetic procedures with state-of-the-art technology and experienced specialists.
             </p>
             <div className="flex space-x-4 mt-4">
-              <Link href="https://wa.me/917799127273" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-all duration-300 transform hover:scale-110">
+              <Link href="https://wa.me/917799427273" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-all duration-300 transform hover:scale-110">
                 <div className="bg-green-100 p-2 rounded-full transition-all duration-300 hover:shadow-lg">
                   {/* WhatsApp */}
                   <svg
@@ -226,8 +226,8 @@ export default function Footer() {
               <li className="flex">
                 <Phone className="h-5 w-5 text-white mr-3 flex-shrink-0" />
                 <div className="text-gray-300 text-sm">
+                  <a href="tel:+917799427273" className="block hover:underline hover:text-white transition-colors">+91 7799427273</a>
                   <a href="tel:+917799127273" className="block hover:underline hover:text-white transition-colors">+91 7799127273</a>
-                  <a href="tel:+917036127273" className="block hover:underline hover:text-white transition-colors">+91 7036127273</a>
                 </div>
               </li>
               <li className="flex">

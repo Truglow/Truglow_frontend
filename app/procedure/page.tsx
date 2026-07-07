@@ -881,55 +881,16 @@ function ProcedureContent() {
         {/* Dark overlay for better text visibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/30 via-amber-900/20 to-amber-900/30"></div>
         <div className="container mx-auto px-4 py-20 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Our Procedure</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Our Services</h1>
           <p className="text-xl md:text-2xl text-amber-50 max-w-3xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Experience our streamlined process designed for your comfort and satisfaction
+            Explore our comprehensive range of advanced skin, hair, laser, and plastic surgery treatments
           </p>
         </div>
       </div>
 
-      {/* Procedure Steps */}
-      <section className="py-20 bg-gradient-to-b from-white to-amber-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Number Badge */}
-                <div className="absolute -top-4 -left-4 w-14 h-14 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-2xl">
-                  {step.number}
-                </div>
-
-                {/* Icon */}
-                <div className="text-5xl mb-6 mt-4">{step.icon}</div>
-
-                {/* Content */}
-                <h3 className="text-2xl font-semibold text-gray-900 mb-3">{step.title}</h3>
-                <p className="text-gray-600 text-lg">{step.description}</p>
-
-                {/* Check Icon */}
-                <div className="mt-6 text-amber-600">
-                  <CheckCircle2 className="w-8 h-8" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Additional Info */}
-          <div className="mt-16 text-center">
-            <p className="text-xl text-gray-600 italic">
-              Each step is carefully designed to ensure your comfort and satisfaction throughout the treatment process
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Services Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
           <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
             <TabsList className="bg-white shadow-md p-1 grid w-full grid-cols-2 sm:grid-cols-4 mb-8 gap-1 h-auto">
               <TabsTrigger value="skin" className="text-xs sm:text-sm px-2 py-1.5 sm:px-3 sm:py-2 whitespace-normal sm:whitespace-nowrap data-[state=active]:bg-amber-600 data-[state=active]:text-white transition-all">✨ Skin</TabsTrigger>
@@ -1029,9 +990,46 @@ function ProcedureContent() {
                 ))}
               </div>
             </TabsContent>
-
-
           </Tabs>
+        </div>
+      </section>
+
+      {/* Procedure Steps */}
+      <section className="py-20 bg-gradient-to-b from-amber-50/50 to-amber-100/30 border-t border-amber-900/5">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Our Treatment Process</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                {/* Number Badge */}
+                <div className="absolute -top-4 -left-4 w-14 h-14 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-2xl">
+                  {step.number}
+                </div>
+
+                {/* Icon */}
+                <div className="text-5xl mb-6 mt-4">{step.icon}</div>
+
+                {/* Content */}
+                <h3 className="text-2xl font-semibold text-gray-900 mb-3">{step.title}</h3>
+                <p className="text-gray-600 text-lg">{step.description}</p>
+
+                {/* Check Icon */}
+                <div className="mt-6 text-amber-600">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-16 text-center">
+            <p className="text-xl text-gray-600 italic">
+              Each step is carefully designed to ensure your comfort and satisfaction throughout the treatment process
+            </p>
+          </div>
         </div>
       </section>
 
@@ -1202,7 +1200,7 @@ export default function ProcedurePage() {
           <div className="absolute inset-0 opacity-30">
             <Image
               src="/procedure-hero-bg.webp"
-              alt="Procedure Hero"
+              alt="Services Hero"
               fill
               className="object-cover"
             />
@@ -1210,7 +1208,7 @@ export default function ProcedurePage() {
           {/* Dark overlay for better text visibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-amber-900/30 via-amber-900/20 to-amber-900/30"></div>
           <div className="container mx-auto px-4 py-20 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Our Procedure</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Our Services</h1>
             <p className="text-xl md:text-2xl text-amber-50 max-w-3xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Loading...
             </p>

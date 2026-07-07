@@ -114,7 +114,7 @@ export default function TermsModal({ open, onOpenChange }: TermsModalProps) {
                 <p><strong>HITEC City Branch:</strong> Tru Glow, 1st floor, SMR Vinay Technopolis, beside Google Office, HITEC City, Hyderabad, Kothaguda, Telangana 500084</p>
               </div>
               <p><strong>Email:</strong> <a href="mailto:truglowcs@gmail.com" className="text-amber-600 hover:text-amber-700">truglowcs@gmail.com</a></p>
-              <p><strong>Phone:</strong> <a href="tel:+917799127273" className="text-amber-600 hover:text-amber-700">+91 7799127273</a>, <a href="tel:+917036127273" className="text-amber-600 hover:text-amber-700">+91 7036127273</a></p>
+              <p><strong>Phone:</strong> <a href="tel:+917799427273" className="text-amber-600 hover:text-amber-700">+91 7799427273</a>, <a href="tel:+917799127273" className="text-amber-600 hover:text-amber-700">+91 7799127273</a></p>
             </div>
           </div>
         </div>

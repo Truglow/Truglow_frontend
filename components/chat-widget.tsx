@@ -56,7 +56,7 @@ export default function ChatWidget() {
             // Initial welcome message
             const welcomeMessage: Message = {
                 id: Date.now(),
-                text: "👋 Welcome to Tru Glow! ✨\n\n🌟 Your Journey to Confidence Starts Here • Expert Care, Personalized Results\n\n📱 Call us: +91 7799127273\n\nHow can we help you today?",
+                text: "👋 Welcome to Tru Glow! ✨\n\n🌟 Your Journey to Confidence Starts Here • Expert Care, Personalized Results\n\n📱 Call us: +91 7799427273\n\nHow can we help you today?",
                 isBot: true,
                 timestamp: "Just now"
             }

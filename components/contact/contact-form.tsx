@@ -123,7 +123,7 @@ export default function ContactForm() {
     })
 
     // Direct user to WhatsApp with prefilled message
-    const clinicNumber = "917799127273" // +91 7799127273
+    const clinicNumber = "917799427273" // +91 7799427273
     const text = encodeURIComponent(
       `Hello Tru Glow,\n\nI would like to book a consultation.\n\nName: ${name}\nPhone: ${phone}\nService: ${category}\nProcedure: ${procedure}\nMessage: ${message}`
     )

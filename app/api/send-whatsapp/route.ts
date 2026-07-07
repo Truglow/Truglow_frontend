@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     const recipientNumber =
       (to && to.replace(/[^0-9]/g, "")) ||
       process.env.WHATSAPP_TO?.replace(/[^0-9]/g, "") ||
-      "917799127273" // default to clinic number if not provided
+      "917799427273" // default to clinic number if not provided
 
     const token = process.env.WHATSAPP_TOKEN
     const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID
