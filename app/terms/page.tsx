@@ -1,3 +1,11 @@
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions | Tru Glow Clinic Hyderabad",
+  description: "Read the clinical treatment guidelines, refund policies, package validity terms, and booking conditions at Tru Glow Hair & Skin Clinic.",
+  keywords: "Tru Glow terms, package validity, clinical guidelines, refund policy, clinic regulations Hyderabad",
+}
+
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
