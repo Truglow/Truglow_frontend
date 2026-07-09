@@ -72,7 +72,12 @@ export default function OurDoctors() {
                 "Facial Trauma & Reconstruction",
                 "Jaw Correction Surgery",
                 "Dental Implant Surgery",
-                "TMJ Disorder Management"
+                "TMJ Disorder Management",
+                "Hair Transplant Surgeon",
+                "Botox & Fillers",
+                "Skin Resurfacing Procedures",
+                "Rhinoplasty",
+                "Dermal Fillers"
             ],
             description: "Dr. Anusha Vadlapatla is a skilled maxillofacial surgeon with an MDS in Oral & Maxillofacial Surgery. She specializes in complex facial surgical procedures, combining clinical precision with a patient-centered approach to deliver outstanding results in facial reconstruction and aesthetic enhancement."
         }
