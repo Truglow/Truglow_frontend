@@ -221,7 +221,7 @@ export const serviceCategories: ServiceCategoryMap = {
       icon: "/icons/hair_loss.webp",
       details: [
         "Consultations cover history, scalp imaging, blood work, and lifestyle to map out the precise trigger of hair fall.",
-        "Dermatologists deploy nutraceuticals, FDA-approved topicals, PRP, or LLLT in phased treatment cycles.",
+        "Dermatologists deploy Growth Factor Concentrate (GFC), PRP, Mesotherapy, Dutexosome Therapy, Hair Fall Drops, or LLLT in phased treatment cycles.",
         "Digital scalp imaging during reviews keeps progress transparent and lets the team fine-tune therapy.",
       ],
     },

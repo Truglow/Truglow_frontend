@@ -185,8 +185,8 @@ export const blogPosts: BlogPost[] = [
     categoryLabel: "Skin Care",
     image: "/real-photos/11.webp",
     emoji: "✨",
-    author: "Dr. Vijay Bhattipolu",
-    authorRole: "Consultant Dermatologist",
+    author: "Dr. Vyshali Reddy",
+    authorRole: "Senior Aesthetic Dermatologist",
     date: "June 2024",
     readTime: "7 min read",
     content: [
@@ -250,8 +250,8 @@ export const blogPosts: BlogPost[] = [
     categoryLabel: "Skin Care",
     image: "/real-photos/7.webp",
     emoji: "☀️",
-    author: "Dr. Anusha Vadlapatla",
-    authorRole: "Consultant Dermatologist & Cosmetologist",
+    author: "Dr. Vyshali Reddy",
+    authorRole: "Senior Aesthetic Dermatologist",
     date: "June 2024",
     readTime: "6 min read",
     content: [
@@ -587,8 +587,8 @@ export const blogPosts: BlogPost[] = [
     categoryLabel: "IV Drips",
     image: "/ivdrips-hero.webp",
     emoji: "💧",
-    author: "Dr. Anusha Vadlapatla",
-    authorRole: "Consultant Dermatologist & Cosmetologist",
+    author: "Dr. Vyshali Reddy",
+    authorRole: "Senior Aesthetic Dermatologist",
     date: "June 2024",
     readTime: "5 min read",
     content: [

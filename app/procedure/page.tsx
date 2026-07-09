@@ -380,7 +380,14 @@ function ProcedureContent() {
         description: "Comprehensive solutions for hair loss and thinning",
         icon: "/icons/hair_loss.webp",
         details: createServiceDetails(
-          ["PRP Therapy", "Minoxidil", "Finasteride", "LLLT", "Nutraceuticals", "Topical Solutions"],
+          [
+            "Growth Factor Concentrate (GFC)",
+            "PRP Therapy",
+            "Mesotherapy",
+            "Dutexosome Therapy",
+            "Hair Fall Drops",
+            "LLLT"
+          ],
           [
             "Detailed consultation with trichologist to understand hair loss pattern",
             "Trichoscopy using specialized tool to assess scalp condition and hair quality",

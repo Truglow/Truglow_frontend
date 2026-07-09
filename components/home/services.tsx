@@ -21,7 +21,7 @@ export default function Services() {
               href="/procedure"
               className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-full shadow-md hover:bg-amber-700 transition-all duration-300 hover:scale-110 hover:shadow-xl transform group"
             >
-              See all procedures <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              See All Services <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
         </div>

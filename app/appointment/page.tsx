@@ -667,8 +667,7 @@ function AppointmentForm() {
                       </svg>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-1">Working Hours</h3>
-                        <p className="text-gray-600">Monday - Saturday: 9:00 AM - 7:00 PM</p>
-                        <p className="text-gray-600">Sunday: Closed</p>
+                        <p className="text-gray-600">Monday - Sunday: 9:00 AM - 7:00 PM</p>
                       </div>
                     </div>
                   </div>
