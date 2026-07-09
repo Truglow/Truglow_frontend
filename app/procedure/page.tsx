@@ -2,9 +2,11 @@
 
 import { useState, useMemo, Suspense } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { CheckCircle2, Star } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -909,22 +911,38 @@ function ProcedureContent() {
             <TabsContent value="skin">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {services.skin.map((service, index) => (
-                  <button
+                  <div
                     key={index}
-                    onClick={() => setOpenService(service)}
-                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left"
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left flex flex-col justify-between h-full"
                   >
-                    <div className="mb-4 relative w-16 h-16">
-                      <Image
-                        src={service.icon}
-                        alt={service.title}
-                        fill
-                        className="object-contain"
-                      />
+                    <div>
+                      <div className="mb-4 relative w-16 h-16">
+                        <Image
+                          src={service.icon}
+                          alt={service.title}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                      <p className="text-gray-600 mb-6">{service.description}</p>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-gray-600">{service.description}</p>
-                  </button>
+                    <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+                      <Button
+                        className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 rounded-lg text-sm transition-all duration-300"
+                        asChild
+                      >
+                        <Link href="/appointment">Schedule Now</Link>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="flex-1 border-amber-600 text-amber-600 hover:bg-amber-50 font-semibold py-2.5 rounded-lg text-sm transition-all duration-300"
+                        onClick={() => setOpenService(service)}
+                      >
+                        Learn More
+                      </Button>
+                    </div>
+                  </div>
                 ))}
               </div>
             </TabsContent>
@@ -932,22 +950,38 @@ function ProcedureContent() {
             <TabsContent value="hair">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {services.hair.map((service, index) => (
-                  <button
+                  <div
                     key={index}
-                    onClick={() => setOpenService(service)}
-                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left"
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left flex flex-col justify-between h-full"
                   >
-                    <div className="mb-4 relative w-16 h-16">
-                      <Image
-                        src={service.icon}
-                        alt={service.title}
-                        fill
-                        className="object-contain"
-                      />
+                    <div>
+                      <div className="mb-4 relative w-16 h-16">
+                        <Image
+                          src={service.icon}
+                          alt={service.title}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                      <p className="text-gray-600 mb-6">{service.description}</p>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-gray-600">{service.description}</p>
-                  </button>
+                    <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+                      <Button
+                        className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 rounded-lg text-sm transition-all duration-300"
+                        asChild
+                      >
+                        <Link href="/appointment">Schedule Now</Link>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="flex-1 border-amber-600 text-amber-600 hover:bg-amber-50 font-semibold py-2.5 rounded-lg text-sm transition-all duration-300"
+                        onClick={() => setOpenService(service)}
+                      >
+                        Learn More
+                      </Button>
+                    </div>
+                  </div>
                 ))}
               </div>
             </TabsContent>
@@ -955,22 +989,38 @@ function ProcedureContent() {
             <TabsContent value="plastic">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {services.plastic.map((service, index) => (
-                  <button
+                  <div
                     key={index}
-                    onClick={() => setOpenService(service)}
-                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left"
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left flex flex-col justify-between h-full"
                   >
-                    <div className="mb-4 relative w-16 h-16">
-                      <Image
-                        src={service.icon}
-                        alt={service.title}
-                        fill
-                        className="object-contain"
-                      />
+                    <div>
+                      <div className="mb-4 relative w-16 h-16">
+                        <Image
+                          src={service.icon}
+                          alt={service.title}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                      <p className="text-gray-600 mb-6">{service.description}</p>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-gray-600">{service.description}</p>
-                  </button>
+                    <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+                      <Button
+                        className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 rounded-lg text-sm transition-all duration-300"
+                        asChild
+                      >
+                        <Link href="/appointment">Schedule Now</Link>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="flex-1 border-amber-600 text-amber-600 hover:bg-amber-50 font-semibold py-2.5 rounded-lg text-sm transition-all duration-300"
+                        onClick={() => setOpenService(service)}
+                      >
+                        Learn More
+                      </Button>
+                    </div>
+                  </div>
                 ))}
               </div>
             </TabsContent>
@@ -978,22 +1028,38 @@ function ProcedureContent() {
             <TabsContent value="laser">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {services.laser.map((service, index) => (
-                  <button
+                  <div
                     key={index}
-                    onClick={() => setOpenService(service)}
-                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left"
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 text-left flex flex-col justify-between h-full"
                   >
-                    <div className="mb-4 relative w-16 h-16">
-                      <Image
-                        src={service.icon}
-                        alt={service.title}
-                        fill
-                        className="object-contain"
-                      />
+                    <div>
+                      <div className="mb-4 relative w-16 h-16">
+                        <Image
+                          src={service.icon}
+                          alt={service.title}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                      <p className="text-gray-600 mb-6">{service.description}</p>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-gray-600">{service.description}</p>
-                  </button>
+                    <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+                      <Button
+                        className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 rounded-lg text-sm transition-all duration-300"
+                        asChild
+                      >
+                        <Link href="/appointment">Schedule Now</Link>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="flex-1 border-amber-600 text-amber-600 hover:bg-amber-50 font-semibold py-2.5 rounded-lg text-sm transition-all duration-300"
+                        onClick={() => setOpenService(service)}
+                      >
+                        Learn More
+                      </Button>
+                    </div>
+                  </div>
                 ))}
               </div>
             </TabsContent>
