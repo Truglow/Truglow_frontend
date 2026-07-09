@@ -6,64 +6,12 @@ import Image from "next/image"
 import { Search, ChevronDown, ChevronUp, MessageSquare, Phone, MapPin, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-type FAQItem = {
-  question: string
-  answer: string
-  category: "general" | "skin" | "hair" | "laser"
-}
+import { faqItems, type FAQItem } from "@/lib/faq-data"
 
 export default function FAQPage() {
-  const [activeCategory, setActiveCategory] = useState<"all" | "general" | "skin" | "hair" | "laser">("all")
+  const [activeCategory, setActiveCategory] = useState<"all" | "general" | "skin" | "hair" | "laser" | "transplant" | "iv">("all")
   const [searchQuery, setSearchQuery] = useState("")
   const [openIndex, setOpenIndex] = useState<number | null>(0) // Keep the first FAQ open by default
-
-  const faqItems: FAQItem[] = [
-    {
-      category: "general",
-      question: "How do I schedule an appointment at Tru Glow Clinic?",
-      answer: "You can schedule an appointment easily in three ways: by filling out our online [Appointment Booking Form](/appointment), sending us a direct message on [WhatsApp](https://wa.me/917799427273), or calling us directly at [+91 7799427273](tel:+917799427273) or [+91 7799127273](tel:+917799127273). Our support team will coordinate with you to find a convenient date and time slot.",
-    },
-    {
-      category: "general",
-      question: "Where are your clinics located and what are the working hours?",
-      answer: "We have two state-of-the-art clinics in Hyderabad:\n\n• **Manikonda Branch:** Tru Glow, Alkapur Township, Manikonda.\n• **HITEC City Branch:** Tru Glow, 1st Floor, SMR Vinay Technopolis (beside Google Office), Kothaguda.\n\nBoth locations are open Monday through Saturday, from 9:00 AM to 7:00 PM. We are closed on Sundays.",
-    },
-    {
-      category: "general",
-      question: "Are consultation fees adjustable against procedure costs?",
-      answer: "Yes, in many cases, if you choose to proceed with a treatment package or procedure immediately following your consultation, our team can adjust the initial doctor consultation fee against your package billing. Please check with our clinic receptionist during your visit to confirm eligibility for specific procedures.",
-    },
-    {
-      category: "skin",
-      question: "What is the difference between a Hydrafacial and a clinical Medifacial?",
-      answer: "A Hydrafacial is a standardized treatment using vortex-extraction technology to deep-cleanse pores, remove blackheads, and infuse antioxidant serums, providing an instant glow with zero downtime. A Medifacial (Medical Facial) is customized by our dermatologists, combining clinical peeling agents (like salicylic or glycolic acid), custom ampoules, and tools like microcurrent or LED phototherapy to treat deep-seated concerns such as active acne, stubborn melasma, or fine lines.",
-    },
-    {
-      category: "skin",
-      question: "Are chemical peels safe for sensitive skin?",
-      answer: "Absolutely. Chemical peels are safe when chosen and administered by certified medical professionals. For sensitive skin, our dermatologists use gentle, superficial peels (such as Mandelic acid or Lactic acid) that lightly dissolve dead skin cells without stripping the skin barrier. We track your skin's healing and prescribe soothing barrier-repair creams and high-SPF sunscreens for post-peel care.",
-    },
-    {
-      category: "hair",
-      question: "How long does it take to see results after a hair transplant?",
-      answer: "Hair transplant results appear gradually in stages. The implanted hairs will shed within the first 2 to 4 weeks (this is normal and called 'shock loss'). The roots remain healthy and active, and new hair shafts begin to emerge at 3 months. Visible density gains will be apparent at 6 months, and you will see the final, mature, high-density results at the 12-month mark.",
-    },
-    {
-      category: "hair",
-      question: "What is PRP therapy and how many sessions will I need?",
-      answer: "PRP (Platelet-Rich Plasma) therapy is a non-surgical hair regrowth treatment. We collect a small sample of your blood, centrifuge it to separate the growth-factor-rich platelets, and micro-inject it across thinning areas of the scalp. Most patients need 6 to 8 sessions spaced 4 weeks apart to achieve optimum density and hair follicle revitalization, followed by maintenance sessions every 6 months.",
-    },
-    {
-      category: "laser",
-      question: "Is Laser Hair Removal permanent and safe for all skin types?",
-      answer: "Yes, Laser Hair Removal is highly safe and offers permanent hair reduction of up to 80-90%. Any hair that regrows over time is extremely thin, light, and sparse. At Tru Glow, we use US-FDA approved diode and Nd:YAG lasers designed specifically to safeguard melanin-rich Indian skin. Integrated cooling plates keep the skin at 0-4°C, making the procedure virtually painless.",
-    },
-    {
-      category: "laser",
-      question: "How should I prepare for my laser hair removal session?",
-      answer: "To prepare for your session, please cleanly shave the treatment area 24 hours before your appointment. Do not pluck, wax, thread, or use depilatory creams for 4 weeks prior, as the laser requires the hair root to be present inside the follicle to work. Additionally, avoid heavy sun exposure, sunburns, or tanning creams for 2 weeks before your session.",
-    },
-  ]
 
   // Filter FAQs based on active category and search input
   const filteredFAQs = faqItems.filter((item) => {
@@ -79,11 +27,13 @@ export default function FAQPage() {
   }
 
   const categories = [
-    { value: "all", label: "All FAQ'S" },
-    { value: "general", label: "General & Booking" },
-    { value: "skin", label: "Skin Care & Facials" },
-    { value: "hair", label: "Hair Regrowth" },
-    { value: "laser", label: "Laser Treatments" },
+    { value: "all", label: "All FAQ's" },
+    { value: "hair", label: "Hair Fall & Hair Growth" },
+    { value: "transplant", label: "Hair Transplant" },
+    { value: "skin", label: "Skin Care & Dermatology" },
+    { value: "iv", label: "IV Therapy" },
+    { value: "laser", label: "Laser Hair Removal" },
+    { value: "general", label: "General" },
   ]
 
   // Format the answer to render markdown links or bullet points nicely
@@ -151,6 +101,24 @@ export default function FAQPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50/50">
+      {/* FAQ Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqItems.map((item) => ({
+              "@type": "Question",
+              "name": item.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1"),
+              },
+            })),
+          }),
+        }}
+      />
       {/* FAQ Hero Header */}
       <div className="relative bg-amber-900 text-white overflow-hidden py-16 md:py-24">
         {/* Background Image Overlay */}

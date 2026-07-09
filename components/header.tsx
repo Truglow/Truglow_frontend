@@ -28,11 +28,11 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
     { href: "/procedure", label: "Our Services" },
+    { href: "/contact", label: "Contact Us" },
+    { href: "/about", label: "About" },
     { href: "/blog", label: "Blogs" },
-    { href: "/faq", label: "FAQ'S" },
-    { href: "/contact", label: "Contact" },
+    { href: "/faq", label: "FAQs" },
   ]
 
 
@@ -91,19 +91,6 @@ export default function Header() {
               {isActive("/") && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary transition-all duration-300" />}
             </Link>
             <Link
-              href="/about"
-              className={cn(
-                "font-medium transition-all duration-300 relative hover:scale-105 transform",
-                isActive("/about") ? "text-primary" : "text-gray-800 hover:text-primary"
-              )}
-            >
-              About
-              {isActive("/about") && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary transition-all duration-300" />}
-            </Link>
-
-
-
-            <Link
               href="/procedure"
               className={cn(
                 "font-medium transition-all duration-300 relative hover:scale-105 transform",
@@ -113,7 +100,26 @@ export default function Header() {
               Our Services
               {isActive("/procedure") && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary transition-all duration-300" />}
             </Link>
-
+            <Link
+              href="/contact"
+              className={cn(
+                "font-medium transition-all duration-300 relative hover:scale-105 transform",
+                isActive("/contact") ? "text-primary" : "text-gray-800 hover:text-primary"
+              )}
+            >
+              Contact Us
+              {isActive("/contact") && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary transition-all duration-300" />}
+            </Link>
+            <Link
+              href="/about"
+              className={cn(
+                "font-medium transition-all duration-300 relative hover:scale-105 transform",
+                isActive("/about") ? "text-primary" : "text-gray-800 hover:text-primary"
+              )}
+            >
+              About
+              {isActive("/about") && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary transition-all duration-300" />}
+            </Link>
             <Link
               href="/blog"
               className={cn(
@@ -124,7 +130,6 @@ export default function Header() {
               Blogs
               {isActive("/blog") && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary transition-all duration-300" />}
             </Link>
-
             <Link
               href="/faq"
               className={cn(
@@ -132,19 +137,8 @@ export default function Header() {
                 isActive("/faq") ? "text-primary" : "text-gray-800 hover:text-primary"
               )}
             >
-              FAQ'S
+              FAQs
               {isActive("/faq") && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary transition-all duration-300" />}
-            </Link>
-
-            <Link
-              href="/contact"
-              className={cn(
-                "font-medium transition-all duration-300 relative hover:scale-105 transform",
-                isActive("/contact") ? "text-primary" : "text-gray-800 hover:text-primary"
-              )}
-            >
-              Contact
-              {isActive("/contact") && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary transition-all duration-300" />}
             </Link>
 
             <Button
@@ -175,21 +169,25 @@ export default function Header() {
                 Home
               </Link>
               <Link
-                href="/about"
-                className={cn("font-medium transition-colors", isActive("/about") ? "text-primary" : "text-gray-800 hover:text-primary")}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
-
-
-
-              <Link
                 href="/procedure"
                 className={cn("font-medium transition-colors", isActive("/procedure") ? "text-primary" : "text-gray-800 hover:text-primary")}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Our Services
+              </Link>
+              <Link
+                href="/contact"
+                className={cn("font-medium transition-colors", isActive("/contact") ? "text-primary" : "text-gray-800 hover:text-primary")}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact Us
+              </Link>
+              <Link
+                href="/about"
+                className={cn("font-medium transition-colors", isActive("/about") ? "text-primary" : "text-gray-800 hover:text-primary")}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
               </Link>
               <Link
                 href="/blog"
@@ -203,14 +201,7 @@ export default function Header() {
                 className={cn("font-medium transition-colors", isActive("/faq") ? "text-primary" : "text-gray-800 hover:text-primary")}
                 onClick={() => setIsMenuOpen(false)}
               >
-                FAQ'S
-              </Link>
-              <Link
-                href="/contact"
-                className={cn("font-medium transition-colors", isActive("/contact") ? "text-primary" : "text-gray-800 hover:text-primary")}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
+                FAQs
               </Link>
               <Button
                 className="bg-primary hover:bg-primary/90 text-white w-full"

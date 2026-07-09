@@ -43,8 +43,7 @@ export default function ContactInfo() {
           <Clock className="h-5 w-5 text-amber-600 mr-3 mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium text-gray-900">Working Hours</h3>
-            <p className="text-gray-600">Monday - Saturday: 9:00 AM - 7:00 PM</p>
-            <p className="text-gray-600">Sunday: Closed</p>
+            <p className="text-gray-600">Monday - Sunday: 9:00 AM - 7:00 PM</p>
           </div>
         </div>
       </div>
