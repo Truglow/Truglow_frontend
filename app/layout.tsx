@@ -12,6 +12,9 @@ const inter = Inter({
   preload: true,
 })
 
+import { AuthProvider } from "@/context/auth-context"
+import { SiteShell } from "@/components/layout/site-shell"
+
 export const metadata = {
   title: "Tru Glow Hair & Skin Clinic | Best Dermatology, Hair Transplant & Aesthetic Treatments in Hyderabad",
   description: "Tru Glow Clinic offers expert hair transplant (FUE/DHI), advanced skin treatments, laser hair removal, plastic surgery, and IV drip therapy in Hyderabad. Book your consultation today!",
@@ -92,10 +95,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </Script>
         {/* End Google Tag Manager */}
 
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <ChatWidget />
+        <AuthProvider>
+          <SiteShell>{children}</SiteShell>
+        </AuthProvider>
       </body>
     </html>
   )
