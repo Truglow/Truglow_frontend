@@ -6,7 +6,7 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 // ==========================================
 // PASTE YOUR ELFSIGHT WIDGET ID HERE:
 // ==========================================
-const ELFSIGHT_WIDGET_ID = "36bbd19a-497d-4010-a9b7-415fadbc7c25"
+const ELFSIGHT_WIDGET_ID: string = "36bbd19a-497d-4010-a9b7-415fadbc7c25"
 
 export default function Testimonials() {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollReveal()
